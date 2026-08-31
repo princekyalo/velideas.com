@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Velideas — move quicker through your financial journey with practical education, analysis tools, and a trader network.">
+<meta name="theme-color" content="#EEF0F5">
+<title>Velideas — Move quicker</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,480;0,9..144,560;1,9..144,460&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+  /* =========================================================
+     TOKENS
+  ========================================================= */
+  :root{
+    --ink:        #1C2033;
+    --ink-soft:   #545E75;
+    --muted:      #8890A0;
+
+    --indigo-deep:#232C4C;
+    --indigo:     #384B87;
+    --amber:      #DDA352;
+    --amber-deep: #C97D3D;
+
+    --paper:      #EEF0F5;
+    --surface:    #FFFFFF;
+    --line:       #DBE0EA;
+
+    --positive:   #3F8467;
+    --negative:   #B85B4A;
+
+    --gradient: linear-gradient(135deg, var(--indigo-deep) 0%, var(--indigo) 48%, var(--amber) 100%);
+
+    --max: 1180px;
+    --serif: "Fraunces", serif;
+    --sans: "Public Sans", sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a{ color:inherit; text-decoration:none; }
+  button{ font-family:inherit; }
+  ::selection{ background: var(--amber); color: var(--indigo-deep); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  /* =========================================================
+     NAV
+  ========================================================= */
+  .navbar{
+    width: min(var(--max), calc(100% - 56px));
+    margin: 0 auto;
+    height: 84px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom: 1px solid var(--line);
+  }
+  .logo{ display:flex; align-items:center; gap:10px; }
+  .logo svg{ width:26px; height:26px; }
+  .logo span{
+    font-family: var(--serif);
+    font-weight: 560;
+    font-size: 21px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+  }
+  .nav-links{ display:flex; align-items:center; gap:32px; }
+  .nav-links a, .about-button{
+    border:none; background:none; cursor:pointer;
+    color: var(--ink-soft);
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+  }
+  .nav-links a::after, .about-button::after{
+    content:""; position:absolute; left:0; bottom:-3px;
+    width:0; height:1.5px; background: var(--amber-deep);
+    transition: width .2s ease;
+  }
+  .nav-links a:hover, .about-button:hover{ color: var(--ink); }
+  .nav-links a:hover::after, .about-button:hover::after{ width:100%; }
+
+  /* =========================================================
+     HERO
+  ========================================================= */
+  .hero{
+    width: min(var(--max), calc(100% - 56px));
+    margin: 0 auto;
+    display:grid;
+    grid-template-columns: minmax(0,1.05fr) minmax(360px,.95fr);
+    align-items:center;
+    gap: 80px;
+    padding: 84px 0 100px;
+  }
+  .hero-copy{ opacity:0; transform: translateY(14px); animation: rise .7s ease forwards .1s; }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+
+  h1{
+    font-family: var(--serif);
+    font-weight: 480;
+    font-size: clamp(40px, 4.6vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    max-width: 15ch;
+    color: var(--ink);
+  }
+  .hero-description{
+    max-width: 46ch;
+    margin-top: 24px;
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .cta-area{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top: 34px; }
+  .primary-cta{
+    height: 52px; padding: 0 26px;
+    display:inline-flex; align-items:center;
+    border-radius: 8px;
+    background: var(--indigo);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 15px; font-weight: 600;
+    cursor: pointer;
+    transition: background .25s ease, transform .2s ease;
+  }
+  .primary-cta:hover{ background: var(--indigo-deep); transform: translateY(-1px); }
+  .cta-note{ color: var(--muted); font-size: 14px; }
+
+  /* =========================================================
+     MOMENTUM PANEL
+  ========================================================= */
+  .panel{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 26px 26px;
+    opacity:0; transform: translateY(14px); animation: rise .7s ease forwards .28s;
+  }
+  .panel-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding-bottom: 18px; border-bottom: 1px solid var(--line);
+    margin-bottom: 22px;
+  }
+  .panel-head h2{
+    font-family: var(--serif); font-weight: 480; font-size: 17px; color: var(--ink);
+  }
+  .panel-head span{ color: var(--muted); font-size: 13px; }
+
+  .stat-row{ display:flex; align-items:flex-end; gap: 14px; margin-bottom: 20px; }
+  .stat-figure{
+    font-family: var(--serif); font-weight: 480;
+    font-size: 44px; letter-spacing: -1px; color: var(--ink);
+  }
+  .stat-figure.positive{ color: var(--positive); }
+  .stat-caption{ color: var(--ink-soft); font-size: 14px; padding-bottom: 6px; }
+
+  .curve-wrap{ position:relative; height: 130px; margin-bottom: 6px; }
+  .curve-wrap svg{ width:100%; height:100%; }
+  .curve-path{
+    fill:none; stroke: url(#curveGradient); stroke-width: 3;
+    stroke-linecap: round; stroke-dasharray: 700; stroke-dashoffset: 700;
+    animation: draw 1.6s cubic-bezier(.4,0,.2,1) forwards .5s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+  .curve-dot{ fill: var(--amber-deep); }
+
+  .panel-foot{
+    display:flex; justify-content:space-between;
+    padding-top: 16px; border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+  }
+  .panel-foot b{ color: var(--negative); font-weight:500; }
+
+  /* =========================================================
+     JOURNEY
+  ========================================================= */
+  .journey{
+    width: min(var(--max), calc(100% - 56px));
+    margin: 0 auto;
+    padding: 10px 0 90px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+  }
+  .journey-step{ position:relative; padding-top: 28px; }
+  .journey-step::before{
+    content:""; position:absolute; top:6px; left:0;
+    width: 9px; height: 9px; border-radius:50%;
+    background: var(--indigo);
+  }
+  .journey-step::after{
+    content:""; position:absolute; top:10px; left:16px; right:-36px;
+    height:1px; background: var(--line);
+  }
+  .journey-step:last-child::after{ display:none; }
+  .journey-step h3{
+    font-family: var(--serif); font-weight: 480; font-size: 18px; margin-bottom: 8px;
+  }
+  .journey-step p{ color: var(--ink-soft); font-size: 14.5px; line-height:1.6; max-width: 26ch; }
+
+  /* =========================================================
+     ABOUT MODAL
+  ========================================================= */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:100; display:none;
+    align-items:center; justify-content:center; padding:20px;
+    background: rgba(28,32,51,.45); backdrop-filter: blur(6px);
+  }
+  .modal-overlay.active{ display:flex; }
+  .modal{
+    width:min(480px,100%); position:relative;
+    background: var(--surface); border:1px solid var(--line); border-radius: 14px;
+    padding: 32px; box-shadow: 0 30px 70px rgba(28,32,51,.2);
+    animation: modalIn .2s ease-out;
+  }
+  @keyframes modalIn{ from{ opacity:0; transform: translateY(8px) scale(.99); } to{ opacity:1; transform:none; } }
+  .modal-close{
+    position:absolute; top:16px; right:16px; width:32px; height:32px;
+    border:1px solid var(--line); border-radius:8px; background:#fff;
+    color: var(--muted); font-size:19px; cursor:pointer;
+  }
+  .modal-close:hover{ color: var(--ink); border-color: var(--indigo); }
+  .modal h2{ font-family: var(--serif); font-weight: 480; font-size: 27px; margin-bottom: 12px; }
+  .modal-description{ color: var(--ink-soft); font-size:14.5px; line-height:1.65; margin-bottom: 24px; }
+  .ceo-title{ font-size:13px; font-weight:600; color: var(--ink); margin-bottom: 10px; }
+  .contacts{ display:grid; gap:8px; }
+  .contact{
+    display:flex; align-items:center; justify-content:space-between; gap:15px;
+    padding: 12px 14px; border:1px solid var(--line); border-radius:8px;
+    background: var(--paper); transition: border-color .2s;
+  }
+  .contact:hover{ border-color: var(--indigo); }
+  .contact-label{ color: var(--muted); font-size: 13px; }
+  .contact-value{ color: var(--indigo); font-family: var(--mono); font-size: 12px; }
+
+  /* =========================================================
+     RESPONSIVE
+  ========================================================= */
+  @media (max-width: 950px){
+    .hero{ grid-template-columns:1fr; gap:52px; padding-top:56px; }
+    .journey{ grid-template-columns: 1fr 1fr; row-gap: 44px; }
+  }
+  @media (max-width: 600px){
+    .navbar, .hero, .journey{ width: calc(100% - 36px); }
+    .navbar{ height:72px; }
+    .nav-links{ gap:16px; }
+    .nav-links a, .about-button{ font-size:13px; }
+    h1{ font-size: clamp(34px, 9vw, 46px); }
+    .primary-cta{ width:100%; justify-content:center; }
+    .journey{ grid-template-columns: 1fr; }
+    .journey-step::after{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="logo">
+    <svg viewBox="0 0 28 28" fill="none">
+      <defs>
+        <linearGradient id="markGradient" x1="4" y1="24" x2="24" y2="4">
+          <stop offset="0" stop-color="#232C4C"/>
+          <stop offset="1" stop-color="#DDA352"/>
+        </linearGradient>
+      </defs>
+      <path d="M6 22 L20 8" stroke="url(#markGradient)" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="22" cy="6" r="3.2" fill="#DDA352"/>
+    </svg>
+    <span>velideas</span>
+  </a>
+  <div class="nav-links">
+    <a href="#learn">Learn</a>
+    <a href="#tools">Tools</a>
+    <button class="about-button" id="openAbout">About us</button>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Move quicker through your financial journey.</h1>
+      <p class="hero-description">
+        Velideas pairs practical financial education, investment analysis tools, and a trader network — built to close the gap between an idea and a decision.
+      </p>
+      <div class="cta-area">
+        <a href="#learn" class="primary-cta">Start learning</a>
+        <span class="cta-note">Free to join</span>
+      </div>
+    </div>
+
+    <div class="panel" aria-hidden="true">
+      <div class="panel-head">
+        <h2>This week's momentum</h2>
+        <span>Aug 25–31</span>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-figure positive">+18.4%</span>
+        <span class="stat-caption">avg. member portfolio, 30d</span>
+      </div>
+
+      <div class="curve-wrap">
+        <svg viewBox="0 0 560 130" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="curveGradient" x1="0" y1="0" x2="560" y2="0">
+              <stop offset="0" stop-color="#232C4C"/>
+              <stop offset="0.55" stop-color="#384B87"/>
+              <stop offset="1" stop-color="#DDA352"/>
+            </linearGradient>
+          </defs>
+          <path class="curve-path" d="M4 108 C 80 118, 120 96, 170 84 C 220 72, 240 40, 300 46 C 360 52, 380 22, 440 18 C 480 15, 520 10, 556 6" />
+          <circle class="curve-dot" cx="556" cy="6" r="4.5" />
+        </svg>
+      </div>
+
+      <div class="panel-foot">
+        <span>Education · Tools · Network</span>
+        <span>Drawdown <b>−3.2%</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey" id="learn">
+    <div class="journey-step">
+      <h3>Learn</h3>
+      <p>Build real financial literacy from the ground up.</p>
+    </div>
+    <div class="journey-step">
+      <h3>Analyse</h3>
+      <p>Use tools built for clear, fast market reads.</p>
+    </div>
+    <div class="journey-step" id="tools">
+      <h3>Connect</h3>
+      <p>Learn alongside traders further down the road.</p>
+    </div>
+    <div class="journey-step">
+      <h3>Move</h3>
+      <p>Act on ideas while the window is still open.</p>
+    </div>
+  </section>
+</main>
+
+<div class="modal-overlay" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+  <div class="modal">
+    <button class="modal-close" id="closeAbout" aria-label="Close">×</button>
+    <h2 id="aboutTitle">About Velideas</h2>
+    <p class="modal-description">
+      Velideas provides financial education, investment analysis tools, and networking opportunities for retail investors and traders. The goal is simple: less friction, clearer decisions, and a quicker path through your financial journey.
+    </p>
+    <div class="ceo-title">CEO — Connect</div>
+    <div class="contacts">
+      <a class="contact" href="tel:+2540795762211">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">+254 0795762211</span>
+      </a>
+      <a class="contact" href="https://www.instagram.com/thesharpmillionaire/" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label">Instagram</span>
+        <span class="contact-value">@thesharpmillionaire</span>
+      </a>
+      <a class="contact" href="https://www.tiktok.com/@theprincekyalo" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label">TikTok</span>
+        <span class="contact-value">@theprincekyalo</span>
+      </a>
+      <a class="contact" href="https://www.youtube.com/@sharpmillionaire" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label">YouTube</span>
+        <span class="contact-value">@sharpmillionaire</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const aboutModal = document.getElementById("aboutModal");
+  const openAbout = document.getElementById("openAbout");
+  const closeAbout = document.getElementById("closeAbout");
+
+  function openModal(){
+    aboutModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+    closeAbout.focus();
+  }
+  function closeModal(){
+    aboutModal.classList.remove("active");
+    document.body.style.overflow = "";
+    openAbout.focus();
+  }
+  openAbout.addEventListener("click", openModal);
+  closeAbout.addEventListener("click", closeModal);
+  aboutModal.addEventListener("click", e => { if(e.target === aboutModal) closeModal(); });
+  document.addEventListener("keydown", e => {
+    if(e.key === "Escape" && aboutModal.classList.contains("active")) closeModal();
+  });
+</script>
+
+</body>
+</html>
