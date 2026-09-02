@@ -563,44 +563,86 @@
         margin-top: 13px;
         text-align: center;
         color: rgba(255, 255, 255, 0.35);
-        font-size: 11px;
-    }
+/* ===== VELIDEAS LIGHT THEME AFFILIATE CTA ===== */
 
-    /* Mobile */
-    @media (max-width: 700px) {
-        .velideas-affiliate-section {
-            margin: 30px auto;
-            padding: 0 15px;
-        }
+.velideas-affiliate-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
 
-        .velideas-affiliate-grid {
-            grid-template-columns: 1fr;
-            gap: 14px;
-        }
+.velideas-affiliate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
 
-        .velideas-affiliate-card {
-            padding: 23px;
-        }
+.velideas-affiliate-card {
+    background: #ffffff !important;
+    border: 1px solid #d9dce5 !important;
+    border-radius: 18px !important;
+    padding: 28px !important;
+    box-shadow: 0 4px 15px rgba(20, 30, 60, 0.06) !important;
+}
 
-        .velideas-affiliate-card h3 {
-            font-size: 19px;
-        }
-  }
+.velideas-affiliate-card h3 {
+    color: #151b33 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+}
 
-  /*Overide the colours defined above for the affiliate link text*/
-  .velideas-affiliate-button {
+.velideas-affiliate-card p {
+    color: #5d667c !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+/* CTA BUTTON */
+.velideas-affiliate-section a.velideas-affiliate-button,
+.velideas-affiliate-section .velideas-affiliate-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    min-height: 58px !important;
+
     background: #3f548f !important;
     color: #ffffff !important;
-    font-weight: 700;
-    border: none;
-    text-align: center;
+
+    border-radius: 14px !important;
+    border: none !important;
+
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+
+    text-decoration: none !important;
+    text-align: center !important;
+
+    box-sizing: border-box !important;
 }
 
-.velideas-affiliate-button:hover {
-    background: #334779 !important;
+.velideas-affiliate-section .velideas-affiliate-button span {
     color: #ffffff !important;
 }
 
+.velideas-affiliate-section .velideas-affiliate-button:hover {
+    background: #34477b !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .velideas-affiliate-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .velideas-affiliate-card {
+        padding: 22px !important;
+    }
+}
   
 </style>
 </head>
