@@ -263,6 +263,329 @@
     .journey{ grid-template-columns: 1fr; }
     .journey-step::after{ display:none; }
   }
+
+
+
+
+
+
+
+
+
+
+      .velideas-affiliate-section {
+        width: 100%;
+        max-width: 1100px;
+        margin: 45px auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .velideas-affiliate-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .velideas-affiliate-card {
+        position: relative;
+        overflow: hidden;
+        padding: 28px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+        transition: transform 0.25s ease, border-color 0.25s ease,
+                    box-shadow 0.25s ease;
+    }
+
+    .velideas-affiliate-card::before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        top: -80px;
+        right: -60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.035);
+        pointer-events: none;
+    }
+
+    .velideas-affiliate-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.16);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
+    }
+
+    .velideas-affiliate-icon {
+        width: 46px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        border-radius: 13px;
+        font-size: 21px;
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    .velideas-affiliate-card h3 {
+        margin: 0 0 8px;
+        color: #ffffff;
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+    }
+
+    .velideas-affiliate-card p {
+        margin: 0 0 22px;
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .velideas-affiliate-button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 17px;
+        box-sizing: border-box;
+        border-radius: 11px;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+
+    .velideas-affiliate-button span:last-child {
+        font-size: 18px;
+        transition: transform 0.2s ease;
+    }
+
+    .velideas-affiliate-button:hover span:last-child {
+        transform: translateX(4px);
+    }
+
+    /* Forex */
+    .velideas-forex .velideas-affiliate-icon {
+        color: #7dd3fc;
+    }
+
+    .velideas-forex .velideas-affiliate-button {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
+    }
+
+    .velideas-forex .velideas-affiliate-button:hover {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.32);
+    }
+
+    /* Crypto */
+    .velideas-crypto .velideas-affiliate-icon {
+        color: #facc15;
+    }
+
+    .velideas-crypto .velideas-affiliate-button {
+        background: linear-gradient(135deg, #d97706, #f59e0b);
+        box-shadow: 0 8px 22px rgba(245, 158, 11, 0.20);
+    }
+
+    .velideas-crypto .velideas-affiliate-button:hover {
+        background: linear-gradient(135deg, #b45309, #d97706);
+        box-shadow: 0 10px 28px rgba(245, 158, 11, 0.30);
+    }
+
+    .velideas-affiliate-note {
+        margin-top: 13px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 11px;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+        .velideas-affiliate-section {
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .velideas-affiliate-grid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .velideas-affiliate-card {
+            padding: 23px;
+        }
+
+        .velideas-affiliate-card h3 {
+            font-size: 19px;
+        }
+  }    .velideas-affiliate-section {
+        width: 100%;
+        max-width: 1100px;
+        margin: 45px auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .velideas-affiliate-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .velideas-affiliate-card {
+        position: relative;
+        overflow: hidden;
+        padding: 28px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+        transition: transform 0.25s ease, border-color 0.25s ease,
+                    box-shadow 0.25s ease;
+    }
+
+    .velideas-affiliate-card::before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        top: -80px;
+        right: -60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.035);
+        pointer-events: none;
+    }
+
+    .velideas-affiliate-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.16);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
+    }
+
+    .velideas-affiliate-icon {
+        width: 46px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        border-radius: 13px;
+        font-size: 21px;
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    .velideas-affiliate-card h3 {
+        margin: 0 0 8px;
+        color: #ffffff;
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+    }
+
+    .velideas-affiliate-card p {
+        margin: 0 0 22px;
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .velideas-affiliate-button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 17px;
+        box-sizing: border-box;
+        border-radius: 11px;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+
+    .velideas-affiliate-button span:last-child {
+        font-size: 18px;
+        transition: transform 0.2s ease;
+    }
+
+    .velideas-affiliate-button:hover span:last-child {
+        transform: translateX(4px);
+    }
+
+    /* Forex */
+    .velideas-forex .velideas-affiliate-icon {
+        color: #7dd3fc;
+    }
+
+    .velideas-forex .velideas-affiliate-button {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
+    }
+
+    .velideas-forex .velideas-affiliate-button:hover {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.32);
+    }
+
+    /* Crypto */
+    .velideas-crypto .velideas-affiliate-icon {
+        color: #facc15;
+    }
+
+    .velideas-crypto .velideas-affiliate-button {
+        background: linear-gradient(135deg, #d97706, #f59e0b);
+        box-shadow: 0 8px 22px rgba(245, 158, 11, 0.20);
+    }
+
+    .velideas-crypto .velideas-affiliate-button:hover {
+        background: linear-gradient(135deg, #b45309, #d97706);
+        box-shadow: 0 10px 28px rgba(245, 158, 11, 0.30);
+    }
+
+    .velideas-affiliate-note {
+        margin-top: 13px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 11px;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+        .velideas-affiliate-section {
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .velideas-affiliate-grid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .velideas-affiliate-card {
+            padding: 23px;
+        }
+
+        .velideas-affiliate-card h3 {
+            font-size: 19px;
+        }
+  }
 </style>
 </head>
 <body>
@@ -382,6 +705,76 @@
   </div>
 </div>
 
+
+
+
+
+<section class="velideas-affiliate-section">
+
+    <div class="velideas-affiliate-grid">
+
+        <!-- FOREX -->
+        <div class="velideas-affiliate-card velideas-forex">
+            <div class="velideas-affiliate-icon">
+                ↗
+            </div>
+
+            <h3>Start Trading Forex</h3>
+
+            <p>
+                Ready to put your market knowledge into action?
+                Open a trading account and explore the global
+                currency markets.
+            </p>
+
+            <a
+                href="https://one.justmarkets.link/a/svmyx0m6u8"
+                class="velideas-affiliate-button"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+            >
+                <span>Open a Forex Trading Account</span>
+                <span>→</span>
+            </a>
+        </div>
+
+
+        <!-- CRYPTO -->
+        <div class="velideas-affiliate-card velideas-crypto">
+            <div class="velideas-affiliate-icon">
+                ₿
+            </div>
+
+            <h3>Enter the Crypto Market</h3>
+
+            <p>
+                Explore digital assets and start building your
+                crypto portfolio with one of the world's leading
+                cryptocurrency exchanges.
+            </p>
+
+            <a
+                href="https://account.binance.com/register?ref=1122366091&?registerChannel=user_center"
+                class="velideas-affiliate-button"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+            >
+                <span>Create Your Crypto Account</span>
+                <span>→</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="velideas-affiliate-note">
+        Affiliate links · Trading and investing involve risk
+    </div>
+
+</section>
+
+
+
+  
 <script>
   const aboutModal = document.getElementById("aboutModal");
   const openAbout = document.getElementById("openAbout");
