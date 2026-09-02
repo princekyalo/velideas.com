@@ -273,297 +273,15 @@
 
 
 
-      .velideas-affiliate-section {
-        width: 100%;
-        max-width: 1100px;
-        margin: 45px auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
 
-    .velideas-affiliate-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-    }
 
-    .velideas-affiliate-card {
-        position: relative;
-        overflow: hidden;
-        padding: 28px;
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        background: linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.055),
-            rgba(255, 255, 255, 0.018)
-        );
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
-        transition: transform 0.25s ease, border-color 0.25s ease,
-                    box-shadow 0.25s ease;
-    }
 
-    .velideas-affiliate-card::before {
-        content: "";
-        position: absolute;
-        width: 150px;
-        height: 150px;
-        top: -80px;
-        right: -60px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.035);
-        pointer-events: none;
-    }
+  
 
-    .velideas-affiliate-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(255, 255, 255, 0.16);
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
-    }
 
-    .velideas-affiliate-icon {
-        width: 46px;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 18px;
-        border-radius: 13px;
-        font-size: 21px;
-        background: rgba(255, 255, 255, 0.07);
-    }
-
-    .velideas-affiliate-card h3 {
-        margin: 0 0 8px;
-        color: #ffffff;
-        font-size: 21px;
-        font-weight: 700;
-        letter-spacing: -0.3px;
-    }
-
-    .velideas-affiliate-card p {
-        margin: 0 0 22px;
-        color: rgba(255, 255, 255, 0.62);
-        font-size: 14px;
-        line-height: 1.65;
-    }
-
-    .velideas-affiliate-button {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 14px 17px;
-        box-sizing: border-box;
-        border-radius: 11px;
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 700;
-        transition: all 0.2s ease;
-    }
-
-    .velideas-affiliate-button span:last-child {
-        font-size: 18px;
-        transition: transform 0.2s ease;
-    }
-
-    .velideas-affiliate-button:hover span:last-child {
-        transform: translateX(4px);
-    }
-
-    /* Forex */
-    .velideas-forex .velideas-affiliate-icon {
-        color: #7dd3fc;
-    }
-
-    .velideas-forex .velideas-affiliate-button {
-        background: linear-gradient(135deg, #2563eb, #3b82f6);
-        box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
-    }
-
-    .velideas-forex .velideas-affiliate-button:hover {
-        background: linear-gradient(135deg, #1d4ed8, #2563eb);
-        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.32);
-    }
-
-    /* Crypto */
-    .velideas-crypto .velideas-affiliate-icon {
-        color: #facc15;
-    }
-
-    .velideas-crypto .velideas-affiliate-button {
-        background: linear-gradient(135deg, #d97706, #f59e0b);
-        box-shadow: 0 8px 22px rgba(245, 158, 11, 0.20);
-    }
-
-    .velideas-crypto .velideas-affiliate-button:hover {
-        background: linear-gradient(135deg, #b45309, #d97706);
-        box-shadow: 0 10px 28px rgba(245, 158, 11, 0.30);
-    }
-
-    .velideas-affiliate-note {
-        margin-top: 13px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.35);
-        font-size: 11px;
-    }
-
-    /* Mobile */
-    @media (max-width: 700px) {
-        .velideas-affiliate-section {
-            margin: 30px auto;
-            padding: 0 15px;
-        }
-
-        .velideas-affiliate-grid {
-            grid-template-columns: 1fr;
-            gap: 14px;
-        }
-
-        .velideas-affiliate-card {
-            padding: 23px;
-        }
-
-        .velideas-affiliate-card h3 {
-            font-size: 19px;
-        }
-  }    .velideas-affiliate-section {
-        width: 100%;
-        max-width: 1100px;
-        margin: 45px auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
-
-    .velideas-affiliate-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-    }
-
-    .velideas-affiliate-card {
-        position: relative;
-        overflow: hidden;
-        padding: 28px;
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        background: linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.055),
-            rgba(255, 255, 255, 0.018)
-        );
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
-        transition: transform 0.25s ease, border-color 0.25s ease,
-                    box-shadow 0.25s ease;
-    }
-
-    .velideas-affiliate-card::before {
-        content: "";
-        position: absolute;
-        width: 150px;
-        height: 150px;
-        top: -80px;
-        right: -60px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.035);
-        pointer-events: none;
-    }
-
-    .velideas-affiliate-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(255, 255, 255, 0.16);
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
-    }
-
-    .velideas-affiliate-icon {
-        width: 46px;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 18px;
-        border-radius: 13px;
-        font-size: 21px;
-        background: rgba(255, 255, 255, 0.07);
-    }
-
-    .velideas-affiliate-card h3 {
-        margin: 0 0 8px;
-        color: #ffffff;
-        font-size: 21px;
-        font-weight: 700;
-        letter-spacing: -0.3px;
-    }
-
-    .velideas-affiliate-card p {
-        margin: 0 0 22px;
-        color: rgba(255, 255, 255, 0.62);
-        font-size: 14px;
-        line-height: 1.65;
-    }
-
-    .velideas-affiliate-button {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 14px 17px;
-        box-sizing: border-box;
-        border-radius: 11px;
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 700;
-        transition: all 0.2s ease;
-    }
-
-    .velideas-affiliate-button span:last-child {
-        font-size: 18px;
-        transition: transform 0.2s ease;
-    }
-
-    .velideas-affiliate-button:hover span:last-child {
-        transform: translateX(4px);
-    }
-
-    /* Forex */
-    .velideas-forex .velideas-affiliate-icon {
-        color: #7dd3fc;
-    }
-
-    .velideas-forex .velideas-affiliate-button {
-        background: linear-gradient(135deg, #2563eb, #3b82f6);
-        box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
-    }
-
-    .velideas-forex .velideas-affiliate-button:hover {
-        background: linear-gradient(135deg, #1d4ed8, #2563eb);
-        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.32);
-    }
-
-    /* Crypto */
-    .velideas-crypto .velideas-affiliate-icon {
-        color: #facc15;
-    }
-
-    .velideas-crypto .velideas-affiliate-button {
-        background: linear-gradient(135deg, #d97706, #f59e0b);
-        box-shadow: 0 8px 22px rgba(245, 158, 11, 0.20);
-    }
-
-    .velideas-crypto .velideas-affiliate-button:hover {
-        background: linear-gradient(135deg, #b45309, #d97706);
-        box-shadow: 0 10px 28px rgba(245, 158, 11, 0.30);
-    }
-
-    .velideas-affiliate-note {
-        margin-top: 13px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.35);
-/* ===== VELIDEAS LIGHT THEME AFFILIATE CTA ===== */
+  /* =========================================================
+   VELIDEAS AFFILIATE CARDS
+   ========================================================= */
 
 .velideas-affiliate-section {
     width: 100%;
@@ -575,74 +293,304 @@
 
 .velideas-affiliate-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
 }
 
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
 .velideas-affiliate-card {
+    position: relative;
+    overflow: hidden;
+
     background: #ffffff !important;
-    border: 1px solid #d9dce5 !important;
+    border: 1px solid #dfe2e9 !important;
     border-radius: 18px !important;
+
     padding: 28px !important;
-    box-shadow: 0 4px 15px rgba(20, 30, 60, 0.06) !important;
+
+    box-shadow:
+        0 8px 25px rgba(20, 30, 60, 0.07) !important;
+
+    box-sizing: border-box;
 }
 
-.velideas-affiliate-card h3 {
-    color: #151b33 !important;
-    font-size: 21px !important;
-    font-weight: 700 !important;
-}
 
-.velideas-affiliate-card p {
-    color: #5d667c !important;
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-}
+/* =========================================================
+   ICON
+   ========================================================= */
 
-/* CTA BUTTON */
-.velideas-affiliate-section a.velideas-affiliate-button,
-.velideas-affiliate-section .velideas-affiliate-button {
+.velideas-affiliate-icon {
+    width: 46px !important;
+    height: 46px !important;
+
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 
+    margin-bottom: 18px !important;
+
+    background: #f4f5f8 !important;
+    border-radius: 12px !important;
+
+    font-size: 22px !important;
+}
+
+
+/* Forex icon */
+.velideas-forex .velideas-affiliate-icon {
+    color: #00a878 !important;
+}
+
+
+/* Crypto icon */
+.velideas-crypto .velideas-affiliate-icon {
+    color: #f0b90b !important;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+.velideas-affiliate-card h3 {
+    margin: 0 0 10px !important;
+
+    color: #151b33 !important;
+
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+
+    letter-spacing: -0.3px !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.velideas-affiliate-card p {
+    margin: 0 0 24px !important;
+
+    color: #566078 !important;
+
+    font-size: 15px !important;
+    font-weight: 400 !important;
+
+    line-height: 1.65 !important;
+}
+
+
+/* =========================================================
+   BASE BUTTON
+   ========================================================= */
+
+.velideas-affiliate-section
+.velideas-affiliate-card
+a.velideas-affiliate-button {
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
     width: 100% !important;
     min-height: 58px !important;
 
-    background: #3f548f !important;
+    padding: 15px 17px !important;
+
+    box-sizing: border-box !important;
+
+    border: none !important;
+    border-radius: 13px !important;
+
     color: #ffffff !important;
 
-    border-radius: 14px !important;
-    border: none !important;
+    text-decoration: none !important;
 
     font-size: 16px !important;
     font-weight: 700 !important;
-    line-height: 1.2 !important;
+    line-height: 1.15 !important;
 
-    text-decoration: none !important;
-    text-align: center !important;
-
-    box-sizing: border-box !important;
+    opacity: 1 !important;
 }
 
-.velideas-affiliate-section .velideas-affiliate-button span {
+
+/* Make absolutely sure button text is visible */
+
+.velideas-affiliate-button span {
     color: #ffffff !important;
+    opacity: 1 !important;
 }
 
-.velideas-affiliate-section .velideas-affiliate-button:hover {
-    background: #34477b !important;
+
+/* =========================================================
+   JUSTMARKETS BUTTON
+   ========================================================= */
+
+.velideas-forex
+.velideas-affiliate-button {
+
+    background: #00a878 !important;
+
+    box-shadow:
+        0 8px 20px rgba(0, 168, 120, 0.22) !important;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
 }
 
-/* Mobile */
+
+.velideas-forex
+.velideas-affiliate-button:hover {
+
+    background: #008f68 !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 11px 25px rgba(0, 168, 120, 0.28) !important;
+}
+
+
+/* =========================================================
+   BINANCE BUTTON
+   ========================================================= */
+
+.velideas-crypto
+.velideas-affiliate-button {
+
+    background: #f0b90b !important;
+
+    color: #181a20 !important;
+
+    box-shadow:
+        0 8px 20px rgba(240, 185, 11, 0.22) !important;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+/* Binance button text should be dark */
+
+.velideas-crypto
+.velideas-affiliate-button span {
+
+    color: #181a20 !important;
+}
+
+
+.velideas-crypto
+.velideas-affiliate-button:hover {
+
+    background: #dca900 !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 11px 25px rgba(240, 185, 11, 0.30) !important;
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.velideas-affiliate-button span:last-child {
+    font-size: 20px !important;
+    margin-left: 10px !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+/* =========================================================
+   AFFILIATE NOTE
+   ========================================================= */
+
+.velideas-affiliate-note {
+    margin-top: 14px !important;
+
+    color: #7b8498 !important;
+
+    font-size: 11px !important;
+    text-align: center !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 700px) {
+
+    .velideas-affiliate-section {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
     .velideas-affiliate-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
     }
 
     .velideas-affiliate-card {
         padding: 22px !important;
+        border-radius: 17px !important;
+    }
+
+    .velideas-affiliate-card h3 {
+        font-size: 19px !important;
+    }
+
+    .velideas-affiliate-card p {
+        font-size: 14px !important;
+    }
+
+    .velideas-affiliate-button {
+        font-size: 15px !important;
     }
 }
+
+
+/* Very small phones */
+
+@media (max-width: 420px) {
+
+    .velideas-affiliate-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .velideas-affiliate-card {
+        padding: 18px !important;
+    }
+
+    .velideas-affiliate-card h3 {
+        font-size: 18px !important;
+    }
+
+    .velideas-affiliate-card p {
+        font-size: 13px !important;
+    }
+
+    .velideas-affiliate-button {
+        min-height: 54px !important;
+        font-size: 14px !important;
+    }
+  }
+
+
+
+  
   
 </style>
 </head>
