@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Is the Stock Market? A Beginner's Guide to Investing | Velideas</title>
+<meta name="description" content="Learn what the stock market is, how stocks work, how investors make money, stock exchanges, dividends, capital gains and how beginners can start investing.">
+<meta name="keywords" content="what is the stock market, stock market for beginners, how to invest in stocks, stock market investing, how stocks work, dividends, capital gains, Kenya stock market, NSE Kenya">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="What Is the Stock Market? A Beginner's Guide to Investing">
+<meta property="og:description" content="A simple beginner's guide to understanding stocks, stock exchanges, dividends, capital gains and investing.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#1C2033;--soft:#545E75;--muted:#8890A0;
+  --deep:#232C4C;--indigo:#384B87;--amber:#DDA352;
+  --amber2:#C97D3D;--paper:#EEF0F5;--white:#FFF;
+  --line:#DBE0EA;--red:#B85B4A;--green:#168C64;
+  --grad:linear-gradient(135deg,var(--deep),var(--indigo) 48%,var(--amber));
+  --serif:"Fraunces",serif;--sans:"Public Sans",sans-serif;
+  --mono:"IBM Plex Mono",monospace;--max:900px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--amber);color:var(--deep)}
+
+.navbar,.footer{width:min(1180px,calc(100% - 56px));margin:auto}
+.navbar{height:84px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:9px;font:500 21px var(--serif)}
+.logo svg{width:27px;height:27px}
+.nav-links{display:flex;gap:30px}
+.nav-links a{font-size:14px;color:var(--soft);position:relative}
+.nav-links a:hover{color:var(--ink)}
+
+.article-header,.article{width:min(var(--max),calc(100% - 56px));margin:auto}
+.article-header{padding:78px 0 52px}
+.label{display:inline-flex;gap:8px;align-items:center;margin-bottom:18px;color:var(--indigo);font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.5px}
+.label:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber2)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2}
+h1{max-width:820px;font-size:clamp(40px,6vw,63px);letter-spacing:-.7px}
+.intro{max-width:720px;margin-top:23px;color:var(--soft);font-size:18px;line-height:1.75}
+.meta{display:flex;gap:18px;margin-top:22px;color:var(--muted);font:11px var(--mono)}
+
+.article{padding-bottom:90px}
+section{margin-bottom:52px}
+section h2{font-size:30px;margin-bottom:15px}
+section h3{font-size:21px;margin:28px 0 9px}
+p{margin-bottom:17px;color:var(--soft);font-size:15.8px}
+ul{margin:15px 0 20px 23px}
+li{margin-bottom:8px;color:var(--soft);font-size:15px}
+
+.highlight,.step,.warning{
+  background:var(--white);border:1px solid var(--line);border-radius:11px;
+}
+.highlight{margin:27px 0;padding:23px;border-left:4px solid var(--amber2)}
+.highlight strong{display:block;margin-bottom:5px;font:500 18px var(--serif);color:var(--ink)}
+.highlight p{margin:0;font-size:14px}
+
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:25px 0}
+.step{padding:20px}
+.step-number{margin-bottom:9px;color:var(--amber2);font:11px var(--mono)}
+.step h3{margin:0 0 7px;font-size:19px}
+.step p{margin:0;font-size:14px}
+
+.compare{width:100%;margin:25px 0;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.compare th,.compare td{padding:13px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
+.compare th{background:#F5F6F9;color:var(--ink)}
+.compare td{color:var(--soft)}
+.compare tr:last-child td{border:0}
+
+.warning{padding:22px;margin:27px 0;background:#FBF7F4;border-color:#E9D9CF}
+.warning strong{display:block;margin-bottom:6px;color:var(--red);font-size:14px}
+.warning p{margin:0;font-size:14px}
+
+.cta{margin-top:60px;padding:32px;background:var(--grad);border-radius:14px;color:white}
+.cta h2{color:white;font-size:29px;margin-bottom:8px}
+.cta p{color:rgba(255,255,255,.85);font-size:14px}
+.button,.whatsapp{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:49px;padding:0 22px;border-radius:8px;font-weight:700;font-size:14px
+}
+.button{background:white;color:var(--deep)}
+.whatsapp{background:#20B77A;color:white;min-width:190px}
+.whatsapp:hover{background:#168C64}
+
+.footer{padding:24px 0 32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
+.footer-brand{font:15px var(--serif);color:var(--soft)}
+
+.overlay{
+  position:fixed;inset:0;z-index:1000;display:none;
+  align-items:center;justify-content:center;padding:20px;
+  background:rgba(28,32,51,.52);backdrop-filter:blur(6px)
+}
+.overlay.show{display:flex}
+.popup{
+  width:min(450px,100%);position:relative;padding:30px;
+  background:white;border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 25px 70px rgba(28,32,51,.25);
+  animation:in .25s ease
+}
+@keyframes in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.close{
+  position:absolute;right:13px;top:13px;width:32px;height:32px;
+  border:1px solid var(--line);border-radius:8px;background:white;
+  color:var(--muted);font-size:19px;cursor:pointer
+}
+.close:hover{color:var(--ink);border-color:var(--indigo)}
+.popup-label{color:var(--green);font:500 11px var(--mono);text-transform:uppercase;margin-bottom:12px}
+.popup h2{font-size:29px;margin-bottom:10px}
+.popup p{font-size:14px;margin-bottom:20px}
+.popup-actions{display:flex;gap:10px}
+.popup .whatsapp{flex:1}
+.dismiss{
+  border:1px solid var(--line);background:var(--paper);border-radius:8px;
+  padding:0 18px;color:var(--soft);font-weight:600;cursor:pointer
+}
+
+@media(max-width:700px){
+  .navbar,.footer,.article-header,.article{width:calc(100% - 36px)}
+  .navbar{height:72px}
+  .nav-links{gap:17px}
+  .nav-links a{font-size:13px}
+  .article-header{padding:55px 0 40px}
+  h1{font-size:40px}
+  .intro{font-size:16px}
+  section h2{font-size:27px}
+  .steps{grid-template-columns:1fr}
+  .compare{display:block;overflow-x:auto}
+  .cta{padding:27px}
+  .popup-actions{flex-direction:column}
+  .dismiss{min-height:49px}
+  .footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="logo" aria-label="Velideas home">
+    <svg viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="13" stroke="#384B87" stroke-width="2"/>
+      <path d="M7 19c3-6 6 5 9-1s5-7 9-5" stroke="#DDA352" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span>velideas</span>
+  </a>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="lesson.html">Learn</a>
+    <a href="blogs.html">Articles</a>
+  </nav>
+</header>
+
+<main>
+
+<header class="article-header">
+  <div class="label">Investing · Beginner Guide</div>
+  <h1>What Is the Stock Market? A Beginner's Guide to Investing</h1>
+  <p class="intro">
+    The stock market can seem complicated when you first encounter terms such as
+    shares, dividends, market capitalisation, indices and stock exchanges.
+    This guide explains how the stock market works, how investors can potentially
+    make money from stocks and how beginners can start building their investment knowledge.
+  </p>
+  <div class="meta">
+    <span>BEGINNER FRIENDLY</span>
+    <span>·</span>
+    <span>STOCK MARKET</span>
+    <span>·</span>
+    <span>VELIDEAS</span>
+  </div>
+</header>
+
+<article class="article">
+
+<section>
+  <h2>What is the stock market?</h2>
+  <p>
+    The stock market is a marketplace where investors can buy and sell shares
+    of publicly traded companies.
+  </p>
+  <p>
+    When you buy a share of a company, you are purchasing a small ownership
+    interest in that business. For example, if a company has one million shares
+    and you own 1,000 shares, you own a small portion of that company.
+  </p>
+  <p>
+    Stock markets bring together companies that want to raise capital and
+    investors who want to potentially grow their wealth by owning financial assets.
+  </p>
+
+  <div class="highlight">
+    <strong>Think of a stock as a piece of a business.</strong>
+    <p>
+      If you own shares in a company, your investment is connected to the
+      economic performance and market valuation of that business.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>How does the stock market work?</h2>
+  <p>
+    Public companies can raise money by issuing shares to investors. Once shares
+    are publicly traded, investors can buy and sell them through a stock exchange
+    or brokerage platform.
+  </p>
+  <p>
+    Stock prices change as buyers and sellers interact. If demand for a stock
+    becomes stronger than available supply, its price may rise. If selling
+    pressure becomes stronger, the price may fall.
+  </p>
+  <p>
+    Stock prices can be influenced by company earnings, interest rates,
+    economic conditions, investor expectations, industry developments,
+    news and overall market sentiment.
+  </p>
+</section>
+
+<section>
+  <h2>What is a stock exchange?</h2>
+  <p>
+    A stock exchange is an organised marketplace that facilitates the trading
+    of securities under established rules and regulations.
+  </p>
+  <p>
+    Different countries have their own exchanges. For example, Kenya has the
+    Nairobi Securities Exchange (NSE), while the United States has major
+    exchanges such as the New York Stock Exchange and Nasdaq.
+  </p>
+  <p>
+    Investors normally access an exchange through a licensed broker or
+    investment platform rather than directly interacting with the exchange's
+    trading system.
+  </p>
+</section>
+
+<section>
+  <h2>How do investors make money from stocks?</h2>
+  <p>
+    There are two major ways investors can potentially make money from stocks:
+    capital appreciation and dividends.
+  </p>
+
+  <h3>1. Capital gains</h3>
+  <p>
+    A capital gain occurs when you sell an investment for more than you paid
+    for it, before considering applicable costs and taxes.
+  </p>
+  <p>
+    For example, if you buy a share for $50 and later sell it for $70,
+    your gross price gain would be $20 per share.
+  </p>
+
+  <h3>2. Dividends</h3>
+  <p>
+    Some companies distribute part of their profits to shareholders in the
+    form of dividends. Dividend payments can provide investors with income
+    while they continue to own their shares.
+  </p>
+  <p>
+    However, dividends are not guaranteed. A company can reduce, suspend or
+    eliminate its dividend depending on its financial position and decisions.
+  </p>
+</section>
+
+<section>
+  <h2>Stocks vs bonds vs cash</h2>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>What you own</th>
+        <th>Potential return</th>
+        <th>Main risk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Stocks</td>
+        <td>Part ownership of a company</td>
+        <td>Capital gains + dividends</td>
+        <td>Market and business risk</td>
+      </tr>
+      <tr>
+        <td>Bonds</td>
+        <td>Debt issued by an entity</td>
+        <td>Interest + possible price gain</td>
+        <td>Credit and interest-rate risk</td>
+      </tr>
+      <tr>
+        <td>Cash</td>
+        <td>Liquid money</td>
+        <td>Usually low</td>
+        <td>Inflation risk</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>What is a stock market index?</h2>
+  <p>
+    A stock market index tracks the performance of a selected group of stocks.
+    Investors use indices to understand how a particular market or segment
+    is performing.
+  </p>
+  <p>
+    Examples include the S&P 500 in the United States, the FTSE 100 in the
+    United Kingdom and indices associated with the Nairobi Securities Exchange
+    in Kenya.
+  </p>
+  <p>
+    An index is not the same thing as an individual stock. Instead, it provides
+    a broader measurement of market performance.
+  </p>
+</section>
+
+<section>
+  <h2>Fundamental analysis</h2>
+  <p>
+    Fundamental analysis attempts to estimate the underlying value and financial
+    health of a company.
+  </p>
+  <p>Investors may examine factors such as:</p>
+  <ul>
+    <li>Revenue and profit growth</li>
+    <li>Earnings per share</li>
+    <li>Price-to-earnings ratio</li>
+    <li>Debt levels</li>
+    <li>Cash flow</li>
+    <li>Return on equity</li>
+    <li>Competitive position</li>
+    <li>Industry and economic conditions</li>
+  </ul>
+  <p>
+    The goal is to understand the business rather than simply reacting to
+    short-term price movements.
+  </p>
+</section>
+
+<section>
+  <h2>Technical analysis</h2>
+  <p>
+    Technical analysis focuses primarily on price and trading-volume data.
+    Traders use charts and indicators to study market behaviour and identify
+    potential trends, support, resistance and momentum.
+  </p>
+  <p>
+    Common technical analysis tools include moving averages, RSI, MACD,
+    Bollinger Bands, trendlines, candlestick patterns and volume analysis.
+  </p>
+  <div class="highlight">
+    <strong>Technical analysis does not predict the future with certainty.</strong>
+    <p>
+      Indicators are tools for analysing probabilities. They should be combined
+      with risk management rather than treated as guaranteed signals.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>How to start investing in stocks</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">01</div>
+      <h3>Learn the basics</h3>
+      <p>Understand stocks, risk, dividends, valuation and market cycles before investing.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">02</div>
+      <h3>Choose a broker</h3>
+      <p>Use a properly regulated broker or investment platform available in your jurisdiction.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">03</div>
+      <h3>Research companies</h3>
+      <p>Study the company's financial statements, industry and long-term prospects.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">04</div>
+      <h3>Manage risk</h3>
+      <p>Avoid putting all your money into one company or a single investment idea.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why diversification matters</h2>
+  <p>
+    Diversification means spreading investments across different companies,
+    sectors, asset classes or geographical markets.
+  </p>
+  <p>
+    The purpose is to reduce the impact that one investment can have on the
+    overall portfolio. Diversification does not eliminate investment risk,
+    but it can reduce concentration risk.
+  </p>
+</section>
+
+<section>
+  <h2>Investing vs trading</h2>
+  <p>
+    Investing and trading are related but different approaches to financial markets.
+  </p>
+  <p>
+    <strong>Investing</strong> generally focuses on owning assets for longer
+    periods and benefiting from business growth, dividends or long-term
+    appreciation.
+  </p>
+  <p>
+    <strong>Trading</strong> generally involves buying and selling more frequently
+    in an attempt to benefit from shorter-term price movements.
+  </p>
+  <p>
+    Neither approach guarantees profits. Your strategy should match your
+    objectives, knowledge, risk tolerance and time horizon.
+  </p>
+</section>
+
+<section>
+  <h2>Common stock market mistakes beginners make</h2>
+  <ul>
+    <li>Investing without understanding what they are buying</li>
+    <li>Following social-media hype without conducting research</li>
+    <li>Putting too much money into one stock</li>
+    <li>Trying to predict every short-term price movement</li>
+    <li>Ignoring fees and taxes</li>
+    <li>Using borrowed money without understanding the risks</li>
+    <li>Selling emotionally during market declines</li>
+    <li>Expecting guaranteed or rapid returns</li>
+  </ul>
+</section>
+
+<section>
+  <h2>A simple approach for beginners</h2>
+  <p>
+    A beginner can start by building financial knowledge, establishing clear
+    investment objectives and learning how to evaluate companies and risks.
+  </p>
+  <p>
+    Instead of trying to find the next stock that will suddenly multiply in
+    value, focus on understanding businesses, valuation, diversification and
+    long-term portfolio management.
+  </p>
+
+  <div class="warning">
+    <strong>Important risk warning</strong>
+    <p>
+      Stocks can lose value, sometimes substantially. Past performance does not
+      guarantee future results. Never invest money you cannot afford to lose,
+      and consider obtaining professional financial advice where appropriate.
+    </p>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Need help getting started?</h2>
+  <p>
+    If you're new to the stock market and want free guidance on the basics,
+    contact Velideas on WhatsApp. We can help you understand the first steps
+    and the concepts you should learn before investing.
+  </p>
+  <a class="whatsapp"
+     href="https://wa.me/254795762211?text=Hello%20Velideas%2C%20I%20would%20like%20free%20assistance%20getting%20started%20with%20the%20stock%20market."
+     target="_blank" rel="noopener">
+    Chat on WhatsApp
+  </a>
+</div>
+
+</article>
+</main>
+
+<footer class="footer">
+  <span class="footer-brand">velideas</span>
+  <span>Financial education · Not financial advice</span>
+</footer>
+
+<!-- WhatsApp assistance popup -->
+<div class="overlay" id="popup" aria-hidden="true">
+  <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <button class="close" id="closePopup" aria-label="Close">×</button>
+
+    <div class="popup-label">Free assistance</div>
+
+    <h2 id="popupTitle">New to the stock market?</h2>
+
+    <p>
+      If you're not sure where to begin, you can contact Velideas for free
+      assistance understanding stocks, investing and the basic steps involved.
+    </p>
+
+    <div class="popup-actions">
+      <a class="whatsapp"
+         href="https://wa.me/254795762211?text=Hello%20Velideas%2C%20I%20would%20like%20free%20assistance%20getting%20started%20with%20the%20stock%20market."
+         target="_blank" rel="noopener">
+        WhatsApp us
+      </a>
+
+      <button class="dismiss" id="dismissPopup">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const popup=document.getElementById("popup");
+const closeBtn=document.getElementById("closePopup");
+const dismissBtn=document.getElementById("dismissPopup");
+
+let popupCount=0,timer;
+
+function showPopup(){
+  if(popupCount>=3)return;
+  popup.classList.add("show");
+  popup.setAttribute("aria-hidden","false");
+}
+
+function hidePopup(){
+  popup.classList.remove("show");
+  popup.setAttribute("aria-hidden","true");
+  popupCount++;
+
+  if(popupCount===1) timer=setTimeout(showPopup,45000);
+  else if(popupCount===2) timer=setTimeout(showPopup,120000);
+}
+
+closeBtn.onclick=hidePopup;
+dismissBtn.onclick=hidePopup;
+
+popup.addEventListener("click",e=>{
+  if(e.target===popup)hidePopup();
+});
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&popup.classList.contains("show"))hidePopup();
+});
+
+window.addEventListener("load",()=>{
+  timer=setTimeout(showPopup,3000);
+});
+</script>
+
+</body>
+  </html>
