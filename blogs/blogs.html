@@ -1,0 +1,724 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Velideas — practical financial education, market knowledge and investing insights.">
+<meta name="theme-color" content="#EEF0F5"><title>Velideas — Financial Education</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,480;0,9..144,560;1,9..144,460&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"><style>
+
+:root{
+    --ink:        #1C2033;
+    --ink-soft:   #545E75;
+    --muted:      #8890A0;
+
+    --indigo-deep:#232C4C;
+    --indigo:     #384B87;
+    --amber:      #DDA352;
+    --amber-deep: #C97D3D;
+
+    --paper:      #EEF0F5;
+    --surface:    #FFFFFF;
+    --line:       #DBE0EA;
+
+    --positive:   #3F8467;
+    --negative:   #B85B4A;
+
+    --gradient: linear-gradient(
+        135deg,
+        var(--indigo-deep) 0%,
+        var(--indigo) 48%,
+        var(--amber) 100%
+    );
+
+    --max: 1180px;
+
+    --serif: "Fraunces", serif;
+    --sans: "Public Sans", sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+::selection{
+    background:var(--amber);
+    color:var(--indigo-deep);
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        animation-duration:0.001ms !important;
+        transition-duration:0.001ms !important;
+    }
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar{
+    width:min(var(--max), calc(100% - 56px));
+    margin:0 auto;
+
+    height:84px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border-bottom:1px solid var(--line);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo svg{
+    width:26px;
+    height:26px;
+}
+
+.logo span{
+    font-family:var(--serif);
+    font-weight:560;
+    font-size:21px;
+    letter-spacing:-0.3px;
+    color:var(--ink);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+}
+
+.nav-links a{
+    color:var(--ink-soft);
+    font-size:15px;
+    font-weight:500;
+
+    position:relative;
+    padding:4px 0;
+
+    transition:color .2s ease;
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    bottom:-3px;
+
+    width:0;
+    height:1.5px;
+
+    background:var(--amber-deep);
+
+    transition:width .2s ease;
+}
+
+.nav-links a:hover{
+    color:var(--ink);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+
+/* =========================================================
+   BLOG HERO
+========================================================= */
+
+.blog-hero{
+    width:min(var(--max), calc(100% - 56px));
+
+    margin:0 auto;
+
+    padding:82px 0 62px;
+
+    text-align:center;
+}
+
+.blog-hero-content{
+    max-width:700px;
+    margin:0 auto;
+
+    opacity:0;
+    transform:translateY(14px);
+
+    animation:rise .7s ease forwards .1s;
+}
+
+@keyframes rise{
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.blog-label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:18px;
+
+    color:var(--indigo);
+
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+}
+
+.blog-label::before{
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--amber-deep);
+}
+
+.blog-hero h1{
+    font-family:var(--serif);
+    font-weight:480;
+
+    font-size:clamp(40px, 5vw, 58px);
+
+    line-height:1.08;
+    letter-spacing:-.6px;
+
+    color:var(--ink);
+}
+
+.blog-hero p{
+    max-width:55ch;
+
+    margin:22px auto 0;
+
+    color:var(--ink-soft);
+
+    font-size:17px;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   BLOG GRID
+========================================================= */
+
+.blog-section{
+    width:min(var(--max), calc(100% - 56px));
+
+    margin:0 auto;
+
+    padding:0 0 100px;
+}
+
+.blog-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:22px;
+}
+
+
+/* =========================================================
+   BLOG CARD
+========================================================= */
+
+.blog-card{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    min-height:285px;
+
+    padding:28px;
+
+    background:var(--surface);
+
+    border:1px solid var(--line);
+
+    border-radius:14px;
+
+    box-shadow:
+        0 8px 25px rgba(20,30,60,.045);
+
+    opacity:0;
+    transform:translateY(14px);
+
+    animation:rise .7s ease forwards;
+    
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.blog-card:nth-child(1){
+    animation-delay:.15s;
+}
+
+.blog-card:nth-child(2){
+    animation-delay:.25s;
+}
+
+.blog-card:nth-child(3){
+    animation-delay:.35s;
+}
+
+.blog-card:hover{
+    transform:translateY(-4px);
+
+    border-color:#cbd2e1;
+
+    box-shadow:
+        0 15px 35px rgba(20,30,60,.08);
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.blog-number{
+    width:36px;
+    height:36px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:25px;
+
+    border-radius:9px;
+
+    background:#F4F5F8;
+
+    color:var(--indigo);
+
+    font-family:var(--mono);
+    font-size:12px;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.blog-card h2{
+    font-family:var(--serif);
+    font-weight:480;
+
+    font-size:25px;
+    line-height:1.2;
+
+    letter-spacing:-.2px;
+
+    color:var(--ink);
+
+    margin-bottom:12px;
+}
+
+.blog-card p{
+    color:var(--ink-soft);
+
+    font-size:14.5px;
+
+    line-height:1.65;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================================================
+   READ ARTICLE LINK
+========================================================= */
+
+.blog-link{
+    margin-top:auto;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:space-between;
+
+    width:100%;
+
+    padding-top:17px;
+
+    border-top:1px solid var(--line);
+
+    color:var(--indigo);
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:
+        color .2s ease,
+        padding-left .2s ease;
+}
+
+.blog-link span:last-child{
+    font-size:18px;
+
+    transition:transform .2s ease;
+}
+
+.blog-link:hover{
+    color:var(--amber-deep);
+}
+
+.blog-link:hover span:last-child{
+    transform:translateX(4px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    width:min(var(--max), calc(100% - 56px));
+
+    margin:0 auto;
+
+    padding:24px 0 35px;
+
+    border-top:1px solid var(--line);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.footer-brand{
+    font-family:var(--serif);
+    font-size:15px;
+    color:var(--ink-soft);
+}
+
+.footer-note{
+    font-family:var(--mono);
+    font-size:11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:950px){
+
+    .blog-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .blog-card:last-child{
+        grid-column:1 / -1;
+    }
+}
+
+
+@media (max-width:600px){
+
+    .navbar,
+    .blog-hero,
+    .blog-section,
+    .footer{
+        width:calc(100% - 36px);
+    }
+
+    .navbar{
+        height:72px;
+    }
+
+    .nav-links{
+        gap:18px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .blog-hero{
+        padding:58px 0 45px;
+    }
+
+    .blog-hero h1{
+        font-size:clamp(36px, 10vw, 46px);
+    }
+
+    .blog-hero p{
+        font-size:15px;
+    }
+
+    .blog-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .blog-card:last-child{
+        grid-column:auto;
+    }
+
+    .blog-card{
+        min-height:255px;
+        padding:24px;
+    }
+
+    .blog-card h2{
+        font-size:23px;
+    }
+
+    .footer{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+    }
+}
+
+</style></head><body><!-- =========================================================
+     NAVIGATION
+========================================================= --><nav class="navbar"><a href="index.html" class="logo">
+
+    <svg viewBox="0 0 28 28" fill="none">
+
+        <defs>
+            <linearGradient
+                id="markGradient"
+                x1="4"
+                y1="24"
+                x2="24"
+                y2="4"
+            >
+                <stop offset="0" stop-color="#232C4C"/>
+                <stop offset="1" stop-color="#DDA352"/>
+            </linearGradient>
+        </defs>
+
+        <path
+            d="M6 22 L20 8"
+            stroke="url(#markGradient)"
+            stroke-width="2.6"
+            stroke-linecap="round"
+        />
+
+        <circle
+            cx="22"
+            cy="6"
+            r="3.2"
+            fill="#DDA352"
+        />
+
+    </svg>
+
+    <span>velideas</span>
+
+</a>
+
+
+<div class="nav-links">
+
+    <a href="index.html">Home</a>
+
+    <a href="blogs.html">Learn</a>
+
+    <a href="#blogs">Articles</a>
+
+</div>
+
+</nav><main><!-- =========================================================
+     BLOG HERO
+========================================================= --><section class="blog-hero"><div class="blog-hero-content">
+
+    <div class="blog-label">
+        Financial education
+    </div>
+
+    <h1>
+        Learn before you move.
+    </h1>
+
+    <p>
+        Practical guides to help you understand financial
+        markets, trading, investing, and the ideas behind
+        better financial decisions.
+    </p>
+
+</div>
+
+</section><!-- =========================================================
+     BLOG ARTICLES
+========================================================= --><section class="blog-section" id="blogs"><div class="blog-grid">
+
+
+    <!-- =================================================
+         BLOG 1
+    ================================================== -->
+
+    <article class="blog-card">
+
+        <div class="blog-number">
+            01
+        </div>
+
+        <h2>
+            How to start trading forex
+        </h2>
+
+        <p>
+            Learn the fundamentals of forex trading, how
+            currency pairs work, what you need to get started,
+            and the risks every new trader should understand.
+        </p>
+
+        <a
+            href="how_to_start_forex.html"
+            class="blog-link"
+        >
+
+            <span>
+                Read article
+            </span>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </article>
+
+
+
+    <!-- =================================================
+         BLOG 2
+    ================================================== -->
+
+    <article class="blog-card">
+
+        <div class="blog-number">
+            02
+        </div>
+
+        <h2>
+            What is the stock market?
+        </h2>
+
+        <p>
+            Understand what the stock market is, how shares
+            are traded, why companies issue stock, and how
+            investors participate in the market.
+        </p>
+
+        <a
+            href="stock_market.html"
+            class="blog-link"
+        >
+
+            <span>
+                Read article
+            </span>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </article>
+
+
+
+    <!-- =================================================
+         BLOG 3
+    ================================================== -->
+
+    <article class="blog-card">
+
+        <div class="blog-number">
+            03
+        </div>
+
+        <h2>
+            How to invest in Crypto
+        </h2>
+
+        <p>
+            Explore the basics of cryptocurrency investing,
+            including digital assets, exchanges, portfolio
+            management, and the risks involved.
+        </p>
+
+        <a
+            href="cryptocurrency.html"
+            class="blog-link"
+        >
+
+            <span>
+                Read article
+            </span>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </article>
+
+
+</div>
+
+</section></main><!-- =========================================================
+     FOOTER
+========================================================= --><footer class="footer"><span class="footer-brand">
+    velideas
+</span>
+
+<span class="footer-note">
+    Education · Analysis · Growth
+</span>
+
+</footer></body>
+  </html>
