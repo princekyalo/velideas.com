@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Introduction to Forex Trading | Velideas</title>
+<meta name="description" content="What is forex trading? A beginner's guide to currency pairs, base and quote currencies, technical and fundamental analysis, MetaTrader 5 and TradingView.">
+<link rel="canonical" href="https://www.velideas.com/blogs/forex.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1C2033;--soft:#545E75;--muted:#8890A0;--deep:#232C4C;--indigo:#384B87;--amber:#DDA352;--amber2:#C97D3D;--paper:#EEF0F5;--white:#fff;--line:#DBE0EA;--red:#B85B4A;--green:#3F8467}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font:15.5px/1.7 "Public Sans",sans-serif}.wrap{width:min(900px,calc(100% - 40px));margin:auto}a{color:var(--indigo);text-decoration:none}h1,h2,h3{font-family:Fraunces,serif;font-weight:500;line-height:1.2}h1{font-size:clamp(40px,7vw,62px)}h2{font-size:30px;margin-bottom:14px}h3{font-size:21px;margin:25px 0 8px}p,li{color:var(--soft)}p{margin-bottom:17px}ul,ol{margin:12px 0 20px 24px}li{margin:5px 0}
+nav{height:82px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;width:min(1180px,calc(100% - 40px));margin:auto}.logo{font:600 21px Fraunces;color:var(--ink)}.nav{display:flex;gap:25px;font-size:14px;color:var(--soft)}
+header{padding:70px 0 45px}.tag{font:500 11px "IBM Plex Mono";color:var(--indigo);letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}.tag:before{content:"";display:inline-block;width:7px;height:7px;background:var(--amber2);border-radius:50%;margin-right:8px}.intro{font-size:18px;max-width:760px;margin-top:20px}
+article{padding-bottom:70px}section{margin:0 0 50px}.toc,.card,.diagram,.warning,.cta{background:var(--white);border:1px solid var(--line);border-radius:12px}.toc{padding:20px 24px;margin-bottom:45px}.toc strong{font:500 20px Fraunces}.toc ol{margin-bottom:0}.toc a{color:var(--indigo)}
+figure{margin:25px 0 35px}figure img{display:block;width:100%;max-height:440px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}figcaption{font-size:11px;color:var(--muted);margin-top:7px}
+.diagram{padding:25px;margin:25px 0;text-align:center}.pair{font:600 clamp(30px,8vw,50px) "IBM Plex Mono";color:var(--deep);margin-bottom:15px}.pair span:first-child{color:var(--indigo)}.pair span:last-child{color:var(--amber2)}.labels{display:grid;grid-template-columns:1fr 1fr;gap:15px}.labels div{padding:15px;border:1px solid var(--line);border-radius:9px}.labels b{display:block;font:500 11px "IBM Plex Mono";color:var(--muted);margin-bottom:4px}.value{font:600 18px "IBM Plex Mono";color:var(--ink)}
+.flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.flow div{padding:12px 15px;background:var(--white);border:1px solid var(--line);border-radius:8px;font-weight:600}.arrow{color:var(--amber2);font-weight:bold}
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:22px 0}th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line)}th{background:#F5F6F9}td{color:var(--soft)}
+.trade{display:grid;grid-template-columns:1fr 1fr;gap:15px}.trade .card{padding:22px}.trade strong{display:block;font:500 22px Fraunces;margin-bottom:12px}.trade ol{list-style:none;margin:0}.trade li{padding:7px 0;border-bottom:1px solid var(--line)}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.tools img{width:100%;border-radius:11px;border:1px solid var(--line)}.tools .card{padding:22px}
+.check{list-style:none;margin-left:0}.check li{padding:7px 0;border-bottom:1px solid var(--line)}.check li:before{content:"☐";margin-right:10px;color:var(--amber2)}
+.warning{padding:22px;background:#FBF7F4;border-color:#E9D9CF}.warning strong{color:var(--red);display:block;margin-bottom:5px}.warning p{margin:0}
+.broker{padding:24px}.broker img{width:100%;max-height:280px;object-fit:cover;border-radius:10px;margin:15px 0}.btn{display:inline-flex;background:#00a878;color:#fff;padding:13px 20px;border-radius:8px;font-weight:700;margin-top:5px}.btn:hover{background:#008f68}.note{font-size:11px;color:var(--muted);margin-top:9px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:11px}
+@media(max-width:650px){nav{height:70px}.nav{gap:13px;font-size:12px}header{padding:50px 0 35px}.intro{font-size:16px}h2{font-size:27px}.trade,.tools{grid-template-columns:1fr}.flow{display:grid;grid-template-columns:1fr}.arrow{text-align:center;transform:rotate(90deg)}table{display:block;overflow-x:auto;white-space:normal}.labels{gap:8px}.diagram{padding:18px}}
+</style>
+</head>
+
+<body>
+<nav>
+<a href="../index.html" class="logo">velideas</a>
+<div class="nav"><a href="../index.html">Home</a><a href="blogs.html">Articles</a><a href="../lesson.html">Learn</a></div>
+</nav>
+
+<main class="wrap">
+<header>
+<div class="tag">Forex · Beginner Guide</div>
+<h1>INTRODUCTION TO FOREX TRADING</h1>
+<p class="intro"><b>What Is Forex Trading? A Beginner's Guide</b></p>
+<p>Forex trading involves buying and selling currencies with the aim of making a profit from changes in their exchange rates.</p>
+<p>The word forex is a shortened form of foreign exchange.</p>
+<p>The major currencies commonly traded in the forex market include:</p>
+<ul><li>United States dollar (USD)</li><li>Euro (EUR)</li><li>Japanese yen (JPY)</li><li>Swiss franc (CHF)</li><li>New Zealand dollar (NZD)</li><li>Canadian dollar (CAD)</li><li>Australian dollar (AUD)</li><li>British pound (GBP)</li></ul>
+<p>Explain that currencies are not normally traded individually. Instead, one currency is quoted against another, creating a currency pair.</p>
+
+<figure><img src="forex.jpeg" alt="Forex trading"><figcaption>Understanding the foreign exchange market.</figcaption></figure>
+</header>
+
+<article>
+<div class="toc"><strong>Forex Trading Guide</strong><ol>
+<li><a href="#pairs">Understanding Currency Pairs</a></li>
+<li><a href="#types">Major, Minor, and Exotic Pairs</a></li>
+<li><a href="#profit">How Can You Make Money?</a></li>
+<li><a href="#analysis">Fundamental & Technical Analysis</a></li>
+<li><a href="#start">How to Start Trading</a></li>
+<li><a href="#tools">MetaTrader 5 & TradingView</a></li>
+<li><a href="#workflow">Beginner Forex Workflow</a></li>
+<li><a href="#risk">Risk Warning</a></li>
+</ol></div>
+
+<section id="pairs">
+<h2>Understanding Currency Pairs</h2>
+<p>It is very important to understand how currencies are quoted against each other. For example, in USD/JPY, USD is the base currency while JPY is the quote currency.</p>
+
+<div class="diagram">
+<div class="pair"><span>USD</span> / <span>JPY</span></div>
+<div class="labels"><div><b>BASE CURRENCY</b><span class="value">USD</span></div><div><b>QUOTE CURRENCY</b><span class="value">JPY</span></div></div>
+<p style="margin:18px 0 0"><b>USD/JPY = 153.19</b><br>1 USD = 153.19 JPY</p>
+</div>
+
+<p>The base currency is the first currency in a currency pair. It is the currency whose value is being expressed.</p>
+<p>The quote currency is the second currency in the pair. It tells us how much of the quote currency is required to buy one unit of the base currency.</p>
+<p>For the example:</p><p><b>USD/JPY = 153.19</b></p>
+<p>This means that 1 US dollar is worth 153.19 Japanese yen.</p>
+
+<div class="trade">
+<div class="card"><strong>Price rises</strong><p>USD/JPY = 153.19</p><p>↓</p><p>USD/JPY = 154.00</p><p>One U.S. dollar is now worth more Japanese yen, meaning the USD has strengthened relative to the JPY, assuming the quotation is interpreted normally.</p></div>
+<div class="card"><strong>Price falls</strong><p>USD/JPY = 153.19</p><p>↓</p><p>USD/JPY = 150.00</p><p>One U.S. dollar is now worth fewer Japanese yen, meaning the USD has weakened relative to the JPY.</p></div>
+</div>
+
+<p>When a trader buys USD/JPY, they are effectively buying the base currency (USD) while selling the quote currency (JPY).</p>
+<p>When they sell USD/JPY, they are selling the base currency (USD) while buying the quote currency (JPY).</p>
+</section>
+
+<section id="types">
+<h2>Major, Minor, and Exotic Currency Pairs</h2>
+<p>Currency pairs are commonly divided into three broad categories:</p>
+<h3>1. Major Pairs</h3><p>Major currency pairs generally involve the U.S. dollar and are among the most actively traded forex pairs.</p><p>Examples:</p><ul><li>EUR/USD</li><li>USD/JPY</li><li>GBP/USD</li><li>USD/CHF</li></ul>
+<h3>2. Minor Pairs</h3><p>Minor currency pairs do not contain the U.S. dollar but can still have significant trading activity and liquidity.</p><p>Examples:</p><ul><li>EUR/GBP</li><li>EUR/NZD</li><li>AUD/CAD</li></ul>
+<h3>3. Exotic Pairs</h3><p>Exotic currency pairs generally combine a major currency with the currency of an emerging or smaller economy.</p><p>Examples:</p><ul><li>USD/KES</li><li>EUR/KES</li></ul>
+<p>Exotic pairs can have lower liquidity and wider spreads than many major pairs, which can make trading costs and price movements different from those of major pairs.</p>
+<table><tr><th>Type</th><th>Example</th><th>General Characteristics</th></tr><tr><td>Major</td><td>EUR/USD</td><td>High liquidity and generally tighter spreads</td></tr><tr><td>Minor</td><td>EUR/GBP</td><td>No USD, but can still be actively traded</td></tr><tr><td>Exotic</td><td>USD/KES</td><td>Generally lower liquidity and potentially wider spreads</td></tr></table>
+</section>
+
+<section id="profit">
+<h2>How Can You Make Money From Forex Trading?</h2>
+<p>There are two main ways to make money from forex trading. The first one is going long and the second one is going short.</p>
+<div class="trade">
+<div class="card"><strong>Going Long</strong><p>Going long means buying a currency pair with the expectation that its price will rise.</p><p>A merchant may buy a product for $10 and later sell it for $15, making a $5 difference. A long forex trade follows a similar basic idea: buy at a lower price and attempt to sell at a higher price.</p><div class="flow"><div>BUY</div><span class="arrow">↓</span><div>Price rises</div><span class="arrow">↓</span><div>SELL</div><span class="arrow">↓</span><div>Potential profit</div></div></div>
+<div class="card"><strong>Going Short</strong><p>Going short means selling a currency pair with the expectation that its price will fall.</p><div class="flow"><div>SELL</div><span class="arrow">↓</span><div>Price falls</div><span class="arrow">↓</span><div>BUY BACK</div><span class="arrow">↓</span><div>Potential profit</div></div></div>
+</div>
+<p>In a long trade, the trader benefits if the price rises while in a short trade, the trader benefits if the price falls.</p>
+<p>Actual trading involves spreads, commissions where applicable, slippage, and other costs.</p>
+</section>
+
+<section id="analysis">
+<h2>How Do You Know Whether Price Will Rise or Fall?</h2>
+<p>A beginner can start by understanding two broad approaches: fundamental analysis and technical analysis.</p>
+<div class="trade">
+<div class="card"><strong>Fundamental Analysis = WHY</strong><p>Fundamental analysis attempts to understand why a currency may strengthen or weaken.</p><ul><li>Interest rates</li><li>Inflation</li><li>Employment data</li><li>Economic growth</li><li>Central-bank decisions</li><li>Political developments</li><li>Geopolitical events</li><li>Economic reports</li></ul><p><b>Strong U.S. economic data → potentially stronger USD</b></p><p><b>Higher expected U.S. interest rates → potentially greater demand for USD</b></p><p>These are examples, not guaranteed outcomes.</p></div>
+<div class="card"><strong>Technical Analysis = WHEN / WHERE</strong><p>Technical analysis focuses primarily on price charts and market behaviour.</p><ul><li>Price trends</li><li>Support and resistance</li><li>Candlestick patterns</li><li>Moving averages</li><li>RSI</li><li>MACD</li><li>Bollinger Bands</li></ul><p>Technical analysis can help traders identify possible areas for entries, exits, and risk management.</p><p>Technical analysis does not predict the future with certainty.</p></div>
+</div>
+<h3>Fundamental vs. Technical Analysis</h3>
+<table><tr><th>Fundamental Analysis</th><th>Technical Analysis</th></tr><tr><td>Focuses on economic factors</td><td>Focuses on price behaviour</td></tr><tr><td>Helps explain WHY</td><td>Can help identify WHEN/WHERE</td></tr><tr><td>Uses economic data and news</td><td>Uses charts and indicators</td></tr><tr><td>Interest rates, inflation, jobs, etc.</td><td>Support, resistance, RSI, MACD, etc.</td></tr></table>
+<p><b>Fundamental analysis asks: “Why might price move?”</b></p><p><b>Technical analysis asks: “Where and when might I enter or exit?”</b></p><p>Many traders combine both approaches.</p>
+</section>
+
+<section id="start">
+<h2>How to Start Trading Forex as a Beginner</h2>
+<h3>Step 1 — Learn the Fundamentals</h3>
+<p>Understand:</p><ul><li>Currency pairs</li><li>Base and quote currencies</li><li>Pips</li><li>Lots</li><li>Spreads</li><li>Leverage</li><li>Margin</li><li>Stop-loss orders</li><li>Take-profit orders</li><li>Risk management</li></ul>
+
+<h3>Step 2 — Choose a Forex Broker</h3>
+<p>A forex broker provides the platform and infrastructure through which retail traders can access forex markets.</p>
+<div class="card broker">
+<p>JustMarkets is an optional broker used in this learning pathway.</p>
+<img src="Justmarkets.jpeg" alt="JustMarkets">
+<a class="btn" href="https://one.justmarkets.link/a/svmyx0m6u8" target="_blank" rel="noopener noreferrer">Create JustMarkets Account</a>
+<p class="note">This is a referral/affiliate link where applicable.</p>
+</div>
+
+<h3>Opening and Practising With a Demo Account</h3>
+<p>Practise on a demo account while you learn before moving to a live account. A demo account allows you to become familiar with the platform and practise executing trades without risking real money.</p>
+<p>Demo trading does not completely reproduce the psychological pressure of trading real money.</p>
+</section>
+
+<section id="tools">
+<h2>MetaTrader 5</h2>
+<div class="tools">
+<img src="mt5.png" alt="MetaTrader 5 trading platform">
+<div class="card"><p>MetaTrader 5 (MT5) is a trading platform commonly used by traders to monitor markets and execute trades through supported brokers.</p><ul><li>Opening and closing trades</li><li>Viewing prices</li><li>Setting stop-loss orders</li><li>Setting take-profit orders</li><li>Managing positions</li><li>Viewing account balance and margin</li><li>Monitoring open trades</li></ul></div>
+</div>
+
+<h2 style="margin-top:50px">TradingView</h2>
+<div class="tools">
+<div class="card"><p>TradingView is primarily used for charting and market analysis.</p><ul><li>Candlestick charts</li><li>Multiple timeframes</li><li>Drawing tools</li><li>Support and resistance</li><li>Trendlines</li><li>Indicators</li><li>Alerts</li><li>Market analysis</li></ul><p><b>TradingView → Analyse</b></p><p><b>MT5 → Execute and manage trades</b></p></div>
+<img src="tradingview.jpeg" alt="TradingView charting platform">
+</div>
+</section>
+
+<section id="workflow">
+<h2>A Simple Beginner Forex Workflow</h2>
+<div class="flow">
+<div>LEARN</div><span class="arrow">→</span><div>ANALYSE</div><span class="arrow">→</span><div>PLAN THE TRADE</div><span class="arrow">→</span><div>CHECK RISK</div><span class="arrow">→</span><div>EXECUTE</div><span class="arrow">→</span><div>MANAGE</div><span class="arrow">→</span><div>REVIEW</div>
+</div>
+<h3>1. Learn</h3><p>Understand the market and the instrument.</p>
+<h3>2. Analyse</h3><p>Use fundamental and/or technical analysis.</p>
+<h3>3. Plan</h3><p>Determine your entry, stop-loss, and potential target before entering.</p>
+<h3>4. Check Risk</h3><p>Determine how much you are willing to risk.</p>
+<h3>5. Execute</h3><p>Place the trade through your trading platform.</p>
+<h3>6. Manage</h3><p>Follow your trading plan rather than making emotional decisions.</p>
+<h3>7. Review</h3><p>Record the trade and identify what worked and what did not.</p>
+</section>
+
+<section id="risk">
+<h2>Risk Warning</h2>
+<div class="warning"><strong>Forex trading carries substantial risk.</strong><p>Leverage can magnify both profits and losses. A trader can lose money quickly. Beginners should not risk money they cannot afford to lose. A stop-loss can help limit losses but cannot guarantee a specific execution price during all market conditions. Position size should be considered before entering a trade. Past performance does not guarantee future results.</p></div>
+</section>
+
+<section>
+<h2>Before Your First Forex Trade</h2>
+<ul class="check"><li>I understand what a currency pair is.</li><li>I understand base and quote currencies.</li><li>I understand what buying and selling a pair means.</li><li>I understand pips and spreads.</li><li>I understand the basic risks of leverage.</li><li>I have practised on a demo account.</li><li>I understand how to place and close a trade.</li><li>I know where to place my stop-loss.</li><li>I have a basic trading plan.</li><li>I understand that losses are possible.</li></ul>
+</section>
+
+<section>
+<h2>Conclusion</h2>
+<p>Forex trading involves buying and selling currencies in an attempt to benefit from changes in exchange rates. Understanding currency pairs, base and quote currencies, long and short trades, fundamental and technical analysis, trading platforms, and risk management provides a foundation for learning how the forex market works.</p>
+<p>The goal for a beginner should not be to rush into making money. Learn the fundamentals, practise on a demo account, develop a trading plan, understand risk, and build your knowledge progressively.</p>
+</section>
+</article>
+</main>
+
+<footer><div class="wrap">© 2026 Velideas · Financial education, analysis and tools.</div></footer>
+</body>
+</html>
