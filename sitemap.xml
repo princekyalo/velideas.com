@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.velideas.com/index.html</loc>
+  </url>
 
-    <url>
-        <loc>https://www.velideas.com/index.html</loc>
-        <priority>1.0</priority>
-        <changefreq>weekly</changefreq>
-    </url>
+  <url>
+    <loc>https://www.velideas.com/blogs/blogs.html</loc>
+  </url>
 
-    <url>
-        <loc>https://www.velideas.com/blogs/blogs.html</loc>
-        <priority>0.9</priority>
-        <changefreq>weekly</changefreq>
-    </url>
+  <url>
+    <loc>https://www.velideas.com/blogs/forex.html</loc>
+  </url>
 
-    <url>
-        <loc>https://www.velideas.com/blogs/forex.html</loc>
-        <priority>0.9</priority>
-        <changefreq>monthly</changefreq>
-    </url>
+  <url>
+    <loc>https://www.velideas.com/blogs/cryptocurrency.html</loc>
+  </url>
 
-    <url>
-        <loc>https://www.velideas.com/blogs/cryptocurrency.html</loc>
-        <priority>0.9</priority>
-        <changefreq>monthly</changefreq>
-    </url>
-
-    <url>
-        <loc>https://www.velideas.com/blogs/stock_market.html</loc>
-        <priority>0.9</priority>
-        <changefreq>monthly</changefreq>
-    </url>
-
+  <url>
+    <loc>https://www.velideas.com/blogs/stock_market.html</loc>
+  </url>
 </urlset>
