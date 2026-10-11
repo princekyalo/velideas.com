@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#EEF0F5">
+<meta name="description" content="Learn more about Velideas, our mission, and how to connect with us.">
+<title>About Us | Velideas</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+:root {
+  --ink: #1C2033;
+  --soft: #545E75;
+  --muted: #8890A0;
+  --indigo-deep: #232C4C;
+  --indigo: #384B87;
+  --amber: #DDA352;
+  --paper: #EEF0F5;
+  --white: #FFFFFF;
+  --line: #DBE0EA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(1080px, 90%);
+  margin: auto;
+}
+
+/* Navigation */
+nav {
+  border-bottom: 1px solid var(--line);
+  background: rgba(238,240,245,.94);
+}
+
+.nav-inner {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--indigo-deep);
+  display: grid;
+  place-items: center;
+  color: var(--amber);
+  font-size: 20px;
+  font-weight: 700;
+  transform: skew(-5deg);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-links a { color: var(--soft); }
+.nav-links a:hover, .nav-links .active { color: var(--indigo); }
+
+.nav-cta {
+  background: var(--indigo-deep);
+  color: white !important;
+  padding: 11px 19px;
+  border-radius: 8px;
+}
+
+/* Hero */
+.hero {
+  padding: 82px 0 65px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(221,163,82,.12), transparent 58%);
+}
+
+.eyebrow {
+  font: 500 11px 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--indigo);
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 68px);
+  letter-spacing: -2px;
+  margin: 20px 0;
+}
+
+h1 span { color: var(--indigo); }
+
+.hero p {
+  max-width: 620px;
+  margin: auto;
+  color: var(--soft);
+  font-size: 16px;
+}
+
+/* Main content */
+.content { padding: 10px 0 85px; }
+
+.about-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(26px, 5vw, 54px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about-card h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  margin: 13px 0 20px;
+  letter-spacing: -1px;
+}
+
+.about-card p {
+  color: var(--soft);
+  font-size: 15px;
+  margin: 0 0 16px;
+}
+
+.visual {
+  min-height: 310px;
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(145deg, #232C4C, #384B87);
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  right: -75px;
+  top: -75px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 30px rgba(255,255,255,.035),
+              0 0 0 60px rgba(255,255,255,.025);
+}
+
+.visual-mark {
+  font: 500 12px 'IBM Plex Mono', monospace;
+  letter-spacing: 2px;
+  color: #E8C58F;
+}
+
+.visual h3 {
+  font-size: 36px;
+  max-width: 290px;
+  margin: 0 0 12px;
+}
+
+.visual p {
+  color: #E0E4EF;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Contact */
+.contact-heading {
+  text-align: center;
+  margin: 72px 0 30px;
+}
+
+.contact-heading h2 {
+  font-size: 39px;
+  margin: 12px 0;
+}
+
+.contact-heading p {
+  color: var(--soft);
+  margin: 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 27px;
+}
+
+.contact-card h3 {
+  font-size: 25px;
+  margin: 0 0 8px;
+}
+
+.contact-card > p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.phone-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 17px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.phone-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #EDF0F8;
+  color: var(--indigo);
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+}
+
+.social-links {
+  display: grid;
+  gap: 11px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 15px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform .2s, border-color .2s;
+}
+
+.social-btn i {
+  width: 23px;
+  text-align: center;
+  font-size: 19px;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--indigo);
+}
+
+.instagram i { color: #C13584; }
+.tiktok i { color: #111111; }
+.youtube i { color: #FF0000; }
+
+/* Footer */
+footer {
+  background: var(--indigo-deep);
+  color: white;
+  padding: 27px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer .logo { font-size: 20px; }
+footer p {
+  color: #C2C9DA;
+  font-size: 12px;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .nav-inner { min-height: 72px; }
+  .nav-links { gap: 14px; font-size: 12px; }
+  .nav-cta { padding: 9px 12px; }
+  .hero { padding: 60px 0 48px; }
+  .about-card { grid-template-columns: 1fr; gap: 28px; }
+  .visual { min-height: 260px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-heading { margin-top: 55px; }
+}
+
+@media (max-width: 400px) {
+  .logo { font-size: 20px; }
+  .nav-links { gap: 10px; }
+  .nav-links a:first-child { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Velideas home">
+      <span class="logo-mark">V</span>
+      velideas
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blogs.html">Learn</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="#contact" class="nav-cta active">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow">Get to know us</span>
+    <h1>Ideas move us.<br><span>Progress defines us.</span></h1>
+    <p>
+      Discover Velideas, our vision, and the thinking behind
+      a better financial journey.
+    </p>
+  </div>
+</header>
+
+<main class="content">
+  <div class="container">
+
+    <section class="about-card">
+      <div>
+        <span class="eyebrow">About Velideas</span>
+        <h2>Making your next move more informed.</h2>
+
+        <!-- Replace this placeholder with your final company description. -->
+        <p>
+            <h2 style="font-weight:bold;color:#000;display:block;clear:both;width:100%;">What is velideas?</h2>
+            
+          Financial markets reward preparation, discipline, and clear thinking. VelIdeas exists to help traders and investors build all three.
+We are an education and tools platform for people who want to navigate the stock, crypto, and forex markets with confidence. Whether you are placing your first trade or refining an established strategy, we give you the knowledge and resources to move faster and make better-informed decisions.
+        </p>
+
+        <p>
+            <h2 style="font-weight:bold;color:#000;display:block;clear:both;width:100%;">What we do</h2>
+            
+Educational resources. Our learning materials break complex market concepts into clear, practical lessons. They cover the fundamentals of market structure, analysis, and risk management, as well as more advanced techniques.
+Practical tools. We build tools that turn theory into action. They help you analyze opportunities, plan your trades, and manage your risk with greater clarity.
+Three major markets, one platform. Stocks, cryptocurrencies, and forex each have their own dynamics. VelIdeas brings them together, so you can build a well-rounded understanding and apply it wherever opportunity appears.
+        </p>
+        <p>
+            <h2 style="font-weight:bold;color:#000;display:block;clear:both;width:100%;">The founder and the mission</h2>
+            
+          VelIdeas was founded by Prince Kyalo, widely regarded as one of the most promising young forex traders in Kenya. Driven by a deep passion for trading and investing, I recognized a troubling pattern within the online trading space: many aspiring traders were being misled by individuals who marketed courses that offered very little real knowledge yet commanded high prices. My vision for Velideas is a platform built on integrity, transparency, and genuine value, where traders and investors can access quality education and practical tools.
+        </p>
+        <p>
+          <h2 style="font-weight:bold;color:#000;display:block;clear:both;width:100%;">Our patners</h2>
+            
+          VelIdeas collaborates with respected industry partners, including JustMarkets, a forex broker, and Binance, a leading cryptocurrency platform. These partnerships give our community access to established trading services across the forex and crypto markets, complementing the education and tools we provide. There are also other patners who provide technical and contribute educational materials
+        </p>
+      </div>
+
+      <div class="visual">
+        <span class="visual-mark">VELIDEAS / OUR VISION</span>
+        <div>
+          <h3>From an idea to a better decision.</h3>
+          <p>Learn. Analyse. Connect. Move forward.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-heading">
+        <span class="eyebrow">Stay connected</span>
+        <h2>Let's connect.</h2>
+        <p>Reach out or follow Velideas across our social platforms.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>Get in touch</h3>
+          <p>Have a question? We'd be happy to hear from you.</p>
+
+          <a class="phone-link" href="tel:+254795762211">
+            <span class="phone-icon">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            </span>
+            <span>07 95 76 22 11</span>
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Follow our journey</h3>
+          <p>Connect with us for updates, ideas, and insights.</p>
+
+          <div class="social-links">
+            <!-- Replace the placeholder URLs with the official profile links. -->
+            
+            
+            <!--
+            <a class="social-btn instagram"
+               
+               href="https://www.instagram.com/thesharpmillionaire/"
+              </a>
+              
+              
+              
+               target="_blank" rel="noopener noreferrer">
+               
+               
+               
+               
+               
+               
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              Instagram
+              <i class="fa-solid fa-arrow-up-right-from-square"
+                 style="margin-left:auto;font-size:12px;color:#8890A0"
+                 aria-hidden="true"></i>
+            </a>
+            
+            -->
+
+            <a class="social-btn tiktok"
+               href="https://www.tiktok.com/@sharpmillionaire"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+              TikTok
+              <i class="fa-solid fa-arrow-up-right-from-square"
+                 style="margin-left:auto;font-size:12px;color:#8890A0"
+                 aria-hidden="true"></i>
+            </a>
+
+            <a class="social-btn youtube"
+               href="https://www.youtube.com/@sharpmillionaire"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              YouTube
+              <i class="fa-solid fa-arrow-up-right-from-square"
+                 style="margin-left:auto;font-size:12px;color:#8890A0"
+                 aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">V</span>
+      velideas
+    </a>
+    <p>© 2026 Velideas. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
