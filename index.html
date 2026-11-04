@@ -1,833 +1,327 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Velideas — move quicker through your financial journey with practical education, analysis tools, and a trader network.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Velideas — practical financial education, investment analysis and a trader network.">
 <meta name="theme-color" content="#EEF0F5">
-<title>Velideas — Forex, stocks and crypto</title>
-  
-<link rel="icon" type="icon.png" href="/path/to/your-favicon.png">
-
-
-
-
-
+<title>Velideas — Your Financial Journey</title>
+<link rel="icon" href="/path/to/your-favicon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,480;0,9..144,560;1,9..144,460&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,380;9..144,480;9..144,560&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --ink:#1C2033;--soft:#545E75;--muted:#8890A0;
+  --indigo:#384B87;--deep:#232C4C;--amber:#DDA352;
+  --paper:#EEF0F5;--surface:#FFFFFF;--line:#DBE0EA;
+  --serif:'Fraunces',serif;--sans:'Public Sans',sans-serif;
+  --max:900px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
 
+/* BRAND */
 
+header{
+  height:85px;display:flex;align-items:center;
+  border-bottom:1px solid var(--line);
+}
+.logo{
+  font:560 27px var(--serif);
+  letter-spacing:-.7px;
+}
+
+/* NAVIGATION */
+
+nav{
+  display:flex;align-items:center;gap:7px;
+  padding:19px 0;
+  border-bottom:1px solid var(--line);
+}
+nav a{
+  padding:10px 16px;border-radius:7px;
+  font-size:13px;font-weight:500;color:var(--soft);
+  transition:.2s;
+}
+nav a:hover{background:var(--surface);color:var(--ink)}
+nav a.active{
+  background:var(--indigo);color:white;
+  font-weight:600;
+}
+
+/* HERO */
+
+main{padding:85px 0 65px}
+.hero{text-align:center;max-width:680px;margin:auto}
+.eyebrow{
+  color:var(--indigo);font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:23px;
+}
+h1{
+  font:480 clamp(39px,6vw,59px)/1.12 var(--serif);
+  letter-spacing:-1.3px;
+}
+.description{
+  color:var(--soft);max-width:490px;
+  margin:20px auto 0;font-size:15px;line-height:1.8;
+}
+
+/* ACTION LINKS */
+
+.actions{
+  width:min(100%,430px);margin:38px auto 0;
+  display:grid;gap:12px;
+}
+.action{
+  min-height:65px;padding:13px 18px;
+  display:flex;align-items:center;gap:14px;
+  border:1px solid var(--line);border-radius:9px;
+  background:var(--surface);transition:.2s;
+}
+.action:hover{
+  transform:translateY(-2px);border-color:var(--indigo);
+  box-shadow:0 7px 20px rgba(28,32,51,.08);
+}
+.action.primary{
+  background:var(--indigo);border-color:var(--indigo);
+  color:white;box-shadow:0 6px 18px rgba(56,75,135,.17);
+}
+.action.primary:hover{background:var(--deep)}
+.icon{
+  width:37px;height:37px;flex-shrink:0;
+  display:grid;place-items:center;
+  border-radius:8px;background:var(--paper);
+}
+.primary .icon{background:rgba(255,255,255,.12)}
+.icon svg{width:21px;height:21px}
+.action-text{flex:1;text-align:left}
+.action-text strong{display:block;font-size:14px;font-weight:600}
+.action-text small{
+  display:block;margin-top:4px;font-size:11px;color:var(--muted);
+}
+.primary .action-text small{color:#DDE2F1}
+.arrow{font-size:19px;color:var(--muted)}
+.primary .arrow{color:white}
+
+.trust{margin-top:22px;color:var(--muted);font-size:12px}
+.trust span{color:#3F8467}
+
+/* JOURNEY CARDS */
+
+.journey{
+  margin:95px auto 0;padding-top:30px;
+  border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.journey-card{
+  position:relative;overflow:hidden;
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:10px;padding:23px 20px;
+  transition:.2s;
+}
+.journey-card:hover{transform:translateY(-3px);border-color:var(--indigo)}
+.number{
+  font-size:11px;color:var(--amber-deep,var(--amber));
+  letter-spacing:1px;font-weight:700;
+}
+.journey-card h3{
+  font:480 23px var(--serif);margin:24px 0 9px;
+}
+.journey-card p{
+  font-size:12px;color:var(--soft);line-height:1.7;
+  min-height:42px;
+}
+.card-line{
+  width:35px;height:2px;background:var(--indigo);
+  margin-top:19px;border-radius:5px;
+}
+.journey-card:nth-child(2) .card-line{background:var(--amber)}
+.journey-card:nth-child(3) .card-line{background:var(--positive,var(--indigo))}
+
+footer{
+  margin-top:70px;padding:23px 0;
+  border-top:1px solid var(--line);
+  text-align:center;color:var(--muted);font-size:11px;
+}
+
+/* DARK MODE */
+
+@media(prefers-color-scheme:dark){
   :root{
-    --ink:        #1C2033;
-    --ink-soft:   #545E75;
-    --muted:      #8890A0;
-
-    --indigo-deep:#232C4C;
-    --indigo:     #384B87;
-    --amber:      #DDA352;
-    --amber-deep: #C97D3D;
-
-    --paper:      #EEF0F5;
-    --surface:    #FFFFFF;
-    --line:       #DBE0EA;
-
-    --positive:   #3F8467;
-    --negative:   #B85B4A;
-
-    --gradient: linear-gradient(135deg, var(--indigo-deep) 0%, var(--indigo) 48%, var(--amber) 100%);
-
-    --max: 1180px;
-    --serif: "Fraunces", serif;
-    --sans: "Public Sans", sans-serif;
-    --mono: "IBM Plex Mono", monospace;
+    --ink:#FFFFFF;
+    --soft:#C1C5CE;
+    --muted:#9299A6;
+    --paper:#000000;
+    --surface:#111111;
+    --line:#292929;
+    --indigo:#384B87;
+    --deep:#232C4C;
+    --amber:#DDA352;
   }
-
-  *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+  nav a:hover{background:#191919;color:white}
+  .action:not(.primary){background:#111}
+  .icon{background:#202020}
+  .primary .icon{background:rgba(255,255,255,.12)}
+  .journey-card{background:#111;border-color:#292929}
+  .action:hover,.journey-card:hover{
+    box-shadow:0 7px 20px rgba(255,255,255,.035);
   }
-  a{ color:inherit; text-decoration:none; }
-  button{ font-family:inherit; }
-  ::selection{ background: var(--amber); color: var(--indigo-deep); }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-  }
-
-  /* =========================================================
-     NAV
-  ========================================================= */
-  .navbar{
-    width: min(var(--max), calc(100% - 56px));
-    margin: 0 auto;
-    height: 84px;
-    display:flex; align-items:center; justify-content:space-between;
-    border-bottom: 1px solid var(--line);
-  }
-  .logo{ display:flex; align-items:center; gap:10px; }
-  .logo svg{ width:26px; height:26px; }
-  .logo span{
-    font-family: var(--serif);
-    font-weight: 560;
-    font-size: 21px;
-    letter-spacing: -0.3px;
-    color: var(--ink);
-  }
-  .nav-links{ display:flex; align-items:center; gap:32px; }
-  .nav-links a, .about-button{
-    border:none; background:none; cursor:pointer;
-    color: var(--ink-soft);
-    font-size: 15px;
-    font-weight: 500;
-    position: relative;
-    padding: 4px 0;
-  }
-  .nav-links a::after, .about-button::after{
-    content:""; position:absolute; left:0; bottom:-3px;
-    width:0; height:1.5px; background: var(--amber-deep);
-    transition: width .2s ease;
-  }
-  .nav-links a:hover, .about-button:hover{ color: var(--ink); }
-  .nav-links a:hover::after, .about-button:hover::after{ width:100%; }
-
-  /* =========================================================
-     HERO
-  ========================================================= */
-  .hero{
-    width: min(var(--max), calc(100% - 56px));
-    margin: 0 auto;
-    display:grid;
-    grid-template-columns: minmax(0,1.05fr) minmax(360px,.95fr);
-    align-items:center;
-    gap: 80px;
-    padding: 84px 0 100px;
-  }
-  .hero-copy{ opacity:0; transform: translateY(14px); animation: rise .7s ease forwards .1s; }
-  @keyframes rise{ to{ opacity:1; transform:none; } }
-
-  h1{
-    font-family: var(--serif);
-    font-weight: 480;
-    font-size: clamp(40px, 4.6vw, 60px);
-    line-height: 1.08;
-    letter-spacing: -0.5px;
-    max-width: 15ch;
-    color: var(--ink);
-  }
-  .hero-description{
-    max-width: 46ch;
-    margin-top: 24px;
-    color: var(--ink-soft);
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  .cta-area{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top: 34px; }
-  .primary-cta{
-    height: 52px; padding: 0 26px;
-    display:inline-flex; align-items:center;
-    border-radius: 8px;
-    background: var(--indigo);
-    color: #fff;
-    font-family: var(--sans);
-    font-size: 15px; font-weight: 600;
-    cursor: pointer;
-    transition: background .25s ease, transform .2s ease;
-  }
-  .primary-cta:hover{ background: var(--indigo-deep); transform: translateY(-1px); }
-  .cta-note{ color: var(--muted); font-size: 14px; }
-
-  /* =========================================================
-     MOMENTUM PANEL
-  ========================================================= */
-  .panel{
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 28px 26px 26px;
-    opacity:0; transform: translateY(14px); animation: rise .7s ease forwards .28s;
-  }
-  .panel-head{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding-bottom: 18px; border-bottom: 1px solid var(--line);
-    margin-bottom: 22px;
-  }
-  .panel-head h2{
-    font-family: var(--serif); font-weight: 480; font-size: 17px; color: var(--ink);
-  }
-  .panel-head span{ color: var(--muted); font-size: 13px; }
-
-  .stat-row{ display:flex; align-items:flex-end; gap: 14px; margin-bottom: 20px; }
-  .stat-figure{
-    font-family: var(--serif); font-weight: 480;
-    font-size: 44px; letter-spacing: -1px; color: var(--ink);
-  }
-  .stat-figure.positive{ color: var(--positive); }
-  .stat-caption{ color: var(--ink-soft); font-size: 14px; padding-bottom: 6px; }
-
-  .curve-wrap{ position:relative; height: 130px; margin-bottom: 6px; }
-  .curve-wrap svg{ width:100%; height:100%; }
-  .curve-path{
-    fill:none; stroke: url(#curveGradient); stroke-width: 3;
-    stroke-linecap: round; stroke-dasharray: 700; stroke-dashoffset: 700;
-    animation: draw 1.6s cubic-bezier(.4,0,.2,1) forwards .5s;
-  }
-  @keyframes draw{ to{ stroke-dashoffset: 0; } }
-  .curve-dot{ fill: var(--amber-deep); }
-
-  .panel-foot{
-    display:flex; justify-content:space-between;
-    padding-top: 16px; border-top: 1px solid var(--line);
-    font-family: var(--mono); font-size: 12px; color: var(--muted);
-  }
-  .panel-foot b{ color: var(--negative); font-weight:500; }
-
-  /* =========================================================
-     JOURNEY
-  ========================================================= */
-  .journey{
-    width: min(var(--max), calc(100% - 56px));
-    margin: 0 auto;
-    padding: 10px 0 90px;
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 36px;
-  }
-  .journey-step{ position:relative; padding-top: 28px; }
-  .journey-step::before{
-    content:""; position:absolute; top:6px; left:0;
-    width: 9px; height: 9px; border-radius:50%;
-    background: var(--indigo);
-  }
-  .journey-step::after{
-    content:""; position:absolute; top:10px; left:16px; right:-36px;
-    height:1px; background: var(--line);
-  }
-  .journey-step:last-child::after{ display:none; }
-  .journey-step h3{
-    font-family: var(--serif); font-weight: 480; font-size: 18px; margin-bottom: 8px;
-  }
-  .journey-step p{ color: var(--ink-soft); font-size: 14.5px; line-height:1.6; max-width: 26ch; }
-
-  /* =========================================================
-     ABOUT MODAL
-  ========================================================= */
-  .modal-overlay{
-    position:fixed; inset:0; z-index:100; display:none;
-    align-items:center; justify-content:center; padding:20px;
-    background: rgba(28,32,51,.45); backdrop-filter: blur(6px);
-  }
-  .modal-overlay.active{ display:flex; }
-  .modal{
-    width:min(480px,100%); position:relative;
-    background: var(--surface); border:1px solid var(--line); border-radius: 14px;
-    padding: 32px; box-shadow: 0 30px 70px rgba(28,32,51,.2);
-    animation: modalIn .2s ease-out;
-  }
-  @keyframes modalIn{ from{ opacity:0; transform: translateY(8px) scale(.99); } to{ opacity:1; transform:none; } }
-  .modal-close{
-    position:absolute; top:16px; right:16px; width:32px; height:32px;
-    border:1px solid var(--line); border-radius:8px; background:#fff;
-    color: var(--muted); font-size:19px; cursor:pointer;
-  }
-  .modal-close:hover{ color: var(--ink); border-color: var(--indigo); }
-  .modal h2{ font-family: var(--serif); font-weight: 480; font-size: 27px; margin-bottom: 12px; }
-  .modal-description{ color: var(--ink-soft); font-size:14.5px; line-height:1.65; margin-bottom: 24px; }
-  .ceo-title{ font-size:13px; font-weight:600; color: var(--ink); margin-bottom: 10px; }
-  .contacts{ display:grid; gap:8px; }
-  .contact{
-    display:flex; align-items:center; justify-content:space-between; gap:15px;
-    padding: 12px 14px; border:1px solid var(--line); border-radius:8px;
-    background: var(--paper); transition: border-color .2s;
-  }
-  .contact:hover{ border-color: var(--indigo); }
-  .contact-label{ color: var(--muted); font-size: 13px; }
-  .contact-value{ color: var(--indigo); font-family: var(--mono); font-size: 12px; }
-
-  /* =========================================================
-     RESPONSIVE
-  ========================================================= */
-  @media (max-width: 950px){
-    .hero{ grid-template-columns:1fr; gap:52px; padding-top:56px; }
-    .journey{ grid-template-columns: 1fr 1fr; row-gap: 44px; }
-  }
-  @media (max-width: 600px){
-    .navbar, .hero, .journey{ width: calc(100% - 36px); }
-    .navbar{ height:72px; }
-    .nav-links{ gap:16px; }
-    .nav-links a, .about-button{ font-size:13px; }
-    h1{ font-size: clamp(34px, 9vw, 46px); }
-    .primary-cta{ width:100%; justify-content:center; }
-    .journey{ grid-template-columns: 1fr; }
-    .journey-step::after{ display:none; }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-  /* =========================================================
-   VELIDEAS AFFILIATE CARDS
-   ========================================================= */
-
-.velideas-affiliate-section {
-    width: 100%;
-    max-width: 1100px;
-    margin: 45px auto;
-    padding: 0 20px;
-    box-sizing: border-box;
 }
 
-.velideas-affiliate-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+/* MOBILE */
+
+@media(max-width:600px){
+  .container{width:calc(100% - 34px)}
+  header{height:72px}
+  .logo{font-size:25px}
+  nav{gap:2px;overflow-x:auto}
+  nav a{padding:10px 12px;font-size:12px;white-space:nowrap}
+  main{padding:65px 0 45px}
+  .description{font-size:14px}
+  .actions{margin-top:30px}
+  .journey{grid-template-columns:1fr;margin-top:70px}
+  .journey-card{padding:20px}
+  .journey-card h3{margin-top:15px}
+  .journey-card p{min-height:0}
+  .card-line{margin-top:14px}
 }
 
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-.velideas-affiliate-card {
-    position: relative;
-    overflow: hidden;
-
-    background: #ffffff !important;
-    border: 1px solid #dfe2e9 !important;
-    border-radius: 18px !important;
-
-    padding: 28px !important;
-
-    box-shadow:
-        0 8px 25px rgba(20, 30, 60, 0.07) !important;
-
-    box-sizing: border-box;
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important}
 }
-
-
-/* =========================================================
-   ICON
-   ========================================================= */
-
-.velideas-affiliate-icon {
-    width: 46px !important;
-    height: 46px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    margin-bottom: 18px !important;
-
-    background: #f4f5f8 !important;
-    border-radius: 12px !important;
-
-    font-size: 22px !important;
-}
-
-
-/* Forex icon */
-.velideas-forex .velideas-affiliate-icon {
-    color: #00a878 !important;
-}
-
-
-/* Crypto icon */
-.velideas-crypto .velideas-affiliate-icon {
-    color: #f0b90b !important;
-}
-
-
-/* =========================================================
-   HEADINGS
-   ========================================================= */
-
-.velideas-affiliate-card h3 {
-    margin: 0 0 10px !important;
-
-    color: #151b33 !important;
-
-    font-size: 21px !important;
-    font-weight: 700 !important;
-    line-height: 1.25 !important;
-
-    letter-spacing: -0.3px !important;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
-.velideas-affiliate-card p {
-    margin: 0 0 24px !important;
-
-    color: #566078 !important;
-
-    font-size: 15px !important;
-    font-weight: 400 !important;
-
-    line-height: 1.65 !important;
-}
-
-
-/* =========================================================
-   BASE BUTTON
-   ========================================================= */
-
-.velideas-affiliate-section
-.velideas-affiliate-card
-a.velideas-affiliate-button {
-
-    display: flex !important;
-
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    width: 100% !important;
-    min-height: 58px !important;
-
-    padding: 15px 17px !important;
-
-    box-sizing: border-box !important;
-
-    border: none !important;
-    border-radius: 13px !important;
-
-    color: #ffffff !important;
-
-    text-decoration: none !important;
-
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    line-height: 1.15 !important;
-
-    opacity: 1 !important;
-}
-
-
-/* Make absolutely sure button text is visible */
-
-.velideas-affiliate-button span {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
-
-/* =========================================================
-   JUSTMARKETS BUTTON
-   ========================================================= */
-
-.velideas-forex
-.velideas-affiliate-button {
-
-    background: #00a878 !important;
-
-    box-shadow:
-        0 8px 20px rgba(0, 168, 120, 0.22) !important;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease !important;
-}
-
-
-.velideas-forex
-.velideas-affiliate-button:hover {
-
-    background: #008f68 !important;
-
-    transform: translateY(-2px) !important;
-
-    box-shadow:
-        0 11px 25px rgba(0, 168, 120, 0.28) !important;
-}
-
-
-/* =========================================================
-   BINANCE BUTTON
-   ========================================================= */
-
-.velideas-crypto
-.velideas-affiliate-button {
-
-    background: #f0b90b !important;
-
-    color: #181a20 !important;
-
-    box-shadow:
-        0 8px 20px rgba(240, 185, 11, 0.22) !important;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease !important;
-}
-
-
-/* Binance button text should be dark */
-
-.velideas-crypto
-.velideas-affiliate-button span {
-
-    color: #181a20 !important;
-}
-
-
-.velideas-crypto
-.velideas-affiliate-button:hover {
-
-    background: #dca900 !important;
-
-    transform: translateY(-2px) !important;
-
-    box-shadow:
-        0 11px 25px rgba(240, 185, 11, 0.30) !important;
-}
-
-
-/* =========================================================
-   ARROW
-   ========================================================= */
-
-.velideas-affiliate-button span:last-child {
-    font-size: 20px !important;
-    margin-left: 10px !important;
-
-    flex-shrink: 0 !important;
-}
-
-
-/* =========================================================
-   AFFILIATE NOTE
-   ========================================================= */
-
-.velideas-affiliate-note {
-    margin-top: 14px !important;
-
-    color: #7b8498 !important;
-
-    font-size: 11px !important;
-    text-align: center !important;
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .velideas-affiliate-section {
-        margin: 30px auto;
-        padding: 0 15px;
-    }
-
-    .velideas-affiliate-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-    }
-
-    .velideas-affiliate-card {
-        padding: 22px !important;
-        border-radius: 17px !important;
-    }
-
-    .velideas-affiliate-card h3 {
-        font-size: 19px !important;
-    }
-
-    .velideas-affiliate-card p {
-        font-size: 14px !important;
-    }
-
-    .velideas-affiliate-button {
-        font-size: 15px !important;
-    }
-}
-
-
-/* Very small phones */
-
-@media (max-width: 420px) {
-
-    .velideas-affiliate-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .velideas-affiliate-card {
-        padding: 18px !important;
-    }
-
-    .velideas-affiliate-card h3 {
-        font-size: 18px !important;
-    }
-
-    .velideas-affiliate-card p {
-        font-size: 13px !important;
-    }
-
-    .velideas-affiliate-button {
-        min-height: 54px !important;
-        font-size: 14px !important;
-    }
-  }
-
-
-
-  
-  
 </style>
-
-  <!--google adsense-->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3418655256938502"
-     crossorigin="anonymous"></script>
-  
-<script async custom-element="amp-auto-ads"
-      src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-</script>
 </head>
+
 <body>
 
-<amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-3418655256938502">
-</amp-auto-ads>
-  
-<nav class="navbar">
-  <a href="#" class="logo">
-    <svg viewBox="0 0 28 28" fill="none">
-      <defs>
-        <linearGradient id="markGradient" x1="4" y1="24" x2="24" y2="4">
-          <stop offset="0" stop-color="#232C4C"/>
-          <stop offset="1" stop-color="#DDA352"/>
-        </linearGradient>
-      </defs>
-      <path d="M6 22 L20 8" stroke="url(#markGradient)" stroke-width="2.6" stroke-linecap="round"/>
-      <circle cx="22" cy="6" r="3.2" fill="#DDA352"/>
-    </svg>
-    <span>velideas</span>
-  </a>
-  <div class="nav-links">
-    <a href="#learn">Learn</a>
-    <a href="#tools">Tools</a>
-    <button class="about-button" id="openAbout">About us</button>
-  </div>
+<header class="container">
+  <a href="/" class="logo">velideas</a>
+</header>
+
+<nav class="container" aria-label="Main navigation">
+  <a href="/" class="active" aria-current="page">Home</a>
+  <a href="./courses/overview.html">Courses</a>
+  <a href="./blogs/overview.html">blogs</a>
+  <a href="about.html">About</a>
 </nav>
 
-<main>
-  <section class="hero">
-    <div class="hero-copy">
-      <h1>High level financial ideas.</h1>
-      <p class="hero-description">
-        Velideas pairs practical financial education, investment analysis tools, and a trader network — built to close the gap between an idea and a decision.
-      </p>
-      <div class="cta-area">
-        <a href="https://wa.me/254795762211" class="primary-cta"> Free consultation with an expert</a>
-        <span class="cta-note">Most services are free</span>
+<main class="container">
 
-        <!---start forex-->
-        <a href="blogs/forex.html" class="primary-cta"> Free forex crash course</a>
-    
-      
-      </div>
-    </div>
+<section class="hero">
 
-    <div class="panel" aria-hidden="true">
-      <div class="panel-head">
-        <h2>Get access to professional assistance for free</h2>
-        <span>Aug 25–31</span>
-      </div>
+  <span class="eyebrow">Your financial journey starts here</span>
 
-      <div class="stat-row">
-        <span class="stat-figure positive">+18.4%</span>
-        <span class="stat-caption"> Momentum is what matters</span>
-      </div>
+  <h1>High level financial ideas.</h1>
 
-      <div class="curve-wrap">
-        <svg viewBox="0 0 560 130" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="curveGradient" x1="0" y1="0" x2="560" y2="0">
-              <stop offset="0" stop-color="#232C4C"/>
-              <stop offset="0.55" stop-color="#384B87"/>
-              <stop offset="1" stop-color="#DDA352"/>
-            </linearGradient>
-          </defs>
-          <path class="curve-path" d="M4 108 C 80 118, 120 96, 170 84 C 220 72, 240 40, 300 46 C 360 52, 380 22, 440 18 C 480 15, 520 10, 556 6" />
-          <circle class="curve-dot" cx="556" cy="6" r="4.5" />
+  <p class="description">
+    Velideas pairs practical financial education,
+    investment analysis tools, and a trader network —
+    built to close the gap between an idea and a decision.
+  </p>
+
+  <div class="actions">
+
+    <!-- WHATSAPP -->
+    <a class="action primary"
+       href="https://wa.me/254795762211"
+       target="_blank" rel="noopener noreferrer">
+
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="#25D366" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5Z"/>
+          <path d="M8.5 8.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 1c-.2 1.5-1.5 2.5-3 2.2-3.5-.7-6.5-3.7-7.2-7.2-.3-1.5.7-2.8 2.2-3l1 2-1.2 1.2Z"/>
         </svg>
-      </div>
+      </span>
 
-      <div class="panel-foot">
-        <span>Education · Tools · Network</span>
-        <span>Net profit <b>18.4%</b></span>
-      </div>
-    </div>
-  </section>
+      <span class="action-text">
+        <strong>Chat with us</strong>
+        <small>Get personal assistance on WhatsApp</small>
+      </span>
+      <span class="arrow">→</span>
+    </a>
 
+    <!-- COURSES -->
+    <a class="action" href="blogs.html">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H20v16H5.5A2.5 2.5 0 0 0 3 21.5z"/>
+          <path d="M3 5.5v16M7 7h9M7 11h9M7 15h6"/>
+        </svg>
+      </span>
+      <span class="action-text">
+        <strong>Free courses</strong>
+        <small>Learn forex, stocks and cryptocurrency</small>
+      </span>
+      <span class="arrow">→</span>
+    </a>
 
+    <!-- BINANCE -->
+    <a class="action"
+       href="YOUR_BINANCE_REFERRAL_LINK"
+       target="_blank" rel="noopener noreferrer sponsored">
 
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="#DDA352">
+          <path d="M12 2.5 15 5.5 12 8.5 9 5.5zM5.5 9 8.5 12 5.5 15 2.5 12zM18.5 9 21.5 12 18.5 15 15.5 12zM12 15.5l3 3-3 3-3-3zM12 9l3 3-3 3-3-3z"/>
+        </svg>
+      </span>
+      <span class="action-text">
+        <strong>Create Binance account</strong>
+        <small>Explore the world of digital assets</small>
+      </span>
+      <span class="arrow">→</span>
+    </a>
 
+  </div>
 
-
-
-
-  <!--Affiliate marketing links-->
-<section class="velideas-affiliate-section">
-
-    <div class="velideas-affiliate-grid">
-
-        <!-- FOREX -->
-        <div class="velideas-affiliate-card velideas-forex">
-            <div class="velideas-affiliate-icon">
-                ↗
-            </div>
-
-            <h3>Become a forex trader</h3>
-
-            <p>
-                Ready to put your market knowledge into action?
-                Open a trading account and explore the global
-                currency markets.
-            </p>
-
-            <a
-                href="https://one.justmarkets.link/a/svmyx0m6u8"
-                class="velideas-affiliate-button"
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-            >
-                <span>Open a Forex Trading Account</span>
-                <span>→</span>
-            </a>
-        </div>
-
-
-        <!-- CRYPTO -->
-        <div class="velideas-affiliate-card velideas-crypto">
-            <div class="velideas-affiliate-icon">
-                ₿
-            </div>
-
-            <h3>Join the Crypto Market</h3>
-
-            <p>
-                Explore digital assets and start building your
-                crypto portfolio with one of the world's leading
-                cryptocurrency exchanges.
-            </p>
-
-            <a
-                href="https://account.binance.com/register?ref=1122366091&?registerChannel=user_center"
-                class="velideas-affiliate-button"
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-            >
-                <span>Create Your Crypto Account</span>
-                <span>→</span>
-            </a>
-        </div>
-
-    </div>
-
-    <div class="velideas-affiliate-note">
-        Affiliate links · Trading and investing involve risk
-    </div>
+  <p class="trust"><span>✓</span> Free educational resources · Beginner friendly</p>
 
 </section>
 
+<!-- WHAT VELIDEAS OFFERS -->
 
+<section class="journey">
 
+  <article class="journey-card">
+    <span class="number">01 / EDUCATION</span>
+    <h3>Learn.</h3>
+    <p>Build real financial literacy from the ground up.</p>
+    <div class="card-line"></div>
+  </article>
 
+  <article class="journey-card">
+    <span class="number">02 / ANALYSIS</span>
+    <h3>Analyse.</h3>
+    <p>Use tools built for clear, fast market reads.</p>
+    <div class="card-line"></div>
+  </article>
 
+  <article class="journey-card">
+    <span class="number">03 / COMMUNITY</span>
+    <h3>Connect.</h3>
+    <p>Learn alongside traders further down the road.</p>
+    <div class="card-line"></div>
+  </article>
 
-  
-  <section class="journey" id="learn">
-    <div class="journey-step">
-      <h3>Learn</h3>
-      <p>Build real financial literacy from the ground up.</p>
-    </div>
-    <div class="journey-step">
-      <h3>Analyse</h3>
-      <p>Use tools built for clear, fast market reads.</p>
-    </div>
-    <div class="journey-step" id="tools">
-      <h3>Connect</h3>
-      <p>Learn alongside traders further down the road.</p>
-    </div>
-    <div class="journey-step">
-      <h3>Move</h3>
-      <p>Act on ideas while the window is still open.</p>
-    </div>
-  </section>
+</section>
+
 </main>
 
-<div class="modal-overlay" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
-  <div class="modal">
-    <button class="modal-close" id="closeAbout" aria-label="Close">×</button>
-    <h2 id="aboutTitle">About Velideas</h2>
-    <p class="modal-description">
-      Velideas provides financial education, investment analysis tools, and networking opportunities for retail investors and traders. The goal is simple: less friction, clearer decisions, and a quicker path through your financial journey.
-    Velideas was founded by Prince Kyalo aka. The sharp millionaire who is one of the best forex traders in Kenya.
-    </p>
-    
-      <a class="contact" href="about.html" target="_blank" rel="noopener noreferrer">
-        <button class="read-more-about-us">Read more</button>
-        
-      </a>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-  
-<script>
-  const aboutModal = document.getElementById("aboutModal");
-  const openAbout = document.getElementById("openAbout");
-  const closeAbout = document.getElementById("closeAbout");
-
-  function openModal(){
-    aboutModal.classList.add("active");
-    document.body.style.overflow = "hidden";
-    closeAbout.focus();
-  }
-  function closeModal(){
-    aboutModal.classList.remove("active");
-    document.body.style.overflow = "";
-    openAbout.focus();
-  }
-  openAbout.addEventListener("click", openModal);
-  closeAbout.addEventListener("click", closeModal);
-  aboutModal.addEventListener("click", e => { if(e.target === aboutModal) closeModal(); });
-  document.addEventListener("keydown", e => {
-    if(e.key === "Escape" && aboutModal.classList.contains("active")) closeModal();
-  });
-</script>
+<footer class="container">
+  © 2026 Velideas. All rights reserved.
+  <br><br>
+  Trading and investing involve risk.
+</footer>
 
 </body>
 </html>
