@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blogs — Velideas</title>
+    <meta name="description" content="Explore financial education, investment insights and informative articles on Velideas.">
+    <meta name="theme-color" content="#F0F0F6">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           VELIDEAS BLOG PAGE
+        ========================================= */
+
+        :root {
+            --home-bg: #F0F0F6;
+            --home-secondary: #E8EAF2;
+            --home-surface: #FFFFFF;
+            --home-ink: #20243A;
+            --home-muted: #656C80;
+            --home-subtle: #9298A8;
+            --home-primary: #384D8C;
+            --home-deep: #293C73;
+            --home-lavender: #DDE2F2;
+            --home-border: rgba(45,55,90,.09);
+            --home-shadow: 0 12px 35px rgba(35,45,80,.06);
+            --home-heading: 'Fraunces', Georgia, serif;
+            --home-body: 'Public Sans', Arial, sans-serif;
+        }
+
+        html[data-theme="dark"] {
+            --home-bg: #080A0F;
+            --home-secondary: #0D111A;
+            --home-surface: #151B27;
+            --home-ink: #F5F6FA;
+            --home-muted: #A6ADBD;
+            --home-subtle: #737E92;
+            --home-primary: #8298E8;
+            --home-deep: #354D96;
+            --home-lavender: #25304A;
+            --home-border: rgba(255,255,255,.09);
+            --home-shadow: 0 12px 35px rgba(0,0,0,.22);
+        }
+
+        .blog-page {
+            background: var(--home-bg);
+            color: var(--home-ink);
+            font-family: var(--home-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background .3s ease, color .3s ease;
+        }
+
+        .blog-page *,
+        .blog-page *::before,
+        .blog-page *::after {
+            box-sizing: border-box;
+        }
+
+        .blog-page a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-page .container {
+            width: min(1160px, calc(100% - 44px));
+            margin-inline: auto;
+        }
+
+        /* NAVIGATION */
+
+        .home-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--home-bg);
+            background: color-mix(in srgb, var(--home-bg) 94%, transparent);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--home-border);
+        }
+
+        .home-nav-inner {
+            min-height: 78px;
+            width: min(1240px, calc(100% - 44px));
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .home-brand {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .home-brand-name {
+            font-family: var(--home-heading);
+            font-size: 29px;
+            font-weight: 600;
+            letter-spacing: -1.3px;
+            color: var(--home-ink);
+        }
+
+        .home-nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        .home-nav-links a {
+            padding: 11px 17px;
+            border-radius: 30px;
+            color: var(--home-muted);
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: .2s ease;
+        }
+
+        .home-nav-links a:hover,
+        .home-nav-links a.active {
+            color: var(--home-primary);
+            background: var(--home-lavender);
+        }
+
+        .home-nav-actions {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .home-theme-toggle {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--home-border);
+            border-radius: 50%;
+            background: var(--home-surface);
+            color: var(--home-ink);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 19px;
+            transition: .2s ease;
+        }
+
+        .home-theme-toggle:hover {
+            background: var(--home-lavender);
+        }
+
+        /* PAGE HEADER */
+
+        .blog-main {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-main::before {
+            content: "";
+            position: absolute;
+            top: -180px;
+            right: -170px;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                var(--home-lavender),
+                transparent 70%
+            );
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        .blog-section {
+            position: relative;
+            padding: 90px 0 110px;
+        }
+
+        .blog-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 55px;
+        }
+
+        .blog-eyebrow {
+            display: inline-block;
+            color: var(--home-primary);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .blog-header h1 {
+            font-family: var(--home-heading);
+            font-weight: 500;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: -1.8px;
+            line-height: 1.12;
+            margin: 0 0 18px;
+        }
+
+        .blog-header p {
+            max-width: 520px;
+            margin: auto;
+            color: var(--home-muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* BLOG GRID */
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 27px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* REUSABLE BLOG CARD */
+
+        .blog-card {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid var(--home-border);
+            border-radius: 24px;
+            background: var(--home-surface);
+            box-shadow: var(--home-shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(35,45,80,.11);
+        }
+
+        /* IMAGE AND AUTOMATIC PLACEHOLDER */
+
+        .blog-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: linear-gradient(
+                135deg,
+                var(--home-lavender),
+                var(--home-secondary),
+                #C9D2E9
+            );
+            display: grid;
+            place-items: center;
+        }
+
+        .blog-image::before {
+            content: "VELIDEAS";
+            position: absolute;
+            font-family: var(--home-heading);
+            font-size: 28px;
+            letter-spacing: 3px;
+            color: var(--home-primary);
+            opacity: .35;
+        }
+
+        .blog-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: transform .4s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.04);
+        }
+
+        .blog-image img.image-error {
+            display: none;
+        }
+
+        /* CARD CONTENT */
+
+        .blog-content {
+            padding: 27px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .blog-category {
+            color: var(--home-primary);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 13px;
+        }
+
+        .blog-content h2 {
+            font-family: var(--home-heading);
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 1.3;
+            letter-spacing: -.5px;
+            margin: 0 0 12px;
+            color: var(--home-ink);
+        }
+
+        .blog-content p {
+            color: var(--home-muted);
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 0 0 24px;
+        }
+
+        .blog-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: auto;
+            width: fit-content;
+            color: var(--home-primary) !important;
+            font-size: 11px;
+            font-weight: 700;
+            transition: gap .2s ease;
+        }
+
+        .blog-read-more:hover {
+            gap: 16px;
+        }
+
+        .blog-read-more span {
+            font-size: 16px;
+        }
+
+        /* FOOTER */
+
+        .home-footer {
+            padding: 40px 0 25px;
+            border-top: 1px solid var(--home-border);
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            font-family: var(--home-heading);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .footer-copy {
+            color: var(--home-subtle);
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            color: var(--home-muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--home-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--home-border);
+            margin-top: 28px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: var(--home-subtle);
+            font-size: 10px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 950px) {
+            .home-nav-inner {
+                gap: 15px;
+            }
+
+            .home-nav-links {
+                gap: 0;
+            }
+
+            .home-nav-links a {
+                padding: 10px 11px;
+                font-size: 11px;
+            }
+        }
+
+        @media(max-width: 700px) {
+            .home-nav-inner {
+                min-height: auto;
+                padding: 13px 0 11px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .home-brand-name {
+                font-size: 26px;
+            }
+
+            .home-nav-actions {
+                margin-left: auto;
+            }
+
+            .home-nav-links {
+                order: 3;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0,1fr));
+                gap: 4px;
+            }
+
+            .home-nav-links a {
+                text-align: center;
+                padding: 10px 3px;
+                font-size: 11px;
+            }
+
+            .blog-section {
+                padding: 70px 0 85px;
+            }
+
+            .blog-grid {
+                gap: 18px;
+            }
+
+            .blog-content {
+                padding: 22px;
+            }
+        }
+
+        @media(max-width: 520px) {
+            .blog-page .container,
+            .home-nav-inner {
+                width: calc(100% - 32px);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+
+            .blog-header {
+                margin-bottom: 38px;
+            }
+
+            .blog-header h1 {
+                font-size: 3rem;
+            }
+
+            .blog-content h2 {
+                font-size: 23px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            .blog-page *,
+            .blog-page *::before,
+            .blog-page *::after {
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="blog-page">
+
+    <!-- NAVIGATION -->
+
+    <nav class="home-navbar" aria-label="Main navigation">
+        <div class="home-nav-inner">
+
+            <a href="index.html" class="home-brand" aria-label="Velideas home">
+                <span class="home-brand-name">Velideas</span>
+            </a>
+
+            <div class="home-nav-links">
+                <a href="index.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="blogs.html" class="active" aria-current="page">Blogs</a>
+                <a href="tools.html">Tools</a>
+            </div>
+
+            <div class="home-nav-actions">
+                <button class="home-theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Switch to dark theme"
+                        title="Change theme">
+                    <span id="themeIcon" aria-hidden="true">☾</span>
+                </button>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="blog-main">
+
+        <section class="blog-section">
+
+            <div class="container">
+
+                <!-- PAGE TITLE -->
+
+                <header class="blog-header">
+
+                    <span class="blog-eyebrow">
+                        Knowledge & Insights
+                    </span>
+
+                    <h1>Read our Blogs.</h1>
+
+                    <p>
+                        Explore financial ideas, learn about different
+                        markets and discover insights to help you make
+                        more informed financial decisions.
+                    </p>
+
+                </header>
+
+
+                <!-- BLOG CARDS -->
+
+                <div class="blog-grid">
+
+                    <!-- BLOG CARD 1 -->
+
+                    <article class="blog-card">
+
+                        <div class="blog-image">
+
+                            <img
+                                src="images/forex-basics.jpg"
+                                alt="Introduction to forex trading"
+                                loading="lazy"
+                                onerror="this.classList.add('image-error')"
+                            >
+
+                        </div>
+
+                        <div class="blog-content">
+
+                            <span class="blog-category">
+                                Forex Education
+                            </span>
+
+                            <h2>How to Start Trading Forex</h2>
+
+                            <p>
+                                Discover the fundamentals of forex trading,
+                                understand currency pairs and learn what
+                                beginners should know before entering the market.
+                            </p>
+
+                            <a href="how_to_start_forex.html"
+                               class="blog-read-more">
+
+                                Read more <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BLOG CARD 2 -->
+
+                    <article class="blog-card">
+
+                        <div class="blog-image">
+
+                            <img
+                                src="images/stock-market.jpg"
+                                alt="Stock market and investing"
+                                loading="lazy"
+                                onerror="this.classList.add('image-error')"
+                            >
+
+                        </div>
+
+                        <div class="blog-content">
+
+                            <span class="blog-category">
+                                Stock Market
+                            </span>
+
+                            <h2>What Is the Stock Market?</h2>
+
+                            <p>
+                                Understand how the stock market works,
+                                how companies raise capital and how
+                                investors participate in the market.
+                            </p>
+
+                            <a href="stock_market.html"
+                               class="blog-read-more">
+
+                                Read more <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="home-footer">
+
+        <div class="container">
+
+            <div class="footer-inner">
+
+                <div>
+                    <div class="footer-brand">Velideas</div>
+
+                    <div class="footer-copy">
+                        Move quicker through your financial journey.
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="blogs.html">Blogs</a>
+                    <a href="tools.html">Tools</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <span>© 2026 Velideas. All rights reserved.</span>
+
+                <span>Learn. Analyze. Progress.</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- THEME SWITCHING -->
+
+<script>
+(function () {
+
+    const root = document.documentElement;
+    const toggle = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+    const savedTheme = localStorage.getItem("velideas-theme");
+
+    const systemDark = window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function applyTheme(theme) {
+
+        root.setAttribute("data-theme", theme);
+
+        const dark = theme === "dark";
+
+        icon.textContent = dark ? "☀" : "☾";
+
+        toggle.setAttribute(
+            "aria-label",
+            dark ? "Switch to light theme" : "Switch to dark theme"
+        );
+
+        toggle.setAttribute(
+            "title",
+            dark ? "Switch to light theme" : "Switch to dark theme"
+        );
+
+        metaTheme.setAttribute(
+            "content",
+            dark ? "#080A0F" : "#F0F0F6"
+        );
+    }
+
+    applyTheme(savedTheme || (systemDark ? "dark" : "light"));
+
+    toggle.addEventListener("click", function () {
+
+        const current = root.getAttribute("data-theme");
+
+        const next = current === "dark" ? "light" : "dark";
+
+        localStorage.setItem("velideas-theme", next);
+
+        applyTheme(next);
+
+    });
+
+})();
+</script>
+
+</body>
+</html>

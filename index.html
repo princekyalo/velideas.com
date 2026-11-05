@@ -2,326 +2,1547 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Velideas — practical financial education, investment analysis and a trader network.">
-<meta name="theme-color" content="#EEF0F5">
-<title>Velideas — Your Financial Journey</title>
-<link rel="icon" href="/path/to/your-favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Velideas brings together practical financial education, investment analysis tools and financial insights to help you move quicker through your financial journey.">
+    <meta name="theme-color" content="#F0F0F6">
+    <title>Velideas — Move Quicker Through Your Financial Journey</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,380;9..144,480;9..144,560&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --ink:#1C2033;--soft:#545E75;--muted:#8890A0;
-  --indigo:#384B87;--deep:#232C4C;--amber:#DDA352;
-  --paper:#EEF0F5;--surface:#FFFFFF;--line:#DBE0EA;
-  --serif:'Fraunces',serif;--sans:'Public Sans',sans-serif;
-  --max:900px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    <link rel="stylesheet" href="style.css">
 
-/* BRAND */
+    <style>
+        /* =========================================
+           VELIDEAS HOMEPAGE
+        ========================================= */
 
-header{
-  height:85px;display:flex;align-items:center;
-  border-bottom:1px solid var(--line);
-}
-.logo{
-  font:560 27px var(--serif);
-  letter-spacing:-.7px;
-}
+        :root {
+            --home-bg: #F0F0F6;
+            --home-secondary: #E8EAF2;
+            --home-surface: #FFFFFF;
+            --home-ink: #20243A;
+            --home-muted: #656C80;
+            --home-subtle: #9298A8;
+            --home-primary: #384D8C;
+            --home-deep: #293C73;
+            --home-blue: #6177B9;
+            --home-lavender: #DDE2F2;
+            --home-gold: #D9A65B;
+            --home-positive: #348667;
+            --home-border: rgba(45,55,90,.09);
+            --home-shadow: 0 16px 45px rgba(35,45,80,.07);
+            --home-shadow-hover: 0 22px 55px rgba(35,45,80,.12);
+            --home-gradient: linear-gradient(135deg,#DDE2F2,#F5EBDD);
+            --home-heading: 'Fraunces', Georgia, serif;
+            --home-body: 'Public Sans', Arial, sans-serif;
+            --home-data: 'IBM Plex Mono', monospace;
+        }
 
-/* NAVIGATION */
+        html[data-theme="dark"] {
+            --home-bg: #080A0F;
+            --home-secondary: #0D111A;
+            --home-surface: #151B27;
+            --home-ink: #F5F6FA;
+            --home-muted: #A6ADBD;
+            --home-subtle: #737E92;
+            --home-primary: #8298E8;
+            --home-deep: #354D96;
+            --home-blue: #9DADE5;
+            --home-lavender: #25304A;
+            --home-gold: #D9A65B;
+            --home-positive: #43B88A;
+            --home-border: rgba(255,255,255,.09);
+            --home-shadow: 0 16px 45px rgba(0,0,0,.22);
+            --home-shadow-hover: 0 22px 55px rgba(0,0,0,.35);
+            --home-gradient: linear-gradient(135deg,#202B45,#181D2A);
+        }
 
-nav{
-  display:flex;align-items:center;gap:7px;
-  padding:19px 0;
-  border-bottom:1px solid var(--line);
-}
-nav a{
-  padding:10px 16px;border-radius:7px;
-  font-size:13px;font-weight:500;color:var(--soft);
-  transition:.2s;
-}
-nav a:hover{background:var(--surface);color:var(--ink)}
-nav a.active{
-  background:var(--indigo);color:white;
-  font-weight:600;
-}
+        .home-page {
+            background: var(--home-bg);
+            color: var(--home-ink);
+            font-family: var(--home-body);
+            overflow: hidden;
+            transition: background .3s ease,color .3s ease;
+        }
 
-/* HERO */
+        .home-page *,
+        .home-page *::before,
+        .home-page *::after {
+            box-sizing: border-box;
+        }
 
-main{padding:85px 0 65px}
-.hero{text-align:center;max-width:680px;margin:auto}
-.eyebrow{
-  color:var(--indigo);font-size:11px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;margin-bottom:23px;
-}
-h1{
-  font:480 clamp(39px,6vw,59px)/1.12 var(--serif);
-  letter-spacing:-1.3px;
-}
-.description{
-  color:var(--soft);max-width:490px;
-  margin:20px auto 0;font-size:15px;line-height:1.8;
-}
+        .home-page a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-/* ACTION LINKS */
+        .home-page button {
+            font: inherit;
+        }
 
-.actions{
-  width:min(100%,430px);margin:38px auto 0;
-  display:grid;gap:12px;
-}
-.action{
-  min-height:65px;padding:13px 18px;
-  display:flex;align-items:center;gap:14px;
-  border:1px solid var(--line);border-radius:9px;
-  background:var(--surface);transition:.2s;
-}
-.action:hover{
-  transform:translateY(-2px);border-color:var(--indigo);
-  box-shadow:0 7px 20px rgba(28,32,51,.08);
-}
-.action.primary{
-  background:var(--indigo);border-color:var(--indigo);
-  color:white;box-shadow:0 6px 18px rgba(56,75,135,.17);
-}
-.action.primary:hover{background:var(--deep)}
-.icon{
-  width:37px;height:37px;flex-shrink:0;
-  display:grid;place-items:center;
-  border-radius:8px;background:var(--paper);
-}
-.primary .icon{background:rgba(255,255,255,.12)}
-.icon svg{width:21px;height:21px}
-.action-text{flex:1;text-align:left}
-.action-text strong{display:block;font-size:14px;font-weight:600}
-.action-text small{
-  display:block;margin-top:4px;font-size:11px;color:var(--muted);
-}
-.primary .action-text small{color:#DDE2F1}
-.arrow{font-size:19px;color:var(--muted)}
-.primary .arrow{color:white}
+        .home-page .container {
+            width: min(1160px, calc(100% - 44px));
+            margin-inline: auto;
+        }
 
-.trust{margin-top:22px;color:var(--muted);font-size:12px}
-.trust span{color:#3F8467}
+        .home-page .section {
+            padding: 95px 0;
+            position: relative;
+        }
 
-/* JOURNEY CARDS */
+        .home-page .section-heading {
+            max-width: 650px;
+            margin-bottom: 45px;
+        }
 
-.journey{
-  margin:95px auto 0;padding-top:30px;
-  border-top:1px solid var(--line);
-  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
-}
-.journey-card{
-  position:relative;overflow:hidden;
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:10px;padding:23px 20px;
-  transition:.2s;
-}
-.journey-card:hover{transform:translateY(-3px);border-color:var(--indigo)}
-.number{
-  font-size:11px;color:var(--amber-deep,var(--amber));
-  letter-spacing:1px;font-weight:700;
-}
-.journey-card h3{
-  font:480 23px var(--serif);margin:24px 0 9px;
-}
-.journey-card p{
-  font-size:12px;color:var(--soft);line-height:1.7;
-  min-height:42px;
-}
-.card-line{
-  width:35px;height:2px;background:var(--indigo);
-  margin-top:19px;border-radius:5px;
-}
-.journey-card:nth-child(2) .card-line{background:var(--amber)}
-.journey-card:nth-child(3) .card-line{background:var(--positive,var(--indigo))}
+        .home-page .section-heading.center {
+            text-align: center;
+            margin-inline: auto;
+        }
 
-footer{
-  margin-top:70px;padding:23px 0;
-  border-top:1px solid var(--line);
-  text-align:center;color:var(--muted);font-size:11px;
-}
+        .home-page .eyebrow {
+            display: inline-block;
+            color: var(--home-primary);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
 
-/* DARK MODE */
+        .home-page h1,
+        .home-page h2,
+        .home-page h3,
+        .home-page p {
+            margin-top: 0;
+        }
 
-@media(prefers-color-scheme:dark){
-  :root{
-    --ink:#FFFFFF;
-    --soft:#C1C5CE;
-    --muted:#9299A6;
-    --paper:#000000;
-    --surface:#111111;
-    --line:#292929;
-    --indigo:#384B87;
-    --deep:#232C4C;
-    --amber:#DDA352;
-  }
-  nav a:hover{background:#191919;color:white}
-  .action:not(.primary){background:#111}
-  .icon{background:#202020}
-  .primary .icon{background:rgba(255,255,255,.12)}
-  .journey-card{background:#111;border-color:#292929}
-  .action:hover,.journey-card:hover{
-    box-shadow:0 7px 20px rgba(255,255,255,.035);
-  }
-}
+        .home-page h1,
+        .home-page h2 {
+            font-family: var(--home-heading);
+            font-weight: 500;
+            letter-spacing: -1.7px;
+            line-height: 1.12;
+        }
 
-/* MOBILE */
+        .home-page h2 {
+            font-size: clamp(2.2rem,4.5vw,3.5rem);
+            margin-bottom: 15px;
+        }
 
-@media(max-width:600px){
-  .container{width:calc(100% - 34px)}
-  header{height:72px}
-  .logo{font-size:25px}
-  nav{gap:2px;overflow-x:auto}
-  nav a{padding:10px 12px;font-size:12px;white-space:nowrap}
-  main{padding:65px 0 45px}
-  .description{font-size:14px}
-  .actions{margin-top:30px}
-  .journey{grid-template-columns:1fr;margin-top:70px}
-  .journey-card{padding:20px}
-  .journey-card h3{margin-top:15px}
-  .journey-card p{min-height:0}
-  .card-line{margin-top:14px}
-}
+        .home-page h3 {
+            font-family: var(--home-heading);
+            font-size: 23px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{transition:none!important}
-}
-</style>
+        .home-page p {
+            color: var(--home-muted);
+            line-height: 1.85;
+            font-size: 14px;
+        }
+
+        .home-page .section-description {
+            max-width: 570px;
+            margin-inline: auto;
+        }
+
+        /* NAVIGATION */
+
+        .home-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--home-bg);
+            background: color-mix(in srgb,var(--home-bg) 94%,transparent);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--home-border);
+        }
+
+        .home-nav-inner {
+            min-height: 78px;
+            width: min(1240px,calc(100% - 44px));
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .home-brand {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .home-brand-name {
+            font-family: var(--home-heading);
+            font-size: 29px;
+            font-weight: 600;
+            letter-spacing: -1.3px;
+            color: var(--home-ink);
+        }
+
+        .home-nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        .home-nav-links a {
+            padding: 11px 17px;
+            border-radius: 30px;
+            color: var(--home-muted);
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: .2s ease;
+        }
+
+        .home-nav-links a:hover,
+        .home-nav-links a.active {
+            color: var(--home-primary);
+            background: var(--home-lavender);
+        }
+
+        .home-nav-actions {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .home-theme-toggle {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--home-border);
+            border-radius: 50%;
+            background: var(--home-surface);
+            color: var(--home-ink);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 19px;
+            transition: .2s ease;
+        }
+
+        .home-theme-toggle:hover {
+            background: var(--home-lavender);
+        }
+
+        /* HERO */
+
+        .home-hero {
+            position: relative;
+            padding: 100px 0 80px;
+            isolation: isolate;
+        }
+
+        .home-hero::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 520px;
+            height: 520px;
+            top: -190px;
+            right: -180px;
+            border-radius: 50%;
+            background: radial-gradient(circle,var(--home-lavender),transparent 70%);
+            opacity: .65;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 15px;
+            border: 1px solid var(--home-border);
+            border-radius: 30px;
+            background: var(--home-surface);
+            color: var(--home-muted);
+            font-size: 11px;
+            margin-bottom: 25px;
+        }
+
+        .hero-label span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--home-positive);
+        }
+
+        .hero-content h1 {
+            max-width: 660px;
+            font-size: clamp(3.3rem,6.2vw,5.5rem);
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 span {
+            color: var(--home-primary);
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 520px;
+            margin-bottom: 30px;
+            font-size: 15px !important;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .home-btn {
+            min-height: 49px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 0 23px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+
+        .home-btn-primary {
+            background: var(--home-primary);
+            color: white !important;
+        }
+
+        .home-btn-primary:hover {
+            background: var(--home-deep);
+            transform: translateY(-2px);
+        }
+
+        .home-btn-secondary {
+            background: var(--home-surface);
+            border: 1px solid var(--home-border);
+            color: var(--home-ink) !important;
+        }
+
+        .home-btn-secondary:hover {
+            border-color: var(--home-primary);
+            transform: translateY(-2px);
+        }
+
+        /* HERO DASHBOARD - NO ROTATION OR SKEW */
+
+        .hero-visual {
+            min-width: 0;
+            min-height: 390px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .hero-orb {
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            background: var(--home-gradient);
+            filter: blur(3px);
+            z-index: -1;
+        }
+
+        .dashboard-card {
+            width: min(100%,390px);
+            padding: 29px;
+            border: 1px solid var(--home-border);
+            border-radius: 27px;
+            background: var(--home-surface);
+            box-shadow: var(--home-shadow);
+            position: relative;
+            transform: none;
+        }
+
+        .dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .dashboard-title {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .dashboard-status {
+            color: var(--home-positive);
+            background: rgba(52,134,103,.1);
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .dashboard-number {
+            font-family: var(--home-data);
+            font-size: clamp(25px,4vw,36px);
+            letter-spacing: -2px;
+            font-weight: 500;
+        }
+
+        .dashboard-caption {
+            font-size: 11px;
+            color: var(--home-subtle);
+            margin-top: 7px;
+        }
+
+        .dashboard-chart {
+            width: 100%;
+            height: 120px;
+            margin: 25px 0 20px;
+        }
+
+        .dashboard-chart svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .dashboard-chart path.line {
+            fill: none;
+            stroke: var(--home-primary);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+
+        .dashboard-bottom {
+            border-top: 1px solid var(--home-border);
+            padding-top: 17px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+        }
+
+        .dashboard-bottom small {
+            display: block;
+            color: var(--home-subtle);
+            font-size: 9px;
+            margin-bottom: 6px;
+        }
+
+        .dashboard-bottom strong {
+            font-family: var(--home-data);
+            font-size: 11px;
+        }
+
+        .dashboard-note {
+            position: absolute;
+            bottom: 15px;
+            right: -15px;
+            background: var(--home-surface);
+            border: 1px solid var(--home-border);
+            border-radius: 15px;
+            padding: 14px 17px;
+            box-shadow: var(--home-shadow);
+            font-size: 11px;
+        }
+
+        .dashboard-note strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .dashboard-note span {
+            color: var(--home-muted);
+        }
+
+        /* TRUST STRIP */
+
+        .trust-strip {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px 40px;
+            padding: 25px 10px;
+            border-top: 1px solid var(--home-border);
+            border-bottom: 1px solid var(--home-border);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--home-muted);
+            font-size: 11px;
+        }
+
+        .trust-check {
+            color: var(--home-positive);
+            font-weight: 700;
+        }
+
+        /* OFFERINGS */
+
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(3,minmax(0,1fr));
+            gap: 22px;
+        }
+
+        .offering-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 290px;
+            padding: 29px;
+            border-radius: 23px;
+            border: 1px solid var(--home-border);
+            background: var(--home-surface);
+            box-shadow: 0 5px 20px rgba(30,40,70,.025);
+            transition: .25s ease;
+        }
+
+        .offering-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--home-shadow-hover);
+        }
+
+        .offering-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 17px;
+            display: grid;
+            place-items: center;
+            color: var(--home-primary);
+            background: var(--home-lavender);
+            margin-bottom: 26px;
+        }
+
+        .offering-icon svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        .offering-card p {
+            font-size: 12px;
+        }
+
+        .offering-link {
+            margin-top: auto;
+            padding-top: 20px;
+            color: var(--home-primary);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* JOURNEY */
+
+        .journey-section {
+            background: var(--home-secondary);
+            position: relative;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(4,minmax(0,1fr));
+            gap: 17px;
+        }
+
+        .journey-card {
+            background: var(--home-surface);
+            border: 1px solid var(--home-border);
+            border-radius: 21px;
+            padding: 27px 23px;
+            min-width: 0;
+        }
+
+        .journey-number {
+            font-family: var(--home-data);
+            font-size: 12px;
+            color: var(--home-primary);
+            margin-bottom: 27px;
+        }
+
+        .journey-card h3 {
+            font-size: 21px;
+        }
+
+        .journey-card p {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        /* LEARNING SECTION */
+
+        .learning-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .learning-visual {
+            position: relative;
+            min-height: 370px;
+            border-radius: 28px;
+            background: var(--home-gradient);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .learning-circle {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid var(--home-primary);
+            opacity: .2;
+        }
+
+        .learning-circle:nth-child(2) {
+            width: 210px;
+            height: 210px;
+        }
+
+        .learning-circle:nth-child(3) {
+            width: 140px;
+            height: 140px;
+        }
+
+        .learning-center {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .learning-center strong {
+            display: block;
+            font-family: var(--home-heading);
+            font-size: 64px;
+            font-weight: 500;
+            color: var(--home-primary);
+        }
+
+        .learning-center span {
+            color: var(--home-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 10px;
+        }
+
+        .learning-points {
+            display: grid;
+            gap: 22px;
+            margin: 30px 0;
+        }
+
+        .learning-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .learning-check {
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(52,134,103,.12);
+            color: var(--home-positive);
+            font-size: 12px;
+        }
+
+        .learning-point strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .learning-point p {
+            font-size: 11px;
+            margin: 0;
+        }
+
+        /* FINAL CTA */
+
+        .final-cta {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 85px 25px;
+            border-radius: 30px;
+            background: var(--home-deep);
+            color: white;
+            isolation: isolate;
+        }
+
+        .final-cta::before,
+        .final-cta::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.06);
+            z-index: -1;
+        }
+
+        .final-cta::before {
+            top: -190px;
+            right: -60px;
+        }
+
+        .final-cta::after {
+            bottom: -220px;
+            left: -80px;
+        }
+
+        .final-cta h2 {
+            color: white;
+            max-width: 660px;
+            margin: 0 auto 17px;
+        }
+
+        .final-cta p {
+            color: rgba(255,255,255,.75);
+            max-width: 540px;
+            margin: 0 auto 28px;
+        }
+
+        .final-cta .home-btn {
+            background: white;
+            color: #293C73;
+        }
+
+        .final-cta .home-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        .home-footer {
+            padding: 40px 0 25px;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            font-family: var(--home-heading);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .footer-copy {
+            color: var(--home-subtle);
+            font-size: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            color: var(--home-muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--home-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--home-border);
+            margin-top: 28px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: var(--home-subtle);
+            font-size: 10px;
+        }
+
+        /* ACCESSIBILITY */
+
+        .home-page a:focus-visible,
+        .home-page button:focus-visible {
+            outline: 3px solid var(--home-primary);
+            outline-offset: 4px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:950px) {
+            .home-nav-inner {
+                gap: 15px;
+            }
+
+            .home-nav-links {
+                gap: 0;
+            }
+
+            .home-nav-links a {
+                padding: 10px 11px;
+                font-size: 11px;
+            }
+
+            .hero-grid {
+                gap: 30px;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .offerings-grid {
+                gap: 14px;
+            }
+
+            .offering-card {
+                padding: 23px;
+            }
+
+            .journey-grid {
+                grid-template-columns: repeat(2,minmax(0,1fr));
+            }
+
+            .learning-layout {
+                gap: 35px;
+            }
+        }
+
+        @media(max-width:700px) {
+            .home-nav-inner {
+                min-height: auto;
+                padding: 13px 0 11px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .home-brand-name {
+                font-size: 26px;
+            }
+
+            .home-nav-actions {
+                margin-left: auto;
+            }
+
+            .home-nav-links {
+                order: 3;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4,minmax(0,1fr));
+                gap: 4px;
+            }
+
+            .home-nav-links a {
+                text-align: center;
+                padding: 10px 3px;
+                font-size: 11px;
+            }
+
+            .hero-grid,
+            .learning-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content h1,
+            .hero-description {
+                margin-inline: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 350px;
+            }
+
+            .learning-visual {
+                min-height: 290px;
+            }
+
+            .offerings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offering-card {
+                min-height: 245px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .home-page .container,
+            .home-nav-inner {
+                width: calc(100% - 32px);
+            }
+
+            .home-page .section {
+                padding: 68px 0;
+            }
+
+            .home-hero {
+                padding: 65px 0 45px;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2.8rem,12vw,3.8rem);
+            }
+
+            .hero-description {
+                font-size: 13px !important;
+            }
+
+            .hero-visual {
+                min-height: 310px;
+            }
+
+            .hero-orb {
+                width: 260px;
+                height: 260px;
+            }
+
+            .dashboard-card {
+                padding: 21px;
+                width: calc(100% - 12px);
+            }
+
+            .dashboard-number {
+                font-size: 25px;
+            }
+
+            .dashboard-note {
+                right: -3px;
+                bottom: 0;
+                padding: 11px 13px;
+                font-size: 10px;
+            }
+
+            .trust-strip {
+                gap: 14px 18px;
+            }
+
+            .trust-item {
+                font-size: 10px;
+            }
+
+            .journey-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-card {
+                padding: 24px;
+            }
+
+            .learning-center strong {
+                font-size: 52px;
+            }
+
+            .final-cta {
+                padding: 60px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .home-page *,
+            .home-page *::before,
+            .home-page *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="container">
-  <a href="/" class="logo">velideas</a>
-</header>
+<div class="home-page">
 
-<nav class="container" aria-label="Main navigation">
-  <a href="/" class="active" aria-current="page">Home</a>
-  <a href="./courses/overview.html">Courses</a>
-  <a href="./blogs/overview.html">blogs</a>
-  <a href="about.html">About</a>
-</nav>
+    <!-- NAVIGATION -->
 
-<main class="container">
+    <nav class="home-navbar" aria-label="Main navigation">
+        <div class="home-nav-inner">
 
-<section class="hero">
+            <a href="index.html" class="home-brand" aria-label="Velideas home">
+                <span class="home-brand-name">Velideas</span>
+            </a>
 
-  <span class="eyebrow">Your financial journey starts here</span>
+            <div class="home-nav-links">
+                <a href="index.html" class="active" aria-current="page">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="tools.html">Tools</a>
+            </div>
 
-  <h1>High level financial ideas.</h1>
+            <div class="home-nav-actions">
+                <button class="home-theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Switch to dark theme"
+                        title="Change theme">
+                    <span id="themeIcon" aria-hidden="true">☾</span>
+                </button>
+            </div>
 
-  <p class="description">
-    Velideas pairs practical financial education,
-    investment analysis tools, and a trader network —
-    built to close the gap between an idea and a decision.
-  </p>
+        </div>
+    </nav>
 
-  <div class="actions">
 
-    <!-- WHATSAPP -->
-    <a class="action primary"
-       href="https://wa.me/254795762211"
-       target="_blank" rel="noopener noreferrer">
+    <main>
 
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="#25D366" stroke-width="1.8"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5Z"/>
-          <path d="M8.5 8.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 1c-.2 1.5-1.5 2.5-3 2.2-3.5-.7-6.5-3.7-7.2-7.2-.3-1.5.7-2.8 2.2-3l1 2-1.2 1.2Z"/>
-        </svg>
-      </span>
+        <!-- HERO -->
 
-      <span class="action-text">
-        <strong>Chat with us</strong>
-        <small>Get personal assistance on WhatsApp</small>
-      </span>
-      <span class="arrow">→</span>
-    </a>
+        <section class="home-hero">
+            <div class="container">
 
-    <!-- COURSES -->
-    <a class="action" href="blogs.html">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.7"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H20v16H5.5A2.5 2.5 0 0 0 3 21.5z"/>
-          <path d="M3 5.5v16M7 7h9M7 11h9M7 15h6"/>
-        </svg>
-      </span>
-      <span class="action-text">
-        <strong>Free courses</strong>
-        <small>Learn forex, stocks and cryptocurrency</small>
-      </span>
-      <span class="arrow">→</span>
-    </a>
+                <div class="hero-grid">
 
-    <!-- BINANCE -->
-    <a class="action"
-       href="YOUR_BINANCE_REFERRAL_LINK"
-       target="_blank" rel="noopener noreferrer sponsored">
+                    <div class="hero-content">
 
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="#DDA352">
-          <path d="M12 2.5 15 5.5 12 8.5 9 5.5zM5.5 9 8.5 12 5.5 15 2.5 12zM18.5 9 21.5 12 18.5 15 15.5 12zM12 15.5l3 3-3 3-3-3zM12 9l3 3-3 3-3-3z"/>
-        </svg>
-      </span>
-      <span class="action-text">
-        <strong>Create Binance account</strong>
-        <small>Explore the world of digital assets</small>
-      </span>
-      <span class="arrow">→</span>
-    </a>
+                        <div class="hero-label">
+                            <span></span>
+                            Your financial journey starts here
+                        </div>
 
-  </div>
+                        <h1>
+                            Move quicker through your
+                            <span>financial journey.</span>
+                        </h1>
 
-  <p class="trust"><span>✓</span> Free educational resources · Beginner friendly</p>
+                        <p class="hero-description">
+                            Velideas brings together practical financial
+                            education, investment analysis tools and
+                            financial insights to help you turn ideas
+                            into informed decisions.
+                        </p>
 
-</section>
+                        <div class="hero-actions">
+                            <a href="courses.html" class="home-btn home-btn-primary">
+                                Explore courses <span>→</span>
+                            </a>
 
-<!-- WHAT VELIDEAS OFFERS -->
+                            <a href="tools.html" class="home-btn home-btn-secondary">
+                                Discover tools
+                            </a>
+                        </div>
 
-<section class="journey">
+                    </div>
 
-  <article class="journey-card">
-    <span class="number">01 / EDUCATION</span>
-    <h3>Learn.</h3>
-    <p>Build real financial literacy from the ground up.</p>
-    <div class="card-line"></div>
-  </article>
 
-  <article class="journey-card">
-    <span class="number">02 / ANALYSIS</span>
-    <h3>Analyse.</h3>
-    <p>Use tools built for clear, fast market reads.</p>
-    <div class="card-line"></div>
-  </article>
+                    <!-- STRAIGHT FINANCIAL DASHBOARD -->
 
-  <article class="journey-card">
-    <span class="number">03 / COMMUNITY</span>
-    <h3>Connect.</h3>
-    <p>Learn alongside traders further down the road.</p>
-    <div class="card-line"></div>
-  </article>
+                    <div class="hero-visual">
 
-</section>
+                        <div class="hero-orb"></div>
 
-</main>
+                        <div class="dashboard-card">
 
-<footer class="container">
-  © 2026 Velideas. All rights reserved.
-  <br><br>
-  Trading and investing involve risk.
-</footer>
+                            <div class="dashboard-top">
+                                <span class="dashboard-title">
+                                    Your financial journey
+                                </span>
+
+                                <span class="dashboard-status">
+                                    Learn & grow
+                                </span>
+                            </div>
+
+                            <div class="dashboard-number">
+                                Ideas → Decisions
+                            </div>
+
+                            <p class="dashboard-caption">
+                                Knowledge is your first investment.
+                            </p>
+
+                            <div class="dashboard-chart">
+                                <svg viewBox="0 0 320 110"
+                                     preserveAspectRatio="none"
+                                     role="img"
+                                     aria-label="Decorative upward trend line">
+
+                                    <defs>
+                                        <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#6177B9" stop-opacity=".3"/>
+                                            <stop offset="100%" stop-color="#6177B9" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <path
+                                        d="M0 95 C30 85 45 92 70 68 S110 76 140 52 S180 62 205 35 S250 45 280 15 S305 20 320 5 L320 110 L0 110 Z"
+                                        fill="url(#chartFill)"/>
+
+                                    <path class="line"
+                                        d="M0 95 C30 85 45 92 70 68 S110 76 140 52 S180 62 205 35 S250 45 280 15 S305 20 320 5"/>
+                                </svg>
+                            </div>
+
+                            <div class="dashboard-bottom">
+                                <div>
+                                    <small>Education</small>
+                                    <strong>Learn</strong>
+                                </div>
+
+                                <div>
+                                    <small>Analysis</small>
+                                    <strong>Understand</strong>
+                                </div>
+
+                                <div>
+                                    <small>Decisions</small>
+                                    <strong>Progress</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="dashboard-note">
+                            <strong>Knowledge compounds.</strong>
+                            <span>Invest in understanding.</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- VALUE STRIP -->
+
+        <div class="container">
+            <div class="trust-strip">
+
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    Practical financial education
+                </div>
+
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    Beginner-friendly resources
+                </div>
+
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    Investment analysis tools
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- CORE OFFERINGS -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading center">
+                    <span class="eyebrow">Explore Velideas</span>
+
+                    <h2>
+                        Everything begins with an idea.
+                    </h2>
+
+                    <p class="section-description">
+                        Build your financial understanding through
+                        education, insights and practical tools.
+                    </p>
+                </div>
+
+
+                <div class="offerings-grid">
+
+                    <a href="courses.html" class="offering-card">
+
+                        <div class="offering-icon">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.7"
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21v16H5.5A2.5 2.5 0 0 0 3 21z"/>
+                                <path d="M3 5.5V21"/>
+                                <path d="M7 7h9M7 11h9"/>
+                            </svg>
+                        </div>
+
+                        <h3>Financial education</h3>
+
+                        <p>
+                            Learn about forex, stocks, cryptocurrency
+                            and personal finance through accessible
+                            educational resources.
+                        </p>
+
+                        <span class="offering-link">
+                            Explore courses →
+                        </span>
+
+                    </a>
+
+
+                    <a href="tools.html" class="offering-card">
+
+                        <div class="offering-icon">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.7"
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"/>
+                                <path d="m7 14 4-4 3 3 6-7"/>
+                                <path d="M16 6h4v4"/>
+                            </svg>
+                        </div>
+
+                        <h3>Analysis tools</h3>
+
+                        <p>
+                            Explore practical tools designed to help
+                            you evaluate opportunities, understand
+                            financial data and analyze investments.
+                        </p>
+
+                        <span class="offering-link">
+                            Discover tools →
+                        </span>
+
+                    </a>
+
+
+                    <a href="blogs.html" class="offering-card">
+
+                        <div class="offering-icon">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.7"
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 3h14a2 2 0 0 1 2 2v16H7a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2z"/>
+                                <path d="M7 17h14M7 7h9M7 11h9"/>
+                            </svg>
+                        </div>
+
+                        <h3>Financial insights</h3>
+
+                        <p>
+                            Stay informed with educational articles,
+                            financial perspectives and insights into
+                            different investment markets.
+                        </p>
+
+                        <span class="offering-link">
+                            Read our blogs →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FINANCIAL JOURNEY -->
+
+        <section class="section journey-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">The Velideas approach</span>
+
+                    <h2>
+                        A clearer path to better decisions.
+                    </h2>
+
+                    <p>
+                        Financial progress starts with understanding.
+                        Develop your knowledge, evaluate opportunities
+                        and make decisions with greater confidence.
+                    </p>
+                </div>
+
+
+                <div class="journey-grid">
+
+                    <div class="journey-card">
+                        <div class="journey-number">01 / LEARN</div>
+                        <h3>Build knowledge</h3>
+                        <p>
+                            Develop a foundation in financial markets,
+                            investing and personal finance.
+                        </p>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-number">02 / EXPLORE</div>
+                        <h3>Discover opportunities</h3>
+                        <p>
+                            Understand different markets and explore
+                            the opportunities available to investors.
+                        </p>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-number">03 / ANALYZE</div>
+                        <h3>Evaluate ideas</h3>
+                        <p>
+                            Use analytical tools and financial
+                            information to assess your decisions.
+                        </p>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-number">04 / PROGRESS</div>
+                        <h3>Move forward</h3>
+                        <p>
+                            Apply what you learn and continue improving
+                            your financial understanding.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- LEARNING SECTION -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="learning-layout">
+
+                    <div class="learning-visual">
+
+                        <div class="learning-circle"></div>
+                        <div class="learning-circle"></div>
+                        <div class="learning-circle"></div>
+
+                        <div class="learning-center">
+                            <strong>V.</strong>
+                            <span>Ideas into decisions</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="learning-content">
+
+                        <span class="eyebrow">Knowledge creates momentum</span>
+
+                        <h2>
+                            Understand more. Decide better.
+                        </h2>
+
+                        <p>
+                            The financial world can be complicated.
+                            Velideas aims to make it easier to navigate
+                            by bringing learning and practical resources
+                            together in one place.
+                        </p>
+
+
+                        <div class="learning-points">
+
+                            <div class="learning-point">
+                                <span class="learning-check">✓</span>
+
+                                <div>
+                                    <strong>Learn at your own pace</strong>
+                                    <p>
+                                        Access educational resources
+                                        designed to make financial
+                                        concepts easier to understand.
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="learning-point">
+                                <span class="learning-check">✓</span>
+
+                                <div>
+                                    <strong>Explore different markets</strong>
+                                    <p>
+                                        Develop an understanding of
+                                        forex, equities and digital assets.
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="learning-point">
+                                <span class="learning-check">✓</span>
+
+                                <div>
+                                    <strong>Make informed decisions</strong>
+                                    <p>
+                                        Use knowledge and analytical
+                                        resources to evaluate opportunities.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <a href="courses.html" class="home-btn home-btn-primary">
+                            Start learning <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FINAL CALL TO ACTION -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="final-cta">
+
+                    <h2>
+                        Your next financial idea starts here.
+                    </h2>
+
+                    <p>
+                        Take the next step in your financial journey.
+                        Explore educational resources, discover tools
+                        and develop a better understanding of the markets.
+                    </p>
+
+                    <a href="courses.html" class="home-btn">
+                        Get started <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="home-footer">
+        <div class="container">
+
+            <div class="footer-inner">
+
+                <div>
+                    <div class="footer-brand">Velideas</div>
+                    <div class="footer-copy">
+                        Move quicker through your financial journey.
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="blogs.html">Blogs</a>
+                    <a href="tools.html">Tools</a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <span>© 2026 Velideas. All rights reserved.</span>
+                <span>Learn. Analyze. Progress.</span>
+            </div>
+
+        </div>
+    </footer>
+
+</div>
+
+
+<!-- THEME SWITCHING -->
+
+<script>
+(function () {
+    const root = document.documentElement;
+    const toggle = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+    const savedTheme = localStorage.getItem("velideas-theme");
+
+    const systemDark = window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+
+        const dark = theme === "dark";
+
+        icon.textContent = dark ? "☀" : "☾";
+
+        toggle.setAttribute(
+            "aria-label",
+            dark ? "Switch to light theme" : "Switch to dark theme"
+        );
+
+        toggle.setAttribute(
+            "title",
+            dark ? "Switch to light theme" : "Switch to dark theme"
+        );
+
+        metaTheme.setAttribute(
+            "content",
+            dark ? "#080A0F" : "#F0F0F6"
+        );
+    }
+
+    applyTheme(savedTheme || (systemDark ? "dark" : "light"));
+
+    toggle.addEventListener("click", function () {
+        const current = root.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+
+        localStorage.setItem("velideas-theme", next);
+        applyTheme(next);
+    });
+
+})();
+</script>
 
 </body>
 </html>

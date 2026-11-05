@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#EEF0F5">
+<title>Stop Loss Calculator | Velideas</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--ps-bg:#EEF0F5;--ps-card:#FFFFFF;--ps-ink:#1C2033;
+--ps-muted:#788197;--ps-line:#DBE0EA;--ps-accent:#384B87;
+--ps-soft:#E9ECF5;--ps-green:#3F8467;--ps-red:#B85B4A;
+--ps-shadow:0 12px 35px rgba(30,42,75,.06)
+}
+:root[data-theme="dark"]{
+--ps-bg:#090B10;--ps-card:#11151E;--ps-ink:#F1F3F8;
+--ps-muted:#929BAE;--ps-line:#272E3B;--ps-accent:#91A8F2;
+--ps-soft:#1A2130;--ps-green:#62B58D;--ps-red:#E47D70;
+--ps-shadow:0 12px 35px rgba(0,0,0,.2)
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ps-bg);color:var(--ps-ink);font-family:"Public Sans",sans-serif;transition:background .2s,color .2s}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+.ps-navbar{position:sticky;top:0;z-index:20;background:var(--ps-card);border-bottom:1px solid var(--ps-line)}
+.ps-nav-inner{max-width:1180px;margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.ps-logo{font-family:"Fraunces",serif;font-size:25px;font-weight:700;letter-spacing:-1px}
+.ps-nav-links{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:600;color:var(--ps-muted)}
+.ps-nav-links a.active,.ps-nav-links a:hover{color:var(--ps-accent)}
+.ps-theme{border:1px solid var(--ps-line);background:var(--ps-bg);color:var(--ps-ink);padding:9px 12px;border-radius:10px;cursor:pointer;font-size:12px}
+.ps-container{width:min(1180px,calc(100% - 40px));margin:auto}
+.ps-hero{padding:58px 0 34px}
+.ps-eyebrow{font:600 11px "IBM Plex Mono",monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--ps-accent)}
+.ps-hero h1{font:600 clamp(36px,5vw,57px)/1.08 "Fraunces",serif;letter-spacing:-1.5px;margin:14px 0 12px}
+.ps-hero p{max-width:650px;color:var(--ps-muted);font-size:15px;line-height:1.8;margin:0}
+.ps-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(310px,.8fr);gap:22px;align-items:start;padding-bottom:65px}
+.ps-card{background:var(--ps-card);border:1px solid var(--ps-line);border-radius:18px;box-shadow:var(--ps-shadow);padding:25px}
+.ps-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.ps-card h2{font:600 22px "Fraunces",serif;margin:0}
+.ps-card-head p{font-size:12px;color:var(--ps-muted);margin:5px 0 0}
+.ps-section-label{font:600 10px "IBM Plex Mono",monospace;color:var(--ps-accent);letter-spacing:1.2px;text-transform:uppercase;margin:25px 0 13px}
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.ps-field{min-width:0}
+.ps-field label{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:600;margin-bottom:8px}
+.ps-field label span{font:11px "IBM Plex Mono",monospace;color:var(--ps-muted)}
+.ps-field input,.ps-field select{width:100%;min-width:0;padding:13px 12px;border:1px solid var(--ps-line);border-radius:10px;background:var(--ps-bg);color:var(--ps-ink);outline:none;font:13px "IBM Plex Mono",monospace}
+.ps-field input:focus,.ps-field select:focus{border-color:var(--ps-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--ps-accent) 13%,transparent)}
+.ps-hint{font-size:10px;color:var(--ps-muted);line-height:1.5;margin-top:6px}
+.ps-full{grid-column:1/-1}
+.ps-result-main{padding:22px;border-radius:14px;background:var(--ps-soft);margin-bottom:17px}
+.ps-result-main small{font:10px "IBM Plex Mono",monospace;color:var(--ps-muted);letter-spacing:1px;text-transform:uppercase}
+.ps-result-main strong{display:block;font:600 clamp(32px,4vw,43px) "Fraunces",serif;margin:8px 0 5px;overflow-wrap:anywhere}
+.ps-result-main p{font-size:11px;color:var(--ps-muted);margin:0}
+.ps-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ps-metric{padding:14px;border:1px solid var(--ps-line);border-radius:12px;min-width:0}
+.ps-metric span{display:block;font-size:10px;color:var(--ps-muted);line-height:1.4}
+.ps-metric strong{display:block;font:600 17px "IBM Plex Mono",monospace;margin-top:8px;overflow-wrap:anywhere}
+.ps-metric small{display:block;font-size:10px;color:var(--ps-muted);margin-top:5px}
+.ps-status{margin-top:16px;padding:12px;border-radius:10px;background:var(--ps-bg);font-size:11px;line-height:1.6;color:var(--ps-muted)}
+.ps-status.error{color:var(--ps-red)}
+.ps-status.success{color:var(--ps-green)}
+.ps-formula{margin-top:18px;padding-top:17px;border-top:1px solid var(--ps-line)}
+.ps-formula h3{font:600 15px "Fraunces",serif;margin:0 0 9px}
+.ps-formula p{font-size:11px;line-height:1.7;color:var(--ps-muted);margin:0}
+.ps-actions{display:flex;gap:9px;margin-top:17px}
+.ps-btn{flex:1;border:1px solid var(--ps-line);border-radius:10px;padding:12px;background:var(--ps-bg);color:var(--ps-ink);font-size:11px;font-weight:700;cursor:pointer}
+.ps-btn.primary{background:var(--ps-accent);color:white;border-color:var(--ps-accent)}
+.ps-btn:hover{filter:brightness(1.08)}
+.ps-footer{border-top:1px solid var(--ps-line);padding:27px 20px;text-align:center;color:var(--ps-muted);font-size:11px;line-height:1.8}
+.ps-footer strong{font-family:"Fraunces",serif;color:var(--ps-ink);font-size:18px}
+.ps-note{font-size:10px;color:var(--ps-muted);line-height:1.7;margin-top:16px}
+@media(max-width:800px){.ps-layout{grid-template-columns:1fr}}
+@media(max-width:560px){
+.ps-nav-inner{padding:14px 16px;flex-wrap:wrap}
+.ps-nav-links{order:3;width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;font-size:11px}
+.ps-theme{margin-left:auto}
+.ps-container{width:calc(100% - 28px)}
+.ps-hero{padding:40px 0 27px}
+.ps-card{padding:18px}
+.ps-grid{gap:12px}
+.ps-field input,.ps-field select{padding:12px 9px;font-size:12px}
+.ps-metric strong{font-size:15px}
+}
+@media(max-width:370px){.ps-grid{grid-template-columns:1fr}.ps-full{grid-column:auto}}
+</style>
+</head>
+
+<body>
+
+<header class="ps-navbar">
+<nav class="ps-nav-inner">
+<a href="../index.html" class="ps-logo">velideas</a>
+<div class="ps-nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html">Courses</a>
+<a href="../blogs.html">Blogs</a>
+<a href="../tools.html" class="active">Tools</a>
+</div>
+<button class="ps-theme" id="themeToggle" type="button">◐ Theme</button>
+</nav>
+</header>
+
+<main class="ps-container">
+
+<section class="ps-hero">
+<div class="ps-eyebrow">Trading risk management / Tool 02</div>
+<h1>Stop Loss Calculator.</h1>
+<p>Determine a logical stop-loss price using your entry, risk tolerance, position size or technical stop distance. Calculate the potential loss before entering a trade and understand how much of your account is exposed.</p>
+</section>
+
+<section class="ps-layout">
+
+<div class="ps-card">
+<div class="ps-card-head">
+<div>
+<h2>Trade parameters</h2>
+<p>Define your trade and stop-loss requirements.</p>
+</div>
+</div>
+
+<div class="ps-section-label">01 / Account settings</div>
+<div class="ps-grid">
+<div class="ps-field">
+<label for="account">Account balance</label>
+<input id="account" type="number" min="0" step="any" value="10000">
+</div>
+<div class="ps-field">
+<label for="currency">Account currency</label>
+<select id="currency">
+<option value="USD">USD ($)</option>
+<option value="KES">KES (KSh)</option>
+<option value="EUR">EUR (€)</option>
+<option value="GBP">GBP (£)</option>
+<option value="JPY">JPY (¥)</option>
+<option value="USDT">USDT</option>
+</select>
+</div>
+<div class="ps-field ps-full">
+<label for="risk">Maximum account risk <span id="riskLabel">1.00%</span></label>
+<input id="risk" type="number" min="0.01" max="100" step="0.01" value="1">
+<div class="ps-hint">The maximum amount you are willing to lose if the stop-loss is reached.</div>
+</div>
+</div>
+
+<div class="ps-section-label">02 / Trade setup</div>
+<div class="ps-grid">
+<div class="ps-field">
+<label for="direction">Trade direction</label>
+<select id="direction">
+<option value="long">Long / Buy</option>
+<option value="short">Short / Sell</option>
+</select>
+</div>
+<div class="ps-field">
+<label for="method">Stop method</label>
+<select id="method">
+<option value="distance">Price distance</option>
+<option value="percent">Percentage distance</option>
+<option value="atr">ATR-based distance</option>
+<option value="risk">Maximum cash risk</option>
+</select>
+</div>
+<div class="ps-field">
+<label for="entry">Entry price</label>
+<input id="entry" type="number" min="0" step="any" value="100">
+</div>
+<div class="ps-field">
+<label for="size">Position quantity</label>
+<input id="size" type="number" min="0" step="any" value="100">
+<div class="ps-hint">Number of shares, units or contracts.</div>
+</div>
+<div class="ps-field" id="distanceField">
+<label for="distance">Stop distance (price)</label>
+<input id="distance" type="number" min="0" step="any" value="2">
+</div>
+<div class="ps-field" id="percentField" hidden>
+<label for="percent">Stop distance (%)</label>
+<input id="percent" type="number" min="0" step="any" value="2">
+</div>
+<div class="ps-field" id="atrField" hidden>
+<label for="atr">Average True Range (ATR)</label>
+<input id="atr" type="number" min="0" step="any" value="1">
+</div>
+<div class="ps-field" id="multiplierField" hidden>
+<label for="multiplier">ATR multiplier</label>
+<input id="multiplier" type="number" min="0" step="any" value="2">
+</div>
+<div class="ps-field" id="cashRiskField" hidden>
+<label for="cashRisk">Maximum cash risk</label>
+<input id="cashRisk" type="number" min="0" step="any" value="100">
+</div>
+<div class="ps-field">
+<label for="pointValue">Value per 1.0 price move</label>
+<input id="pointValue" type="number" min="0" step="any" value="1">
+<div class="ps-hint">Account-currency value per unit for a 1.0 price movement.</div>
+</div>
+<div class="ps-field">
+<label for="fee">Round-trip fee per unit</label>
+<input id="fee" type="number" min="0" step="any" value="0">
+<div class="ps-hint">Estimated total entry and exit costs per unit.</div>
+</div>
+</div>
+
+<div class="ps-note">
+For forex, CFDs and futures, use your broker's contract and tick-value specifications. The value-per-price-move field must be expressed in your account currency. This calculator assumes a linear price-to-P/L relationship.
+</div>
+</div>
+
+<aside class="ps-card">
+<div class="ps-card-head">
+<div>
+<h2>Stop loss analysis</h2>
+<p>Live calculation from your inputs.</p>
+</div>
+</div>
+
+<div class="ps-result-main">
+<small>Recommended stop-loss price</small>
+<strong id="stopPrice">—</strong>
+<p id="stopDirection">Your calculated protective exit level</p>
+</div>
+
+<div class="ps-metrics">
+<div class="ps-metric">
+<span>Stop distance</span>
+<strong id="stopDistance">—</strong>
+<small>Absolute price difference</small>
+</div>
+<div class="ps-metric">
+<span>Stop distance (%)</span>
+<strong id="stopPercent">—</strong>
+<small>Relative to entry</small>
+</div>
+<div class="ps-metric">
+<span>Maximum risk budget</span>
+<strong id="riskBudget">—</strong>
+<small>Account-based risk limit</small>
+</div>
+<div class="ps-metric">
+<span>Estimated loss</span>
+<strong id="lossAmount">—</strong>
+<small>Including estimated fees</small>
+</div>
+<div class="ps-metric">
+<span>Account exposure</span>
+<strong id="accountRisk">—</strong>
+<small>Percentage of account</small>
+</div>
+<div class="ps-metric">
+<span>Position value</span>
+<strong id="positionValue">—</strong>
+<small>Entry price × quantity</small>
+</div>
+<div class="ps-metric">
+<span>Risk per unit</span>
+<strong id="unitRisk">—</strong>
+<small>Including fees</small>
+</div>
+<div class="ps-metric">
+<span>Remaining risk budget</span>
+<strong id="remainingRisk">—</strong>
+<small>Unused risk capacity</small>
+</div>
+</div>
+
+<div class="ps-status" id="status" role="status" aria-live="polite">
+Enter your trade parameters to calculate a stop-loss level.
+</div>
+
+<div class="ps-formula">
+<h3>Calculation method</h3>
+<p>
+Long stop = Entry − Stop distance.<br>
+Short stop = Entry + Stop distance.<br>
+Estimated loss = Distance × Value per price move × Quantity + Fees.
+</p>
+</div>
+
+<div class="ps-actions">
+<button class="ps-btn" id="resetBtn" type="button">Reset</button>
+<button class="ps-btn primary" id="copyBtn" type="button">Copy analysis</button>
+</div>
+</aside>
+
+</section>
+</main>
+
+<footer class="ps-footer">
+<strong>velideas</strong><br>
+Practical financial education, analysis tools and investment insights.<br>
+© 2026 Velideas. All rights reserved.
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const ids=["account","currency","risk","direction","method","entry","size","distance","percent","atr","multiplier","cashRisk","pointValue","fee"];
+
+const defaults={
+account:"10000",currency:"USD",risk:"1",direction:"long",method:"distance",
+entry:"100",size:"100",distance:"2",percent:"2",atr:"1",multiplier:"2",
+cashRisk:"100",pointValue:"1",fee:"0"
+};
+
+function n(id){return Number($(id).value)}
+function money(value,currency){
+if(!Number.isFinite(value))return "—";
+try{return new Intl.NumberFormat("en",{style:"currency",currency,maximumFractionDigits:2}).format(value)}
+catch{return value.toFixed(2)+" "+currency}
+}
+function show(id,value){$(id).textContent=value}
+function clearResults(){
+["stopPrice","stopDistance","stopPercent","riskBudget","lossAmount","accountRisk","positionValue","unitRisk","remainingRisk"].forEach(id=>show(id,"—"));
+}
+
+function updateMethod(){
+const method=$("method").value;
+$("distanceField").hidden=method!=="distance";
+$("percentField").hidden=method!=="percent";
+$("atrField").hidden=method!=="atr";
+$("multiplierField").hidden=method!=="atr";
+$("cashRiskField").hidden=method!=="risk";
+calculate();
+}
+
+function calculate(){
+const account=n("account");
+const riskPct=n("risk");
+const entry=n("entry");
+const size=n("size");
+const pointValue=n("pointValue");
+const fee=n("fee");
+const direction=$("direction").value;
+const method=$("method").value;
+const currency=$("currency").value;
+
+show("riskLabel",Number.isFinite(riskPct)?riskPct.toFixed(2)+"%":"—");
+
+const values=[account,riskPct,entry,size,pointValue,fee];
+if(!values.every(Number.isFinite)||account<=0||riskPct<=0||riskPct>100||entry<=0||size<=0||pointValue<=0||fee<0){
+clearResults();
+$("status").className="ps-status error";
+show("status","Enter valid positive values for account balance, risk, entry price, quantity and price-move value. Fees cannot be negative.");
+return;
+}
+
+const riskBudget=account*riskPct/100;
+let distance=0;
+
+if(method==="distance") distance=n("distance");
+if(method==="percent") distance=entry*n("percent")/100;
+if(method==="atr") distance=n("atr")*n("multiplier");
+if(method==="risk"){
+const cash=n("cashRisk");
+const availableDistance=(cash/size-fee)/pointValue;
+distance=availableDistance;
+}
+
+const methodValues=method==="distance"?[n("distance")]:
+method==="percent"?[n("percent")]:
+method==="atr"?[n("atr"),n("multiplier")]:
+[n("cashRisk")];
+
+if(!methodValues.every(Number.isFinite)||methodValues.some(v=>v<=0)||!Number.isFinite(distance)||distance<=0){
+clearResults();
+$("status").className="ps-status error";
+show("status","The selected stop method requires positive, valid inputs. Check your stop distance, percentage, ATR multiplier or cash risk.");
+return;
+}
+
+const stopPrice=direction==="long"?entry-distance:entry+distance;
+const percentDistance=distance/entry*100;
+const priceRisk=distance*pointValue*size;
+const totalFees=fee*size;
+const totalLoss=priceRisk+totalFees;
+const actualRiskPct=totalLoss/account*100;
+const remaining=riskBudget-totalLoss;
+const positionValue=entry*size;
+const unitRisk=distance*pointValue+fee;
+
+show("stopPrice",stopPrice.toFixed(8).replace(/\.?0+$/,""));
+show("stopDirection",direction==="long"?"Protective exit below entry":"Protective exit above entry");
+show("stopDistance",distance.toFixed(6).replace(/\.?0+$/,""));
+show("stopPercent",percentDistance.toFixed(3)+"%");
+show("riskBudget",money(riskBudget,currency));
+show("lossAmount",money(totalLoss,currency));
+show("accountRisk",actualRiskPct.toFixed(3)+"%");
+show("positionValue",money(positionValue,currency));
+show("unitRisk",money(unitRisk,currency));
+show("remainingRisk",money(remaining,currency));
+
+const status=$("status");
+if(method==="risk"){
+if(totalLoss>riskBudget+0.000001){
+status.className="ps-status error";
+status.textContent="The selected cash-risk stop exceeds your account risk budget. Reduce the cash risk or position quantity.";
+}else{
+status.className="ps-status success";
+status.textContent="Stop-loss calculated from your cash-risk input. Confirm that this level also makes sense relative to market structure and volatility.";
+}
+}else if(totalLoss>riskBudget+0.000001){
+status.className="ps-status error";
+status.textContent="Warning: this stop-loss exposes more than your selected account risk limit. Reduce position size or stop distance.";
+}else{
+status.className="ps-status success";
+status.textContent=`Your estimated loss is ${money(totalLoss,currency)}, equal to ${actualRiskPct.toFixed(3)}% of account balance. The position is within your selected risk budget.`;
+}
+
+window.stopAnalysis={
+account,currency,riskPct,riskBudget,entry,size,direction,method,
+stopPrice,distance,percentDistance,priceRisk,totalFees,totalLoss,
+actualRiskPct,positionValue,unitRisk,remaining
+};
+}
+
+ids.forEach(id=>{
+$(id).addEventListener("input",calculate);
+$(id).addEventListener("change",calculate);
+});
+$("method").addEventListener("change",updateMethod);
+
+$("resetBtn").addEventListener("click",()=>{
+ids.forEach(id=>$(id).value=defaults[id]);
+updateMethod();
+});
+
+$("copyBtn").addEventListener("click",async()=>{
+const a=window.stopAnalysis;
+if(!a){
+show("status","No valid calculation is available to copy.");
+return;
+}
+const report=[
+"VELIDEAS — STOP LOSS ANALYSIS",
+"Direction: "+a.direction.toUpperCase(),
+"Method: "+a.method,
+"Account balance: "+money(a.account,a.currency),
+"Risk percentage: "+a.riskPct+"%",
+"Risk budget: "+money(a.riskBudget,a.currency),
+"Entry price: "+a.entry,
+"Stop-loss price: "+a.stopPrice,
+"Stop distance: "+a.distance,
+"Stop distance (%): "+a.percentDistance.toFixed(3)+"%",
+"Quantity: "+a.size,
+"Estimated loss: "+money(a.totalLoss,a.currency),
+"Account exposure: "+a.actualRiskPct.toFixed(3)+"%",
+"Position value: "+money(a.positionValue,a.currency),
+"",
+"Educational estimate only. Verify spread, slippage, fees, contract specifications and execution conditions with your broker."
+].join("\n");
+
+try{
+await navigator.clipboard.writeText(report);
+$("status").className="ps-status success";
+show("status","Stop-loss analysis copied to clipboard.");
+}catch{
+$("status").className="ps-status error";
+show("status","Clipboard access unavailable. Copy the displayed figures manually.");
+}
+});
+
+const root=document.documentElement;
+const saved=localStorage.getItem("velideas-theme");
+const dark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+root.dataset.theme=saved||(dark?"dark":"light");
+
+$("themeToggle").addEventListener("click",()=>{
+root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";
+localStorage.setItem("velideas-theme",root.dataset.theme);
+});
+
+calculate();
+</script>
+</body>
+</html>

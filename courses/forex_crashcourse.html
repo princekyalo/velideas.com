@@ -1,0 +1,1008 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#EEF0F5">
+<title>Course Lessons | Velideas</title>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--c-bg:#EEF0F5;
+--c-card:#FFFFFF;
+--c-ink:#1C2033;
+--c-muted:#788197;
+--c-line:#DBE0EA;
+--c-accent:#384B87;
+--c-soft:#E9ECF5;
+--c-green:#3F8467;
+--c-shadow:0 12px 35px rgba(30,42,75,.06);
+--progress-height:48px;
+--toolbar-height:55px;
+}
+
+:root[data-theme="dark"]{
+--c-bg:#090B10;
+--c-card:#11151E;
+--c-ink:#F1F3F8;
+--c-muted:#929BAE;
+--c-line:#272E3B;
+--c-accent:#91A8F2;
+--c-soft:#1A2130;
+--c-green:#62B58D;
+--c-shadow:0 12px 35px rgba(0,0,0,.2);
+}
+
+*{box-sizing:border-box}
+
+html{
+scroll-behavior:smooth;
+scroll-padding-top:calc(var(--progress-height) + var(--toolbar-height) + 20px);
+}
+
+body{
+margin:0;
+background:var(--c-bg);
+color:var(--c-ink);
+font-family:"Public Sans",sans-serif;
+transition:background .2s,color .2s;
+}
+
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+/* NAVIGATION */
+
+.course-navbar{
+position:relative;
+width:100%;
+z-index:10;
+background:var(--c-card);
+border-bottom:1px solid var(--c-line);
+}
+
+.nav-inner{
+max-width:1180px;
+margin:auto;
+padding:17px 24px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+font-family:"Fraunces",serif;
+font-size:25px;
+font-weight:700;
+letter-spacing:-1px;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:27px;
+font-size:13px;
+font-weight:600;
+color:var(--c-muted);
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+color:var(--c-accent);
+}
+
+.theme-toggle{
+border:1px solid var(--c-line);
+background:var(--c-bg);
+color:var(--c-ink);
+padding:9px 12px;
+border-radius:10px;
+cursor:pointer;
+font-size:12px;
+}
+
+/* PAGE HEADER */
+
+.course-wrapper{
+width:min(1000px,calc(100% - 40px));
+margin:auto;
+}
+
+.course-header{
+padding:55px 0 28px;
+}
+
+.course-eyebrow{
+font:600 11px "IBM Plex Mono",monospace;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:var(--c-accent);
+}
+
+.course-header h1{
+font:600 clamp(39px,6vw,62px)/1.08 "Fraunces",serif;
+letter-spacing:-1.7px;
+margin:15px 0 12px;
+}
+
+.course-header p{
+max-width:680px;
+font-size:14px;
+line-height:1.8;
+color:var(--c-muted);
+margin:0;
+}
+
+/* STICKY PROGRESS BAR */
+
+.progress-section{
+position:sticky;
+top:0;
+z-index:100;
+width:min(1000px,calc(100% - 40px));
+margin:0 auto;
+padding:12px 16px;
+background:var(--c-card);
+border:1px solid var(--c-line);
+border-radius:0 0 10px 10px;
+box-shadow:var(--c-shadow);
+}
+
+.progress-info{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+margin-bottom:9px;
+font:11px "IBM Plex Mono",monospace;
+color:var(--c-muted);
+}
+
+.progress-track{
+height:5px;
+background:var(--c-line);
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-fill{
+width:0%;
+height:100%;
+background:var(--c-accent);
+border-radius:20px;
+transition:width .15s linear;
+}
+
+/* STICKY LESSON TOOLBAR */
+
+.lesson-toolbar{
+position:sticky;
+top:var(--progress-height);
+z-index:99;
+width:min(1000px,calc(100% - 40px));
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+margin:0 auto;
+padding:10px 16px;
+background:var(--c-card);
+border:1px solid var(--c-line);
+border-top:0;
+border-radius:0 0 12px 12px;
+box-shadow:var(--c-shadow);
+}
+
+.menu-button{
+display:flex;
+align-items:center;
+gap:9px;
+padding:11px 15px;
+border:1px solid var(--c-line);
+border-radius:10px;
+background:var(--c-card);
+color:var(--c-ink);
+font-size:12px;
+font-weight:700;
+cursor:pointer;
+}
+
+.menu-button:hover{
+border-color:var(--c-accent);
+}
+
+.menu-icon{font-size:17px}
+
+.current-lesson-label{
+font:11px "IBM Plex Mono",monospace;
+color:var(--c-muted);
+text-align:right;
+}
+
+/* LESSON CONTAINERS */
+
+.lessons{
+display:flex;
+flex-direction:column;
+gap:24px;
+padding-top:24px;
+padding-bottom:75px;
+}
+
+.lesson-container{
+background:var(--c-card);
+border:1px solid var(--c-line);
+border-radius:18px;
+box-shadow:var(--c-shadow);
+padding:30px;
+scroll-margin-top:calc(var(--progress-height) + var(--toolbar-height) + 25px);
+}
+
+.lesson-number{
+font:600 10px "IBM Plex Mono",monospace;
+letter-spacing:1.4px;
+color:var(--c-accent);
+text-transform:uppercase;
+margin-bottom:12px;
+}
+
+.lesson-title{
+font:600 clamp(25px,4vw,34px)/1.2 "Fraunces",serif;
+letter-spacing:-.5px;
+margin:0 0 20px;
+}
+
+.lesson-content{
+font-size:14px;
+line-height:1.9;
+color:var(--c-muted);
+}
+
+.lesson-content p{margin:0 0 17px}
+
+.lesson-content h3{
+font:600 20px "Fraunces",serif;
+color:var(--c-ink);
+margin:25px 0 12px;
+}
+
+.lesson-image{
+width:100%;
+height:350px;
+margin-top:25px;
+border-radius:13px;
+overflow:hidden;
+background:linear-gradient(135deg,#232C4C,#384B87,#DDA352);
+position:relative;
+}
+
+.lesson-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.lesson-image.image-error::after{
+content:"VELIDEAS";
+position:absolute;
+inset:0;
+display:grid;
+place-items:center;
+font:600 23px "Fraunces",serif;
+letter-spacing:5px;
+color:rgba(255,255,255,.8);
+background:linear-gradient(135deg,#232C4C,#384B87,#DDA352);
+}
+
+/* LESSON NAVIGATION */
+
+.lesson-bottom{
+display:flex;
+justify-content:space-between;
+gap:12px;
+margin-top:28px;
+padding-top:20px;
+border-top:1px solid var(--c-line);
+}
+
+.lesson-bottom button{
+border:1px solid var(--c-line);
+border-radius:9px;
+padding:11px 15px;
+background:var(--c-bg);
+color:var(--c-ink);
+font-size:11px;
+font-weight:700;
+cursor:pointer;
+}
+
+.lesson-bottom button:hover{
+border-color:var(--c-accent);
+color:var(--c-accent);
+}
+
+/* SIDE MENU */
+
+.menu-overlay{
+position:fixed;
+inset:0;
+z-index:200;
+background:rgba(0,0,0,.42);
+opacity:0;
+visibility:hidden;
+transition:.25s;
+}
+
+.menu-overlay.open{
+opacity:1;
+visibility:visible;
+}
+
+.lesson-sidebar{
+position:fixed;
+z-index:201;
+top:0;
+left:0;
+height:100%;
+height:100dvh;
+width:min(350px,88vw);
+background:var(--c-card);
+border-right:1px solid var(--c-line);
+transform:translateX(-105%);
+transition:transform .28s ease;
+display:flex;
+flex-direction:column;
+box-shadow:var(--c-shadow);
+touch-action:pan-y;
+}
+
+.lesson-sidebar.open{transform:translateX(0)}
+
+.sidebar-header{
+padding:25px 20px 18px;
+border-bottom:1px solid var(--c-line);
+}
+
+.sidebar-top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+}
+
+.sidebar-title{
+font:600 23px "Fraunces",serif;
+margin:0;
+}
+
+.close-menu{
+border:1px solid var(--c-line);
+background:var(--c-bg);
+color:var(--c-ink);
+width:34px;
+height:34px;
+border-radius:9px;
+font-size:18px;
+cursor:pointer;
+}
+
+.sidebar-progress{margin-top:19px}
+
+.sidebar-progress-info{
+display:flex;
+justify-content:space-between;
+font:10px "IBM Plex Mono",monospace;
+color:var(--c-muted);
+margin-bottom:8px;
+}
+
+.sidebar-progress-track{
+height:5px;
+border-radius:20px;
+background:var(--c-line);
+overflow:hidden;
+}
+
+.sidebar-progress-fill{
+height:100%;
+width:0%;
+background:var(--c-accent);
+transition:width .2s;
+}
+
+.sidebar-list{
+overflow-y:auto;
+padding:12px;
+flex:1;
+}
+
+.sidebar-lesson{
+width:100%;
+display:flex;
+align-items:flex-start;
+gap:12px;
+padding:14px 12px;
+margin-bottom:5px;
+border:1px solid transparent;
+border-radius:10px;
+background:transparent;
+color:var(--c-ink);
+text-align:left;
+cursor:pointer;
+}
+
+.sidebar-lesson:hover{background:var(--c-bg)}
+
+.sidebar-lesson.active{
+background:var(--c-soft);
+border-color:var(--c-line);
+}
+
+.sidebar-lesson-number{
+font:11px "IBM Plex Mono",monospace;
+color:var(--c-accent);
+padding-top:2px;
+}
+
+.sidebar-lesson-text{
+font-size:12px;
+font-weight:600;
+line-height:1.5;
+}
+
+.sidebar-footer{
+padding:16px 20px;
+border-top:1px solid var(--c-line);
+font-size:10px;
+color:var(--c-muted);
+line-height:1.6;
+}
+
+/* FOOTER */
+
+.course-footer{
+border-top:1px solid var(--c-line);
+padding:27px 20px;
+text-align:center;
+color:var(--c-muted);
+font-size:11px;
+line-height:1.8;
+}
+
+.course-footer strong{
+font-family:"Fraunces",serif;
+font-size:18px;
+color:var(--c-ink);
+}
+
+/* DARK THEME */
+
+[data-theme="dark"] .progress-section,
+[data-theme="dark"] .lesson-toolbar{
+background:var(--c-card);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:650px){
+
+.nav-inner{
+padding:14px 16px;
+flex-wrap:wrap;
+}
+
+.nav-links{
+order:3;
+width:100%;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+text-align:center;
+font-size:11px;
+}
+
+.theme-toggle{margin-left:auto}
+
+.course-wrapper{
+width:calc(100% - 28px);
+}
+
+.course-header{padding:39px 0 25px}
+
+.progress-section,
+.lesson-toolbar{
+width:calc(100% - 28px);
+}
+
+.progress-section{padding:10px 12px}
+
+.lesson-toolbar{padding:9px 12px}
+
+.lesson-container{padding:20px}
+
+.lesson-image{height:230px}
+
+.current-lesson-label{font-size:9px}
+
+}
+
+@media(max-width:370px){
+
+.lesson-toolbar{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.current-lesson-label{text-align:left}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION: SCROLLS NATURALLY -->
+
+<header class="course-navbar">
+<nav class="nav-inner">
+
+<a href="../index.html" class="logo">velideas</a>
+
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../courses.html" class="active">Courses</a>
+<a href="../blogs.html">Blogs</a>
+<a href="../tools.html">Tools</a>
+</div>
+
+<button class="theme-toggle" id="themeToggle" type="button">
+◐ Theme
+</button>
+
+</nav>
+</header>
+
+<main class="course-wrapper">
+
+<!-- COURSE TITLE -->
+
+<section class="course-header">
+<div class="course-eyebrow">Velideas learning academy</div>
+
+<h1>Introduction to Trading.</h1>
+
+<p>
+Welcome to your learning journey. Work through the lessons below at your own pace. Your reading progress is tracked automatically, and you can use the lesson menu to navigate between topics.
+</p>
+</section>
+
+<!-- STICKY PROGRESS -->
+
+<section class="progress-section">
+
+<div class="progress-info">
+<span>COURSE READING PROGRESS</span>
+<span id="progressPercentage">0%</span>
+</div>
+
+<div class="progress-track">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
+</section>
+
+<!-- STICKY LESSON MENU -->
+
+<div class="lesson-toolbar">
+
+<button class="menu-button" id="openMenu" type="button">
+<span class="menu-icon">☰</span>
+<span>Course lessons</span>
+</button>
+
+<div class="current-lesson-label" id="currentLessonLabel">
+Lesson 1 of 2
+</div>
+
+</div>
+
+<!-- LESSON CONTAINERS -->
+
+<section class="lessons" id="lessons">
+
+<!-- DUPLICATE THIS CONTAINER TO ADD MORE LESSONS -->
+
+<article class="lesson-container">
+
+<div class="lesson-number">LESSON 01</div>
+
+<h2 class="lesson-title">What Is Trading?</h2>
+
+<div class="lesson-content">
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</p>
+
+<h3>Understanding the Basics</h3>
+
+<p>
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Trading involves the buying and selling of financial instruments with the objective of benefiting from price movements. A structured approach requires knowledge, discipline and risk management.
+</p>
+
+</div>
+
+<div class="lesson-image">
+<img
+src="../images/trading-introduction.jpg"
+alt="Introduction to trading"
+loading="lazy"
+onerror="this.parentElement.classList.add('image-error');this.remove();"
+>
+</div>
+
+</article>
+
+<!-- DUPLICATE THIS CONTAINER TO ADD MORE LESSONS -->
+
+<article class="lesson-container">
+
+<div class="lesson-number">LESSON 02</div>
+
+<h2 class="lesson-title">Understanding Financial Markets.</h2>
+
+<div class="lesson-content">
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+</p>
+
+<h3>Types of Financial Markets</h3>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. The financial markets provide an environment where participants can trade different financial assets, including currencies, stocks, commodities and digital assets.
+</p>
+
+<p>
+Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem.
+</p>
+
+</div>
+
+<div class="lesson-image">
+<img
+src="../images/financial-markets.jpg"
+alt="Understanding financial markets"
+loading="lazy"
+onerror="this.parentElement.classList.add('image-error');this.remove();"
+>
+</div>
+
+</article>
+
+</section>
+</main>
+
+<!-- LESSON SIDEBAR -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<aside class="lesson-sidebar" id="lessonSidebar">
+
+<div class="sidebar-header">
+
+<div class="sidebar-top">
+<h2 class="sidebar-title">Course contents</h2>
+
+<button class="close-menu" id="closeMenu" type="button" aria-label="Close lesson menu">
+×
+</button>
+</div>
+
+<div class="sidebar-progress">
+
+<div class="sidebar-progress-info">
+<span>YOUR PROGRESS</span>
+<span id="sidebarPercentage">0%</span>
+</div>
+
+<div class="sidebar-progress-track">
+<div class="sidebar-progress-fill" id="sidebarProgressFill"></div>
+</div>
+
+</div>
+</div>
+
+<div class="sidebar-list" id="sidebarList"></div>
+
+<div class="sidebar-footer">
+Select a lesson to jump directly to its content. Your current lesson is highlighted automatically.
+</div>
+
+</aside>
+
+<!-- FOOTER -->
+
+<footer class="course-footer">
+<strong>velideas</strong><br>
+Practical financial education, analysis tools and investment insights.<br>
+© 2026 Velideas. All rights reserved.
+</footer>
+
+<script>
+
+/* THEME MANAGEMENT */
+
+const root=document.documentElement;
+
+const savedTheme=localStorage.getItem("velideas-theme");
+const prefersDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+root.dataset.theme=savedTheme||(prefersDark?"dark":"light");
+
+document.getElementById("themeToggle").addEventListener("click",()=>{
+root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";
+localStorage.setItem("velideas-theme",root.dataset.theme);
+});
+
+
+/* STICKY BAR HEIGHTS */
+
+const progressSection=document.querySelector(".progress-section");
+const lessonToolbar=document.querySelector(".lesson-toolbar");
+
+function updateStickyHeights(){
+
+const progressHeight=progressSection.offsetHeight;
+const toolbarHeight=lessonToolbar.offsetHeight;
+
+root.style.setProperty("--progress-height",progressHeight+"px");
+root.style.setProperty("--toolbar-height",toolbarHeight+"px");
+
+}
+
+updateStickyHeights();
+
+window.addEventListener("resize",updateStickyHeights);
+
+if("ResizeObserver" in window){
+
+const resizeObserver=new ResizeObserver(updateStickyHeights);
+
+resizeObserver.observe(progressSection);
+resizeObserver.observe(lessonToolbar);
+
+}
+
+
+/* AUTOMATIC LESSON DETECTION */
+
+const lessonContainers=[
+...document.querySelectorAll(".lesson-container")
+];
+
+const sidebarList=document.getElementById("sidebarList");
+
+const progressFill=document.getElementById("progressFill");
+const sidebarProgressFill=document.getElementById("sidebarProgressFill");
+
+const progressPercentage=document.getElementById("progressPercentage");
+const sidebarPercentage=document.getElementById("sidebarPercentage");
+
+const currentLessonLabel=document.getElementById("currentLessonLabel");
+
+let currentLesson=0;
+let highestProgress=0;
+
+
+/* GENERATE LESSON MENU */
+
+function generateLessonMenu(){
+
+sidebarList.innerHTML="";
+
+lessonContainers.forEach((lesson,index)=>{
+
+const titleElement=lesson.querySelector(".lesson-title");
+
+if(!titleElement)return;
+
+const button=document.createElement("button");
+
+button.type="button";
+button.className="sidebar-lesson";
+
+const number=document.createElement("span");
+number.className="sidebar-lesson-number";
+number.textContent=String(index+1).padStart(2,"0");
+
+const title=document.createElement("span");
+title.className="sidebar-lesson-text";
+title.textContent=titleElement.textContent.trim();
+
+button.append(number,title);
+
+button.addEventListener("click",()=>{
+lesson.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+closeMenu();
+});
+
+sidebarList.appendChild(button);
+
+});
+
+}
+
+
+/* CURRENT LESSON DETECTION */
+
+function updateCurrentLesson(){
+
+let closestIndex=0;
+let smallestDistance=Infinity;
+
+const referencePoint=window.innerHeight*.35;
+
+lessonContainers.forEach((lesson,index)=>{
+
+const rect=lesson.getBoundingClientRect();
+
+const distance=Math.abs(rect.top-referencePoint);
+
+if(rect.top<=referencePoint+100 && distance<smallestDistance){
+smallestDistance=distance;
+closestIndex=index;
+}
+
+});
+
+currentLesson=closestIndex;
+
+const buttons=sidebarList.querySelectorAll(".sidebar-lesson");
+
+buttons.forEach((button,index)=>{
+button.classList.toggle("active",index===currentLesson);
+});
+
+if(lessonContainers.length){
+currentLessonLabel.textContent=
+`Lesson ${currentLesson+1} of ${lessonContainers.length}`;
+}
+
+}
+
+
+/* CUMULATIVE READING PROGRESS */
+
+function updateProgress(){
+
+const totalHeight=
+document.documentElement.scrollHeight-window.innerHeight;
+
+const scrollTop=window.scrollY;
+
+let currentProgress=totalHeight>0
+?(scrollTop/totalHeight)*100
+:100;
+
+currentProgress=Math.min(100,Math.max(0,currentProgress));
+
+/* Keep the highest percentage reached */
+
+highestProgress=Math.max(highestProgress,currentProgress);
+
+const percentage=Math.floor(highestProgress);
+
+progressFill.style.width=highestProgress+"%";
+sidebarProgressFill.style.width=highestProgress+"%";
+
+progressPercentage.textContent=percentage+"%";
+sidebarPercentage.textContent=percentage+"%";
+
+updateCurrentLesson();
+
+}
+
+window.addEventListener("scroll",updateProgress,{passive:true});
+
+window.addEventListener("resize",updateProgress);
+
+
+/* SIDEBAR OPEN AND CLOSE */
+
+const sidebar=document.getElementById("lessonSidebar");
+const overlay=document.getElementById("menuOverlay");
+
+const openButton=document.getElementById("openMenu");
+const closeButton=document.getElementById("closeMenu");
+
+function openMenu(){
+
+sidebar.classList.add("open");
+overlay.classList.add("open");
+
+updateProgress();
+
+}
+
+function closeMenu(){
+
+sidebar.classList.remove("open");
+overlay.classList.remove("open");
+
+}
+
+openButton.addEventListener("click",openMenu);
+closeButton.addEventListener("click",closeMenu);
+overlay.addEventListener("click",closeMenu);
+
+
+/* CLOSE WITH ESCAPE */
+
+document.addEventListener("keydown",event=>{
+
+if(event.key==="Escape"){
+closeMenu();
+}
+
+});
+
+
+/* SWIPE LEFT TO CLOSE SIDEBAR */
+
+let touchStartX=0;
+
+sidebar.addEventListener("touchstart",event=>{
+
+touchStartX=event.changedTouches[0].screenX;
+
+},{passive:true});
+
+sidebar.addEventListener("touchend",event=>{
+
+const touchEndX=event.changedTouches[0].screenX;
+
+if(touchEndX-touchStartX < -65){
+closeMenu();
+}
+
+},{passive:true});
+
+
+/* IMAGE FALLBACK */
+
+document.querySelectorAll(".lesson-image img").forEach(img=>{
+
+img.addEventListener("error",()=>{
+img.parentElement.classList.add("image-error");
+img.remove();
+});
+
+});
+
+
+/* INITIALIZE */
+
+generateLessonMenu();
+updateStickyHeights();
+updateProgress();
+
+</script>
+
+</body>
+</html>

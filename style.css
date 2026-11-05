@@ -1,0 +1,1599 @@
+
+/* =========================================================
+   VELIDEAS — MASTER DESIGN SYSTEM
+   Version: 1.0
+   Purpose: Shared styling for all Velideas pages
+   Pages: index.html, courses.html, blogs.html, tools.html
+   ========================================================= */
+
+
+/* =========================================================
+   01. TYPOGRAPHY
+   Elegant editorial headings + clean fintech interface
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+
+/* =========================================================
+   02. GLOBAL DESIGN VARIABLES — LIGHT THEME
+   Change these values to modify the entire website.
+   ========================================================= */
+
+:root {
+    color-scheme: light;
+
+    /* Backgrounds */
+    --bg: #F0F0F6;
+    --bg-secondary: #E8EAF2;
+    --surface: #FFFFFF;
+    --surface-elevated: #FFFFFF;
+    --surface-hover: #F7F8FC;
+
+    /* Text */
+    --text: #20243A;
+    --text-secondary: #656C80;
+    --text-muted: #9298A8;
+    --text-inverse: #FFFFFF;
+
+    /* Brand colors */
+    --primary: #384D8C;
+    --primary-dark: #293C73;
+    --primary-light: #6177B9;
+    --accent: #D9A65B;
+    --accent-soft: #F5E8D2;
+
+    /* Status */
+    --success: #348667;
+    --danger: #C65D59;
+    --warning: #D9A65B;
+
+    /* Borders and shadows */
+    --border: rgba(45, 55, 90, 0.09);
+    --border-strong: rgba(45, 55, 90, 0.16);
+
+    --shadow-sm: 0 3px 12px rgba(35, 45, 80, 0.04);
+    --shadow-md: 0 10px 30px rgba(35, 45, 80, 0.07);
+    --shadow-lg: 0 20px 55px rgba(35, 45, 80, 0.10);
+
+    /* Gradients */
+    --gradient-brand: linear-gradient(
+        120deg,
+        #293C73,
+        #5269AC,
+        #D9A65B
+    );
+
+    --gradient-soft: linear-gradient(
+        135deg,
+        #E5E8F5,
+        #F0F0F6,
+        #F5EBDD
+    );
+
+    /* Typography */
+    --font-heading: 'Fraunces', Georgia, serif;
+    --font-body: 'Public Sans', sans-serif;
+    --font-data: 'IBM Plex Mono', monospace;
+
+    /* Layout */
+    --container: 1180px;
+    --nav-height: 76px;
+
+    /* Rounded corners */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+    --radius-full: 999px;
+
+    /* Transitions */
+    --transition: 0.25s ease;
+    --transition-slow: 0.45s ease;
+}
+
+
+/* =========================================================
+   03. DARK THEME
+   Activated using html[data-theme="dark"]
+   ========================================================= */
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg: #080A0F;
+    --bg-secondary: #0D111A;
+    --surface: #151B27;
+    --surface-elevated: #1C2433;
+    --surface-hover: #222C3E;
+
+    --text: #F5F6FA;
+    --text-secondary: #A6ADBD;
+    --text-muted: #737E92;
+    --text-inverse: #080A0F;
+
+    --primary: #8298E8;
+    --primary-dark: #354D96;
+    --primary-light: #9DADE5;
+    --accent: #D9A65B;
+    --accent-soft: #3A3022;
+
+    --success: #43B88A;
+    --danger: #E16D69;
+    --warning: #D9A65B;
+
+    --border: rgba(255, 255, 255, 0.09);
+    --border-strong: rgba(255, 255, 255, 0.16);
+
+    --shadow-sm: 0 3px 12px rgba(0, 0, 0, 0.18);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 20px 55px rgba(0, 0, 0, 0.35);
+
+    --gradient-brand: linear-gradient(
+        120deg,
+        #354D96,
+        #8298E8,
+        #D9A65B
+    );
+
+    --gradient-soft: linear-gradient(
+        135deg,
+        #111A30,
+        #0D111A,
+        #211D19
+    );
+}
+
+
+/* =========================================================
+   04. RESET AND GLOBAL DEFAULTS
+   Establish consistent behavior across browsers.
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* =========================================================
+   05. REUSABLE LAYOUT UTILITIES
+   Standardized content widths and spacing.
+   ========================================================= */
+
+.container {
+    width: min(100% - 40px, var(--container));
+    margin-inline: auto;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section-sm {
+    padding: 55px 0;
+}
+
+.section-lg {
+    padding: 120px 0;
+}
+
+.section-header {
+    max-width: 680px;
+    margin-bottom: 42px;
+}
+
+.section-header.center {
+    text-align: center;
+    margin-inline: auto;
+}
+
+.section-header.center .section-description {
+    margin-inline: auto;
+}
+
+.section-description {
+    max-width: 600px;
+    color: var(--text-secondary);
+    margin-top: 12px;
+}
+
+.content-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   06. TYPOGRAPHY SYSTEM
+   Consistent heading hierarchy across all pages.
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    color: var(--text);
+}
+
+h1 {
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+h3 {
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
+}
+
+.text-gradient {
+    background: var(--gradient-brand);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.data-text {
+    font-family: var(--font-data);
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   07. BRAND IDENTITY
+   Velideas logo and wordmark.
+   ========================================================= */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+}
+
+.brand-mark {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: var(--primary);
+    color: white;
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   08. UNIVERSAL NAVIGATION BAR
+   Shared navigation for every website page.
+   ========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    max-width: var(--container);
+    min-height: var(--nav-height);
+    margin: auto;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 17px;
+    border-radius: var(--radius-sm);
+
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    background: var(--surface);
+    color: var(--primary);
+}
+
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+    background: var(--primary);
+    color: white;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: var(--surface-hover);
+    transform: rotate(12deg);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    color: var(--text);
+}
+
+
+/* =========================================================
+   09. HERO SECTIONS
+   Shared styling for homepage and internal page introductions.
+   ========================================================= */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 110px 0 85px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+.hero.center .hero-content {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.hero h1 {
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    max-width: 650px;
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero.center .hero-description {
+    margin-inline: auto;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.hero.center .hero-actions {
+    justify-content: center;
+}
+
+.page-hero {
+    padding: 75px 0 65px;
+}
+
+.page-hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+}
+
+
+/* =========================================================
+   10. FLOWING BACKGROUND ACCENTS
+   Organic shapes and soft gradients.
+   ========================================================= */
+
+.flow-accent {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.flow-accent.one {
+    width: 420px;
+    height: 420px;
+    top: -180px;
+    right: -100px;
+
+    background: radial-gradient(
+        circle,
+        rgba(97, 119, 185, 0.19),
+        transparent 70%
+    );
+}
+
+.flow-accent.two {
+    width: 380px;
+    height: 380px;
+    bottom: -180px;
+    left: -120px;
+
+    background: radial-gradient(
+        circle,
+        rgba(217, 166, 91, 0.14),
+        transparent 70%
+    );
+}
+
+.flow-accent.three {
+    width: 280px;
+    height: 280px;
+    top: 30%;
+    left: 45%;
+
+    background: radial-gradient(
+        circle,
+        rgba(130, 152, 232, 0.09),
+        transparent 70%
+    );
+}
+
+html[data-theme="dark"] .flow-accent.one {
+    background: radial-gradient(
+        circle,
+        rgba(97, 119, 185, 0.22),
+        transparent 70%
+    );
+}
+
+html[data-theme="dark"] .flow-accent.two {
+    background: radial-gradient(
+        circle,
+        rgba(217, 166, 91, 0.10),
+        transparent 70%
+    );
+}
+
+
+/* =========================================================
+   11. BUTTON SYSTEM
+   Primary, secondary, outline and text buttons.
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 13px 22px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary);
+}
+
+.btn-outline {
+    border-color: var(--border-strong);
+    color: var(--primary);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--surface);
+    border-color: var(--primary);
+}
+
+.btn-text {
+    padding: 5px 0;
+    color: var(--primary);
+    background: transparent;
+}
+
+.btn-text:hover {
+    gap: 15px;
+}
+
+.btn-sm {
+    padding: 9px 15px;
+    font-size: 12px;
+}
+
+.btn-lg {
+    padding: 16px 28px;
+    font-size: 14px;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+
+/* =========================================================
+   12. CARD SYSTEM
+   Universal cards for courses, articles and tools.
+   ========================================================= */
+
+.card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 26px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+}
+
+.card h3,
+.card h4 {
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    color: var(--primary);
+
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.card-arrow {
+    color: var(--primary);
+    font-size: 20px;
+    transition: transform var(--transition);
+}
+
+.card:hover .card-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   13. FEATURE AND HIGHLIGHT COMPONENTS
+   ========================================================= */
+
+.feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.feature-card .card-icon {
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.highlight-panel {
+    padding: 35px;
+    border-radius: var(--radius-xl);
+    background: var(--gradient-soft);
+    border: 1px solid var(--border);
+}
+
+.highlight-panel h2 {
+    margin-bottom: 14px;
+}
+
+.stat-number {
+    font-family: var(--font-data);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   14. COURSE COMPONENTS
+   Styling for the courses page.
+   ========================================================= */
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.course-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    background: var(--bg-secondary);
+}
+
+.course-category {
+    display: inline-flex;
+    width: fit-content;
+    padding: 5px 11px;
+    border-radius: var(--radius-full);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    color: var(--primary);
+    background: var(--bg-secondary);
+    margin-bottom: 12px;
+}
+
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.course-progress {
+    width: 100%;
+    height: 6px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    margin-top: 12px;
+}
+
+.course-progress-bar {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--primary);
+}
+
+
+/* =========================================================
+   15. BLOG COMPONENTS
+   Editorial article cards and reading layouts.
+   ========================================================= */
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.blog-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    background: var(--bg-secondary);
+}
+
+.blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.blog-excerpt {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.article-content {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.article-content h2,
+.article-content h3 {
+    margin: 38px 0 15px;
+}
+
+.article-content p {
+    margin-bottom: 20px;
+    line-height: 1.95;
+}
+
+.article-content img {
+    border-radius: var(--radius-lg);
+    margin: 30px 0;
+}
+
+
+/* =========================================================
+   16. FINANCIAL TOOLS AND DATA COMPONENTS
+   Charts, indicators, analysis panels and financial figures.
+   ========================================================= */
+
+.tool-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tool-value {
+    font-family: var(--font-data);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.positive {
+    color: var(--success) !important;
+}
+
+.negative {
+    color: var(--danger) !important;
+}
+
+.neutral {
+    color: var(--text-secondary) !important;
+}
+
+.data-panel {
+    padding: 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.data-table th,
+.data-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.data-table th {
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.data-table td {
+    color: var(--text-secondary);
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   17. BADGES AND STATUS INDICATORS
+   ========================================================= */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 5px 11px;
+    border-radius: var(--radius-full);
+
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-primary {
+    background: rgba(56, 77, 140, 0.12);
+    color: var(--primary);
+}
+
+.badge-success {
+    background: rgba(52, 134, 103, 0.12);
+    color: var(--success);
+}
+
+.badge-danger {
+    background: rgba(198, 93, 89, 0.12);
+    color: var(--danger);
+}
+
+
+/* =========================================================
+   18. FORM ELEMENTS
+   Consistent input styling across all pages.
+   ========================================================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-control {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 15px;
+
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+    color: var(--text);
+
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(97, 119, 185, 0.12);
+}
+
+textarea.form-control {
+    min-height: 130px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   19. FILTERS AND SEARCH
+   Useful for courses, blogs and financial tools.
+   ========================================================= */
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+
+    background: var(--surface);
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.search-box {
+    max-width: 380px;
+    width: 100%;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+}
+
+
+/* =========================================================
+   20. AFFILIATE AND PROMOTIONAL CARDS
+   For financial partners and external services.
+   ========================================================= */
+
+.promo-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.promo-content {
+    flex: 1;
+}
+
+.promo-card h3 {
+    margin-bottom: 6px;
+}
+
+.promo-card p {
+    font-size: 13px;
+}
+
+.promo-action {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   21. FOOTER
+   Shared footer styling.
+   ========================================================= */
+
+.footer {
+    position: relative;
+    overflow: hidden;
+    padding: 65px 0 25px;
+
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 45px;
+}
+
+.footer-heading {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 13px;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   22. DIVIDERS AND DECORATIVE ELEMENTS
+   Soft separation without harsh visual lines.
+   ========================================================= */
+
+.soft-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border-strong),
+        transparent
+    );
+    border: none;
+}
+
+.decorative-orb {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: var(--gradient-soft);
+    filter: blur(25px);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.rounded-image {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   23. ANIMATIONS AND MICRO-INTERACTIONS
+   Lightweight effects for a more dynamic experience.
+   ========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.animate-fade {
+    animation: fadeUp 0.7s ease both;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.hover-lift {
+    transition: transform var(--transition);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   24. ACCESSIBILITY
+   Keyboard navigation and reduced motion support.
+   ========================================================= */
+
+:focus-visible {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 3px;
+}
+
+button:disabled,
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   25. RESPONSIVE DESIGN — TABLETS
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    :root {
+        --nav-height: 68px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-lg {
+        padding: 90px 0;
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero {
+        padding: 85px 0 70px;
+    }
+}
+
+
+/* =========================================================
+   26. RESPONSIVE DESIGN — MOBILE
+   Optimized for Android and smaller screens.
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    :root {
+        --nav-height: 62px;
+        --radius-lg: 18px;
+        --radius-xl: 24px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: min(100% - 32px, var(--container));
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .section-sm {
+        padding: 40px 0;
+    }
+
+    .section-lg {
+        padding: 70px 0;
+    }
+
+    .section-header {
+        margin-bottom: 28px;
+    }
+
+    .hero {
+        padding: 65px 0 55px;
+    }
+
+    .page-hero {
+        padding: 55px 0 45px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 21px;
+    }
+
+    .nav-container {
+        padding: 0 14px;
+        gap: 8px;
+    }
+
+    .brand-name {
+        font-size: 22px;
+    }
+
+    .brand-mark {
+        width: 29px;
+        height: 29px;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 5px;
+    }
+
+    .theme-toggle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .hero-actions {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px 17px;
+    }
+
+    .highlight-panel {
+        padding: 25px;
+    }
+
+    .promo-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .promo-action {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 50px 0 20px;
+    }
+
+    .footer-grid {
+        gap: 28px 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flow-accent.one {
+        width: 280px;
+        height: 280px;
+    }
+
+    .flow-accent.two {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+
+/* =========================================================
+   27. EXTRA SMALL DEVICES
+   Prevent navigation overflow on narrow phones.
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .brand-name {
+        font-size: 19px;
+    }
+
+    .nav-links a {
+        padding: 7px 8px;
+        font-size: 10px;
+    }
+
+    .nav-container {
+        padding: 0 10px;
+    }
+
+    .nav-actions {
+        gap: 3px;
+    }
+
+    .theme-toggle {
+        width: 31px;
+        height: 31px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.45rem;
+    }
+}
+
+
+/* =========================================================
+   28. SYSTEM THEME FALLBACK
+   Used only when no explicit theme has been selected.
+   ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    html:not([data-theme]) {
+        color-scheme: dark;
+    }
+}
+
+
+/* =========================================================
+   END OF VELIDEAS MASTER STYLESHEET
+   All pages should reference this same stylesheet.
+   ========================================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   HOMEPAGE — MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .mobile-menu-toggle {
+        display: grid;
+        place-items: center;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
+
+        padding: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-links.mobile-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+
+}

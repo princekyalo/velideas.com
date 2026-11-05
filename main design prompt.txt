@@ -1,0 +1,421 @@
+VELIDEAS — MASTER WEBSITE DESIGN & UI/UX PROMPT
+
+1. PROJECT IDENTITY
+
+Design and develop a professional, modern, responsive financial education and investment platform called Velideas.
+
+Website: velideas.com
+
+Velideas helps people move quicker through their financial journey by providing:
+
+- Practical financial education.
+- Forex, stock market and cryptocurrency courses.
+- Investment analysis tools.
+- Financial insights and educational blogs.
+- Resources that help users make informed financial decisions.
+
+The website should communicate professionalism, intelligence, trust, accessibility and financial sophistication.
+
+The design must be consistent across every page, including the homepage, courses, blogs, tools and any future pages.
+
+Use the supplied Velideas homepage screenshot as the primary visual reference.
+
+Do not reproduce the screenshot literally. Improve upon its design while preserving its visual identity.
+
+---
+
+2. CORE DESIGN PHILOSOPHY
+
+Use a combination of:
+
+- Editorial financial design.
+- Modern fintech aesthetics.
+- Minimalist layouts.
+- Elegant typography.
+- Soft, flowing visual elements.
+- Carefully balanced whitespace.
+- Subtle gradients and atmospheric backgrounds.
+
+The website should feel like a premium financial publication combined with a modern fintech platform.
+
+Avoid making the website look like a generic AI-generated template.
+
+Prioritize visual clarity, usability and consistency over unnecessary decoration.
+
+Important visual characteristics
+
+1. Use flowing curves, soft gradients and organic shapes to introduce visual interest.
+2. Avoid excessive straight lines, sharp corners and rigid geometric layouts.
+3. Use rounded cards, softly curved buttons and smooth transitions.
+4. Create visual hierarchy through typography, spacing, contrast and color.
+5. Use subtle background decorations rather than filling every section with graphics.
+6. Keep the interface clean and professional.
+7. Maintain a recognizable Velideas identity across all pages.
+
+---
+
+3. COLOR SYSTEM
+
+Implement a centralized color system using CSS custom properties.
+
+Both light and dark themes must be supported throughout the entire website.
+
+Light theme
+
+Use a soft, elegant palette inspired by the supplied screenshot.
+
+Suggested colors:
+
+- Main background: #F0F0F6
+- Secondary background: #E8EAF2
+- Card background: #FFFFFF
+- Primary text: #20243A
+- Secondary text: #656C80
+- Muted text: #9298A8
+- Primary indigo: #384D8C
+- Deep indigo: #293C73
+- Accent blue: #6177B9
+- Soft lavender: #DDE2F2
+- Accent gold: #D9A65B
+- Positive indicators: #348667
+- Negative indicators: #C65D59
+- Borders: rgba(45, 55, 90, 0.09)
+
+Dark theme
+
+Create a sophisticated dark fintech appearance.
+
+Suggested colors:
+
+- Main background: #080A0F
+- Secondary background: #0D111A
+- Card background: #151B27
+- Elevated card background: #1C2433
+- Primary text: #F5F6FA
+- Secondary text: #A6ADBD
+- Muted text: #737E92
+- Primary indigo: #637DD1
+- Deep indigo: #354D96
+- Accent blue: #8298E8
+- Soft lavender: #9DADE5
+- Accent gold: #D9A65B
+- Positive indicators: #43B88A
+- Negative indicators: #E16D69
+- Borders: rgba(255, 255, 255, 0.09)
+
+Color implementation rules
+
+- Use CSS variables rather than hardcoding colors throughout individual components.
+- Theme switching must update every component, including navigation, cards, buttons, forms, icons, charts and footer.
+- Use smooth transitions when switching themes.
+- Avoid excessive gradients.
+- Maintain sufficient contrast between text and backgrounds.
+- Pure black (#000000) may be used sparingly for deep dark-theme surfaces and visual contrast.
+- White text should remain highly legible on dark surfaces.
+
+---
+
+4. TYPOGRAPHY
+
+Typography is an important part of the Velideas identity.
+
+Use an elegant combination of serif and sans-serif fonts.
+
+Recommended fonts:
+
+- Headings: Fraunces.
+- Body text: Public Sans.
+- Numerical information and financial data: IBM Plex Mono.
+
+Typography rules:
+
+- Main headlines should use elegant serif typography.
+- Navigation, buttons and descriptions should use clean sans-serif typography.
+- Financial figures should use monospaced typography where appropriate.
+- Use moderate font weights.
+- Avoid excessively bold headings.
+- Use generous line heights for paragraphs.
+- Headlines should be visually prominent without becoming unnecessarily large.
+
+The brand name "Velideas" should have its own recognizable typographic treatment.
+
+---
+
+5. UNIVERSAL NAVIGATION BAR
+
+The navigation bar is a permanent component shared by EVERY page of the website.
+
+It must have the following navigation links and destinations:
+
+1. Home → index.html
+2. Courses → courses.html
+3. Blogs → blogs.html
+4. Tools → tools.html
+
+Navigation design
+
+- Place the Velideas brand identity on the left on desktop.
+- Place the navigation links on the right.
+- Include a light/dark theme toggle.
+- Use rounded navigation indicators.
+- The currently active page must have a clearly distinguishable appearance.
+- Use the primary indigo color for the active navigation item.
+- Navigation links should have subtle hover transitions.
+- Avoid thick borders and unnecessary decorative elements.
+- Keep the navigation visually lightweight.
+
+Mobile navigation
+
+On mobile devices, reproduce the compact horizontal navigation style shown in the reference screenshot.
+
+- Keep the four navigation links visible where screen width permits.
+- Use smaller typography and appropriately sized spacing.
+- Avoid horizontal overflow.
+- If the screen is too narrow, use a compact responsive menu.
+- Keep the theme toggle accessible.
+- Ensure that the active page remains visually distinguishable.
+
+Critical implementation requirement
+
+Build the navigation as a reusable component or shared template.
+
+Do not independently redesign the navigation on different pages.
+
+Every page must use the exact same navigation structure, styling, spacing, behavior and responsive rules.
+
+Only the active navigation item should change.
+
+---
+
+6. BACKGROUNDS AND FLOWING ACCENTS
+
+One of the most important characteristics of the design is the use of subtle flowing visual elements.
+
+The website should never feel like a collection of flat white rectangles.
+
+Introduce visual movement through:
+
+- Large, softly blurred background gradients.
+- Organic indigo and lavender shapes.
+- Subtle curved decorative elements.
+- Gentle radial gradients.
+- Soft transitions between section backgrounds.
+- Very subtle animated accents where appropriate.
+
+Use these elements sparingly.
+
+They should complement the content rather than compete with it.
+
+Avoid:
+
+- Aggressive neon gradients.
+- Excessive glowing effects.
+- Sharp zigzag shapes.
+- Large distracting animations.
+- Random floating objects.
+- Excessive glassmorphism.
+
+The visual experience should remain sophisticated and comfortable to read.
+
+---
+
+7. COMPONENT DESIGN SYSTEM
+
+All pages should reuse a consistent collection of interface components.
+
+Buttons
+
+- Rounded corners.
+- Comfortable padding.
+- Clear text contrast.
+- Primary buttons should use indigo.
+- Secondary buttons should use subtle neutral backgrounds.
+- Include smooth hover and active states.
+- Use small directional arrows where appropriate.
+
+Cards
+
+- White or elevated dark surfaces depending on theme.
+- Soft rounded corners.
+- Subtle shadows.
+- Very light borders.
+- Consistent internal spacing.
+- Subtle hover elevation where appropriate.
+
+Section headings
+
+Use consistent heading structures:
+
+- Small uppercase eyebrow text.
+- Large elegant serif heading.
+- Short supporting description.
+- Optional action link.
+
+Forms and inputs
+
+- Rounded input fields.
+- Clear focus states.
+- Appropriate spacing.
+- Accessible labels.
+- Theme-aware backgrounds and borders.
+
+Icons
+
+Use a consistent outline icon family.
+
+Icons should be simple, recognizable and appropriately sized.
+
+Avoid mixing unrelated icon styles.
+
+---
+
+8. RESPONSIVE DESIGN
+
+The website must be designed mobile-first while also providing an excellent desktop experience.
+
+Support:
+
+- Small Android phones.
+- Large smartphones.
+- Tablets.
+- Laptops.
+- Desktop monitors.
+
+Mobile
+
+- Single-column layouts where appropriate.
+- Comfortable touch targets.
+- Readable text.
+- Compact navigation.
+- No horizontal scrolling.
+- Appropriately sized cards.
+- Optimized images.
+- Balanced whitespace.
+
+Tablet
+
+- Introduce two-column layouts where useful.
+- Adjust card widths and spacing.
+- Preserve the same design hierarchy.
+
+Desktop
+
+- Use wider content containers.
+- Introduce balanced multi-column layouts.
+- Make use of available screen space without stretching text excessively.
+- Maintain consistent alignment and spacing.
+
+Use responsive CSS breakpoints and fluid sizing instead of designing exclusively for fixed screen dimensions.
+
+---
+
+9. THEME SWITCHING
+
+Implement a functional light/dark theme toggle.
+
+Requirements:
+
+- Both themes must be available on every page.
+- Use a centralized theme system.
+- Apply theme variables globally.
+- Remember the user's selected theme across pages and browser sessions using localStorage.
+- Respect the system theme when no preference has been selected.
+- Include smooth but subtle theme transitions.
+- Ensure that images, charts, cards, navigation and forms remain readable in both themes.
+
+Never implement a theme toggle that only changes the background while leaving other components unchanged.
+
+---
+
+10. PAGE-SPECIFIC DESIGN FLEXIBILITY
+
+Although the overall design system must remain consistent, individual pages should have layouts appropriate to their purpose.
+
+Home — index.html
+
+Focus on the Velideas identity, introduction, major offerings and prominent calls to action.
+
+Use an elegant hero section, attractive feature cards and clear navigation toward courses, blogs and tools.
+
+Courses — courses.html
+
+Focus on financial education.
+
+Use attractive course cards, categories, course descriptions, progress indicators where appropriate and clear enrollment actions.
+
+Blogs — blogs.html
+
+Focus on financial insights and educational articles.
+
+Use an editorial layout with attractive article cards, category labels, publication information and readable typography.
+
+Tools — tools.html
+
+Focus on investment analysis and financial utilities.
+
+Use organized tool cards, clearly presented financial information, functional interfaces and appropriate data visualizations.
+
+The individual page layouts may differ, but the typography, color palette, navigation, buttons, cards, spacing and overall visual language must remain consistent.
+
+---
+
+11. ANIMATION AND INTERACTION
+
+Use subtle animations to improve the user experience.
+
+Recommended effects:
+
+- Smooth navigation transitions.
+- Gentle card hover elevation.
+- Soft button hover effects.
+- Subtle fade-in when sections enter the viewport.
+- Smooth theme transitions.
+- Gentle movement in selected decorative background accents.
+
+Animations must be lightweight and must not interfere with reading, navigation or performance.
+
+Respect reduced-motion accessibility preferences.
+
+---
+
+12. TECHNICAL AND IMPLEMENTATION REQUIREMENTS
+
+- Use clean, maintainable HTML, CSS and JavaScript.
+- Keep the code lightweight and avoid unnecessary dependencies.
+- Use semantic HTML elements.
+- Ensure all navigation links work.
+- Make every component responsive.
+- Use CSS custom properties for design tokens.
+- Centralize reusable styles.
+- Avoid duplicated navigation code.
+- Maintain consistent spacing and typography.
+- Optimize images and loading performance.
+- Implement accessible keyboard navigation and visible focus indicators.
+- Ensure the design works on modern Android browsers and desktop browsers.
+
+If multiple HTML files are being developed, use a shared navigation component or reusable template system so changes to the navigation can be reflected consistently across all pages.
+
+---
+
+13. FINAL DESIGN STANDARD
+
+The finished website should look like a professionally designed financial education and fintech brand.
+
+It should combine:
+
+- The elegance of an editorial financial publication.
+- The clarity of a modern educational platform.
+- The sophistication of a fintech application.
+- The simplicity of a minimalist website.
+
+The supplied Velideas screenshot is the visual foundation.
+
+Preserve its elegant serif headlines, muted background, indigo accents, clean navigation and accessible layout.
+
+Improve it with flowing visual accents, more sophisticated cards, better desktop layouts and a complete dark theme.
+
+MOST IMPORTANT RULE: DESIGN CONSISTENCY TAKES PRIORITY OVER INDIVIDUAL PAGE CREATIVITY.
+
+Every new page must look as though it belongs to the same carefully designed Velideas website.
+
+Do not introduce a new color palette, typography system, navigation style or unrelated design language when creating additional pages.

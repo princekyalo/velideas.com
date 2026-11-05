@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#EEF0F5">
+<title>Position Size Calculator | Velideas</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ps-bg:#EEF0F5;--ps-card:#FFFFFF;--ps-ink:#1C2033;
+  --ps-muted:#788197;--ps-line:#DBE0EA;--ps-accent:#384B87;
+  --ps-soft:#E9ECF5;--ps-green:#3F8467;--ps-red:#B85B4A;
+  --ps-shadow:0 12px 35px rgba(30,42,75,.06);
+}
+:root[data-theme="dark"] {
+  --ps-bg:#090B10;--ps-card:#11151E;--ps-ink:#F1F3F8;
+  --ps-muted:#929BAE;--ps-line:#272E3B;--ps-accent:#91A8F2;
+  --ps-soft:#1A2130;--ps-green:#62B58D;--ps-red:#E47D70;
+  --ps-shadow:0 12px 35px rgba(0,0,0,.2);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ps-bg);color:var(--ps-ink);font-family:"Public Sans",sans-serif;transition:background .2s,color .2s}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+.ps-navbar{position:sticky;top:0;z-index:20;background:var(--ps-card);border-bottom:1px solid var(--ps-line)}
+.ps-nav-inner{max-width:1180px;margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.ps-logo{font-family:"Fraunces",serif;font-size:25px;font-weight:700;letter-spacing:-1px}
+.ps-nav-links{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:600;color:var(--ps-muted)}
+.ps-nav-links a.active,.ps-nav-links a:hover{color:var(--ps-accent)}
+.ps-theme{border:1px solid var(--ps-line);background:var(--ps-bg);color:var(--ps-ink);padding:9px 12px;border-radius:10px;cursor:pointer;font-size:12px}
+.ps-container{width:min(1180px,calc(100% - 40px));margin:auto}
+.ps-hero{padding:58px 0 34px}
+.ps-eyebrow{font:600 11px "IBM Plex Mono",monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--ps-accent)}
+.ps-hero h1{font:600 clamp(36px,5vw,57px)/1.08 "Fraunces",serif;letter-spacing:-1.5px;margin:14px 0 12px}
+.ps-hero p{max-width:650px;color:var(--ps-muted);font-size:15px;line-height:1.8;margin:0}
+.ps-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(310px,.8fr);gap:22px;align-items:start;padding-bottom:65px}
+.ps-card{background:var(--ps-card);border:1px solid var(--ps-line);border-radius:18px;box-shadow:var(--ps-shadow);padding:25px}
+.ps-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.ps-card h2{font:600 22px "Fraunces",serif;margin:0}
+.ps-card-head p{font-size:12px;color:var(--ps-muted);margin:5px 0 0}
+.ps-section-label{font:600 10px "IBM Plex Mono",monospace;color:var(--ps-accent);letter-spacing:1.2px;text-transform:uppercase;margin:25px 0 13px}
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.ps-field{min-width:0}
+.ps-field label{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:600;margin-bottom:8px}
+.ps-field label span{font:11px "IBM Plex Mono",monospace;color:var(--ps-muted)}
+.ps-field input,.ps-field select{width:100%;min-width:0;padding:13px 12px;border:1px solid var(--ps-line);border-radius:10px;background:var(--ps-bg);color:var(--ps-ink);outline:none;font:13px "IBM Plex Mono",monospace}
+.ps-field input:focus,.ps-field select:focus{border-color:var(--ps-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--ps-accent) 13%,transparent)}
+.ps-hint{font-size:10px;color:var(--ps-muted);line-height:1.5;margin-top:6px}
+.ps-full{grid-column:1/-1}
+.ps-risk-presets{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.ps-risk-presets button{border:1px solid var(--ps-line);background:var(--ps-bg);color:var(--ps-muted);padding:7px 11px;border-radius:8px;font:11px "IBM Plex Mono",monospace;cursor:pointer}
+.ps-risk-presets button:hover{border-color:var(--ps-accent);color:var(--ps-accent)}
+.ps-check{display:flex;align-items:center;gap:9px;margin-top:16px;font-size:12px;color:var(--ps-muted)}
+.ps-check input{accent-color:var(--ps-accent)}
+.ps-results{position:sticky;top:90px}
+.ps-result-main{padding:22px;border-radius:14px;background:var(--ps-soft);margin-bottom:17px}
+.ps-result-main small{font:10px "IBM Plex Mono",monospace;color:var(--ps-muted);letter-spacing:1px;text-transform:uppercase}
+.ps-result-main strong{display:block;font:600 clamp(32px,4vw,43px) "Fraunces",serif;margin:8px 0 5px;overflow-wrap:anywhere}
+.ps-result-main p{font-size:11px;color:var(--ps-muted);margin:0}
+.ps-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ps-metric{padding:14px;border:1px solid var(--ps-line);border-radius:12px;min-width:0}
+.ps-metric span{display:block;font-size:10px;color:var(--ps-muted);line-height:1.4}
+.ps-metric strong{display:block;font:600 17px "IBM Plex Mono",monospace;margin-top:8px;overflow-wrap:anywhere}
+.ps-metric small{display:block;font-size:10px;color:var(--ps-muted);margin-top:5px}
+.ps-status{margin-top:16px;padding:12px;border-radius:10px;background:var(--ps-bg);font-size:11px;line-height:1.6;color:var(--ps-muted)}
+.ps-status.error{color:var(--ps-red)}
+.ps-status.success{color:var(--ps-green)}
+.ps-formula{margin-top:18px;padding-top:17px;border-top:1px solid var(--ps-line)}
+.ps-formula h3{font:600 15px "Fraunces",serif;margin:0 0 9px}
+.ps-formula p{font-size:11px;line-height:1.7;color:var(--ps-muted);margin:0}
+.ps-actions{display:flex;gap:9px;margin-top:17px}
+.ps-btn{flex:1;border:1px solid var(--ps-line);border-radius:10px;padding:12px;background:var(--ps-bg);color:var(--ps-ink);font-size:11px;font-weight:700;cursor:pointer}
+.ps-btn.primary{background:var(--ps-accent);color:white;border-color:var(--ps-accent)}
+.ps-btn:hover{filter:brightness(1.08)}
+.ps-footer{border-top:1px solid var(--ps-line);padding:27px 20px;text-align:center;color:var(--ps-muted);font-size:11px;line-height:1.8}
+.ps-footer strong{font-family:"Fraunces",serif;color:var(--ps-ink);font-size:18px}
+.ps-note{font-size:10px;color:var(--ps-muted);line-height:1.7;margin-top:16px}
+@media(max-width:800px){
+ .ps-layout{grid-template-columns:1fr}
+ .ps-results{position:static}
+}
+@media(max-width:560px){
+ .ps-nav-inner{padding:14px 16px;flex-wrap:wrap}
+ .ps-nav-links{order:3;width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;font-size:11px}
+ .ps-theme{margin-left:auto}
+ .ps-container{width:calc(100% - 28px)}
+ .ps-hero{padding:40px 0 27px}
+ .ps-card{padding:18px}
+ .ps-grid{gap:12px}
+ .ps-field input,.ps-field select{padding:12px 9px;font-size:12px}
+ .ps-metric strong{font-size:15px}
+}
+@media(max-width:370px){.ps-grid{grid-template-columns:1fr}.ps-full{grid-column:auto}}
+</style>
+</head>
+<body>
+
+<header class="ps-navbar">
+  <nav class="ps-nav-inner">
+    <a href="index.html" class="ps-logo">velideas</a>
+    <div class="ps-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../courses.html">Courses</a>
+      <a href="../blogs.html">Blogs</a>
+      <a href="../tools.html" class="active">Tools</a>
+    </div>
+    <button class="ps-theme" id="themeToggle" type="button">◐ Theme</button>
+  </nav>
+</header>
+
+<main class="ps-container">
+  <section class="ps-hero">
+    <div class="ps-eyebrow">Trading risk management / Tool 01</div>
+    <h1>Position Size Calculator.</h1>
+    <p>Calculate the position size that aligns your trade with a predefined risk limit. Set your account exposure, entry, stop-loss and instrument specifications to determine the quantity to trade.</p>
+  </section>
+
+  <section class="ps-layout">
+    <div class="ps-card">
+      <div class="ps-card-head">
+        <div>
+          <h2>Trade parameters</h2>
+          <p>Enter your account and trade specifications.</p>
+        </div>
+      </div>
+
+      <div class="ps-section-label">01 / Account settings</div>
+      <div class="ps-grid">
+        <div class="ps-field">
+          <label for="account">Account balance</label>
+          <input id="account" type="number" min="0" step="any" value="10000">
+        </div>
+        <div class="ps-field">
+          <label for="currency">Account currency</label>
+          <select id="currency">
+            <option value="USD">USD ($)</option>
+            <option value="KES">KES (KSh)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="JPY">JPY (¥)</option>
+            <option value="USDT">USDT</option>
+          </select>
+        </div>
+        <div class="ps-field ps-full">
+          <label for="risk">Risk per trade <span id="riskLabel">1.00%</span></label>
+          <input id="risk" type="number" min="0.01" max="100" step="0.01" value="1">
+          <div class="ps-risk-presets">
+            <button type="button" data-risk="0.25">0.25%</button>
+            <button type="button" data-risk="0.5">0.5%</button>
+            <button type="button" data-risk="1">1%</button>
+            <button type="button" data-risk="2">2%</button>
+                  <button type="button" data-risk="3">3%</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-section-label">02 / Trade setup</div>
+      <div class="ps-grid">
+        <div class="ps-field">
+          <label for="instrument">Instrument type</label>
+          <select id="instrument">
+            <option value="forex">Forex</option>
+            <option value="stocks">Stocks / ETFs</option>
+            <option value="crypto">Cryptocurrency</option>
+            <option value="indices">Indices</option>
+            <option value="commodities">Commodities</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="ps-field">
+          <label for="direction">Trade direction</label>
+          <select id="direction">
+            <option value="long">Long / Buy</option>
+            <option value="short">Short / Sell</option>
+          </select>
+        </div>
+        <div class="ps-field">
+          <label for="entry">Entry price</label>
+          <input id="entry" type="number" min="0" step="any" value="1.0850">
+        </div>
+        <div class="ps-field">
+          <label for="stop">Stop-loss price</label>
+          <input id="stop" type="number" min="0" step="any" value="1.0800">
+        </div>
+        <div class="ps-field">
+          <label for="target">Take-profit price</label>
+          <input id="target" type="number" min="0" step="any" value="1.0950">
+          <div class="ps-hint">Optional. Used to calculate reward-to-risk.</div>
+        </div>
+        <div class="ps-field">
+          <label for="contract">Units per lot / contract</label>
+          <input id="contract" type="number" min="0.00000001" step="any" value="100000">
+          <div class="ps-hint">For forex, a standard lot is often 100,000 units. Check your broker.</div>
+        </div>
+      </div>
+
+      <div class="ps-section-label">03 / Instrument specifications</div>
+      <div class="ps-grid">
+        <div class="ps-field">
+          <label for="pointValue">Value per 1.0 price move</label>
+          <input id="pointValue" type="number" min="0.00000001" step="any" value="1">
+          <div class="ps-hint">Account-currency value for a 1.0 price move per unit.</div>
+        </div>
+        <div class="ps-field">
+          <label for="fee">Round-trip fee per unit</label>
+          <input id="fee" type="number" min="0" step="any" value="0">
+          <div class="ps-hint">Estimated total entry and exit costs per unit.</div>
+        </div>
+        <div class="ps-field">
+          <label for="lotStep">Quantity step size</label>
+          <input id="lotStep" type="number" min="0.00000001" step="any" value="0.01">
+          <div class="ps-hint">Minimum quantity increment allowed by your broker.</div>
+        </div>
+        <div class="ps-field">
+          <label for="minQty">Minimum quantity</label>
+          <input id="minQty" type="number" min="0" step="any" value="0.01">
+        </div>
+      </div>
+      <label class="ps-check">
+        <input type="checkbox" id="wholeUnits">
+        Round quantity down to whole units (e.g. shares)
+      </label>
+
+      <div class="ps-note">The value-per-price-move input is instrument-specific. For a stock, one share typically gains or loses one account-currency unit for each 1.0 move in its price, assuming the stock is quoted in your account currency. For forex and CFDs, use your broker's contract and tick-value specifications.</div>
+    </div>
+
+    <aside class="ps-card ps-results">
+      <div class="ps-card-head">
+        <div>
+          <h2>Position analysis</h2>
+          <p>Live calculation based on your inputs.</p>
+        </div>
+      </div>
+
+      <div class="ps-result-main">
+        <small>Recommended quantity</small>
+        <strong id="quantity">—</strong>
+        <p id="quantityUnit">Units / contracts</p>
+      </div>
+
+      <div class="ps-metrics">
+        <div class="ps-metric">
+          <span>Maximum risk budget</span>
+          <strong id="riskAmount">—</strong>
+          <small>Based on account balance</small>
+        </div>
+        <div class="ps-metric">
+          <span>Risk per unit</span>
+          <strong id="unitRisk">—</strong>
+          <small>Including estimated fees</small>
+        </div>
+        <div class="ps-metric">
+          <span>Stop distance</span>
+          <strong id="stopDistance">—</strong>
+          <small>Absolute price difference</small>
+        </div>
+        <div class="ps-metric">
+          <span>Estimated position value</span>
+          <strong id="positionValue">—</strong>
+          <small>Entry price × quantity</small>
+        </div>
+        <div class="ps-metric">
+          <span>Potential loss</span>
+          <strong id="potentialLoss">—</strong>
+          <small>At stop-loss, including fees</small>
+        </div>
+        <div class="ps-metric">
+          <span>Potential profit</span>
+          <strong id="potentialProfit">—</strong>
+          <small>At take-profit, less fees</small>
+        </div>
+        <div class="ps-metric">
+          <span>Reward-to-risk</span>
+          <strong id="rrRatio">—</strong>
+          <small>Potential reward / risk</small>
+        </div>
+        <div class="ps-metric">
+          <span>Margin / leverage</span>
+          <strong id="margin">—</strong>
+          <small>Not included in risk sizing</small>
+        </div>
+      </div>
+
+      <div class="ps-status" id="status" role="status" aria-live="polite">
+        Enter valid trade parameters to calculate your position.
+      </div>
+
+      <div class="ps-formula">
+        <h3>Calculation method</h3>
+        <p>
+          Risk budget = Account balance × Risk percentage.<br>
+          Price risk per unit = Stop distance × Value per price move.<br>
+          Position quantity = Risk budget ÷ (Price risk per unit + Fees).
+        </p>
+      </div>
+      <div class="ps-actions">
+        <button class="ps-btn" id="resetBtn" type="button">Reset</button>
+        <button class="ps-btn primary" id="copyBtn" type="button">Copy analysis</button>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer class="ps-footer">
+  <strong>velideas</strong><br>
+  Practical financial education, analysis tools and investment insights.<br>
+  © 2026 Velideas. All rights reserved.
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["account","currency","risk","instrument","direction","entry","stop","target","contract","pointValue","fee","lotStep","minQty","wholeUnits"];
+const defaults = {
+  account:"10000",currency:"USD",risk:"1",instrument:"forex",direction:"long",
+  entry:"1.0850",stop:"1.0800",target:"1.0950",contract:"100000",
+  pointValue:"1",fee:"0",lotStep:"0.01",minQty:"0.01",wholeUnits:false
+};
+
+function number(id) {
+  return Number($(id).value);
+}
+function format(value, currency, digits=2) {
+  if (!Number.isFinite(value)) return "—";
+  try {
+    return new Intl.NumberFormat("en",{
+      style:"currency",currency:currency,
+      minimumFractionDigits:digits,maximumFractionDigits:digits
+    }).format(value);
+  } catch {
+    return value.toFixed(digits) + " " + currency;
+  }
+}
+function quantityFormat(value) {
+  if (!Number.isFinite(value)) return "—";
+  return new Intl.NumberFormat("en",{maximumFractionDigits:8}).format(value);
+}
+function display(id,value) { $(id).textContent = value; }
+
+function calculate() {
+  const account = number("account");
+  const riskPct = number("risk");
+  const entry = number("entry");
+  const stop = number("stop");
+  const target = $("target").value.trim() === "" ? null : number("target");
+  const contract = number("contract");
+  const pointValue = number("pointValue");
+  const fee = number("fee");
+  const step = number("lotStep");
+  const minQty = number("minQty");
+  const currency = $("currency").value;
+  const direction = $("direction").value;
+  const wholeUnits = $("wholeUnits").checked;
+
+  display("riskLabel",Number.isFinite(riskPct) ? riskPct.toFixed(2)+"%" : "—");
+
+  const riskBudget = account * riskPct / 100;
+  const stopDistance = Math.abs(entry-stop);
+  const priceRiskPerUnit = stopDistance * pointValue;
+  const totalRiskPerUnit = priceRiskPerUnit + fee;
+  const validNumbers = [account,riskPct,entry,stop,contract,pointValue,fee,step,minQty].every(Number.isFinite);
+
+  const setEmpty = () => {
+    ["quantity","riskAmount","unitRisk","stopDistance","positionValue","potentialLoss","potentialProfit","rrRatio","margin"].forEach(id=>display(id,"—"));
+  };
+
+  if (!validNumbers || account<=0 || riskPct<=0 || riskPct>100 || entry<=0 ||
+      stop<=0 || contract<=0 || pointValue<=0 || fee<0 || step<=0 || minQty<0) {
+    setEmpty();
+    $("status").className="ps-status error";
+    display("status","Check your inputs. Account balance, prices, contract size, point value and quantity step must be valid positive numbers. Risk must be greater than 0% and no more than 100%.");
+    return;
+  }
+
+  const correctStop = direction==="long" ? stop<entry : stop>entry;
+  if (!correctStop || stopDistance===0) {
+    setEmpty();
+    $("status").className="ps-status error";
+    display("status",direction==="long"
+      ?"For a long trade, the stop-loss must be below the entry price."
+      :"For a short trade, the stop-loss must be above the entry price.");
+    return;
+  }
+
+  if (target!==null && (!Number.isFinite(target) || target<=0 ||
+      (direction==="long" ? target<=entry : target>=entry))) {
+    setEmpty();
+    $("status").className="ps-status error";
+    display("status","Take-profit must be above entry for a long trade and below entry for a short trade. Clear it if you do not want to calculate a target.");
+    return;
+  }
+
+  if (totalRiskPerUnit<=0) {
+    setEmpty();
+    display("status","Risk per unit must be greater than zero.");
+    $("status").className="ps-status error";
+    return;
+  }
+
+  const rawUnits = riskBudget / totalRiskPerUnit;
+  const rawQuantity = rawUnits / contract;
+  const quantityStep = wholeUnits ? 1 : step;
+  const rawTradable = wholeUnits ? rawUnits : rawQuantity;
+  const rounded = Math.floor((rawTradable + 1e-10) / quantityStep) * quantityStep;
+  const units = wholeUnits ? rounded : rounded * contract;
+  const quantity = wholeUnits ? units : rounded;
+
+  const validSize = units>0 && quantity>=minQty;
+  const actualRisk = units * totalRiskPerUnit;
+  const positionValue = units * entry;
+  const potentialProfit = target===null ? null :
+    (Math.abs(target-entry)*pointValue-fee)*units;
+  const rr = potentialProfit===null ? null :
+    (actualRisk>0 ? potentialProfit/actualRisk : null);
+
+  display("riskAmount",format(riskBudget,currency));
+  display("unitRisk",format(totalRiskPerUnit,currency,4));
+  display("stopDistance",stopDistance.toFixed(6).replace(/\.?0+$/,""));
+  display("quantity",validSize ? quantityFormat(quantity) : "Below minimum");
+  display("quantityUnit",wholeUnits ? "Whole units / shares" : "Lots / contracts");
+  display("positionValue",format(positionValue,currency));
+  display("potentialLoss",validSize ? format(actualRisk,currency) : "—");
+  display("potentialProfit",validSize && potentialProfit!==null ? format(potentialProfit,currency) : "—");
+  display("rrRatio",validSize && rr!==null && Number.isFinite(rr) ? rr.toFixed(2)+" : 1" : "—");
+  display("margin","Not calculated");
+
+  const status = $("status");
+  if (!validSize) {
+    status.className="ps-status error";
+    status.textContent="The calculated position is below your broker's minimum size or cannot meet the selected quantity increment. Increase the risk budget, reduce the stop distance or check your broker's minimum trade size.";
+  } else if (actualRisk > riskBudget + 0.000001) {
+    status.className="ps-status error";
+    status.textContent="The rounded position exceeds your risk budget. Check the quantity step and instrument specifications.";
+  } else {
+    status.className="ps-status success";
+    status.textContent=`Position calculated. Estimated loss is ${format(actualRisk,currency)}, or ${(actualRisk/account*100).toFixed(3)}% of account equity. Unused risk budget: ${format(Math.max(0,riskBudget-actualRisk),currency)}.`;
+  }
+
+  window.positionAnalysis = {
+    currency,account,riskPct,riskBudget,entry,stop,target,quantity,units,
+    contract,pointValue,fee,actualRisk,positionValue,potentialProfit,rr,
+    direction,validSize
+  };
+}
+
+ids.forEach(id => {
+  $(id).addEventListener("input",calculate);
+  $(id).addEventListener("change",calculate);
+});
+
+document.querySelectorAll("[data-risk]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    $("risk").value=button.dataset.risk;
+    calculate();
+  });
+});
+
+$("resetBtn").addEventListener("click",()=>{
+  ids.forEach(id=>{
+    if (id==="wholeUnits") $(id).checked=defaults[id];
+    else $(id).value=defaults[id];
+  });
+  calculate();
+});
+
+$("copyBtn").addEventListener("click",async()=>{
+  const a=window.positionAnalysis;
+  if (!a || !a.validSize) {
+    $("status").textContent="There is no valid position analysis to copy.";
+    $("status").className="ps-status error";
+    return;
+  }
+  const report=[
+    "VELIDEAS — POSITION SIZING ANALYSIS",
+    `Instrument: ${$("instrument").selectedOptions[0].text}`,
+    `Direction: ${a.direction.toUpperCase()}`,
+    `Account balance: ${format(a.account,a.currency)}`,
+    `Risk percentage: ${a.riskPct}%`,
+    `Risk budget: ${format(a.riskBudget,a.currency)}`,
+    `Entry: ${a.entry}`,
+    `Stop-loss: ${a.stop}`,
+    `Take-profit: ${a.target ?? "Not specified"}`,
+    `Recommended quantity: ${quantityFormat(a.quantity)}`,
+    `Underlying units: ${quantityFormat(a.units)}`,
+    `Estimated loss: ${format(a.actualRisk,a.currency)}`,
+    `Position value: ${format(a.positionValue,a.currency)}`,
+    `Potential profit: ${a.potentialProfit===null?"Not specified":format(a.potentialProfit,a.currency)}`,
+    `Reward-to-risk: ${a.rr===null?"Not calculated":a.rr.toFixed(2)+" : 1"}`,
+    "",
+    "Educational estimate only. Verify contract specifications, conversion rates, slippage, commissions and margin with your broker."
+  ].join("\n");
+
+  try {
+    await navigator.clipboard.writeText(report);
+    $("status").textContent="Position analysis copied to clipboard.";
+    $("status").className="ps-status success";
+  } catch {
+    $("status").textContent="Clipboard access was unavailable. Select and copy the displayed figures manually.";
+    $("status").className="ps-status error";
+  }
+});
+
+const root=document.documentElement;
+const savedTheme=localStorage.getItem("velideas-theme");
+const prefersDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+root.dataset.theme=savedTheme || (prefersDark?"dark":"light");
+$("themeToggle").addEventListener("click",()=>{
+  root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";
+  localStorage.setItem("velideas-theme",root.dataset.theme);
+});
+
+calculate();
+</script>
+</body>
+</html>
