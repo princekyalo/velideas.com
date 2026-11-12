@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us — Velideas</title>
+    <meta name="description" content="Learn about Velideas, founded by Prince Kyalo to help beginner traders and investors learn faster through free courses and personalised mentorship.">
+    <meta name="theme-color" content="#F0F0F6">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           VELIDEAS ABOUT PAGE
+        ========================================= */
+
+:root {
+            --home-bg: #F0F0F6;
+            --home-secondary: #E8EAF2;
+            --home-surface: #FFFFFF;
+            --home-ink: #20243A;
+            --home-muted: #656C80;
+            --home-subtle: #9298A8;
+            --home-primary: #384D8C;
+            --home-deep: #293C73;
+            --home-lavender: #DDE2F2;
+            --home-border: rgba(45,55,90,.09);
+            --home-shadow: 0 12px 35px rgba(35,45,80,.06);
+            --home-heading: 'Fraunces', Georgia, serif;
+            --home-body: 'Public Sans', Arial, sans-serif;
+        }
+
+        html[data-theme="dark"] {
+            --home-bg: #080A0F;
+            --home-secondary: #0D111A;
+            --home-surface: #151B27;
+            --home-ink: #F5F6FA;
+            --home-muted: #A6ADBD;
+            --home-subtle: #737E92;
+            --home-primary: #8298E8;
+            --home-deep: #354D96;
+            --home-lavender: #25304A;
+            --home-border: rgba(255,255,255,.09);
+            --home-shadow: 0 12px 35px rgba(0,0,0,.22);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .about-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--home-bg);
+            color: var(--home-ink);
+            font-family: var(--home-body);
+            transition: background .3s ease, color .3s ease;
+        }
+
+        .about-page a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .about-page .container {
+            width: min(1160px, calc(100% - 44px));
+            margin-inline: auto;
+        }
+
+        /* NAVIGATION */
+
+        .home-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: color-mix(in srgb, var(--home-bg) 94%, transparent);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--home-border);
+        }
+
+        .home-nav-inner {
+            min-height: 78px;
+            width: min(1240px, calc(100% - 44px));
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .home-brand {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .home-brand-name {
+            font-family: var(--home-heading);
+            font-size: 29px;
+            font-weight: 600;
+            letter-spacing: -1.3px;
+            color: var(--home-ink);
+        }
+
+        .home-nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        .home-nav-links a {
+            padding: 11px 17px;
+            border-radius: 30px;
+            color: var(--home-muted);
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: .2s ease;
+        }
+
+        .home-nav-links a:hover,
+        .home-nav-links a.active {
+            color: var(--home-primary);
+            background: var(--home-lavender);
+        }
+
+        .home-nav-actions {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .home-theme-toggle {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--home-border);
+            border-radius: 50%;
+            background: var(--home-surface);
+            color: var(--home-ink);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 19px;
+            transition: .2s ease;
+        }
+
+        .home-theme-toggle:hover {
+            background: var(--home-lavender);
+        }
+
+        /* MAIN CONTENT */
+
+        .about-main {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-main::before {
+            content: "";
+            position: absolute;
+            top: -160px;
+            right: -180px;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: radial-gradient(
+            circle,
+            var(--home-lavender),
+            transparent 70%
+            );
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        .about-section {
+            position: relative;
+            padding: 100px 0 110px;
+        }
+
+        .about-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 55px;
+        }
+
+        .about-eyebrow {
+            display: inline-block;
+            color: var(--home-primary);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 17px;
+        }
+
+        .about-header h1 {
+            font-family: var(--home-heading);
+            font-weight: 500;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: -1.8px;
+            line-height: 1.12;
+            margin: 0 0 20px;
+        }
+
+        .about-header p {
+            max-width: 530px;
+            margin: auto;
+            color: var(--home-muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* FOUNDER CARD */
+
+        .founder-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 48px;
+            border: 1px solid var(--home-border);
+            border-radius: 26px;
+            background: var(--home-surface);
+            box-shadow: var(--home-shadow);
+            text-align: center;
+        }
+
+        .founder-avatar {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--home-lavender);
+            color: var(--home-primary);
+            font-family: var(--home-heading);
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .founder-label {
+            color: var(--home-primary);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .founder-card h2 {
+            font-family: var(--home-heading);
+            font-size: 34px;
+            font-weight: 500;
+            letter-spacing: -.7px;
+            margin: 0 0 18px;
+        }
+
+        .founder-description {
+            max-width: 620px;
+            margin: auto;
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* LEARNING OPTIONS */
+
+        .learning-section {
+            max-width: 850px;
+            margin: 35px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .learning-card {
+            padding: 29px;
+            background: var(--home-secondary);
+            border: 1px solid var(--home-border);
+            border-radius: 20px;
+        }
+
+        .learning-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: var(--home-lavender);
+            color: var(--home-primary);
+            font-size: 19px;
+            margin-bottom: 19px;
+        }
+
+        .learning-card h3 {
+            font-family: var(--home-heading);
+            font-size: 22px;
+            font-weight: 500;
+            margin: 0 0 10px;
+        }
+
+        .learning-card p {
+            color: var(--home-muted);
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* CONTACT CTA */
+
+        .about-contact {
+            max-width: 850px;
+            margin: 65px auto 0;
+            padding: 42px 30px;
+            text-align: center;
+            border-radius: 24px;
+            background: var(--home-primary);
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-contact::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            right: -90px;
+            top: -150px;
+            background: rgba(255,255,255,.09);
+        }
+
+        .about-contact h2 {
+            position: relative;
+            font-family: var(--home-heading);
+            font-size: clamp(27px, 4vw, 36px);
+            font-weight: 500;
+            margin: 0 0 12px;
+        }
+
+        .about-contact p {
+            position: relative;
+            max-width: 450px;
+            margin: 0 auto 25px;
+            color: rgba(255,255,255,.8);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .whatsapp-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 11px;
+            padding: 15px 27px;
+            border-radius: 50px;
+            background: #FFFFFF;
+            color: #233B70 !important;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(0,0,0,.15);
+            animation: whatsapp-pulse 3s ease-in-out infinite;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(0,0,0,.22);
+            animation: none;
+        }
+
+        .whatsapp-button svg {
+            width: 21px;
+            height: 21px;
+            flex-shrink: 0;
+        }
+
+        @keyframes whatsapp-pulse {
+            0%, 100% {
+                box-shadow: 0 6px 20px rgba(0,0,0,.15);
+            }
+            50% {
+                box-shadow: 0 6px 25px rgba(255,255,255,.35);
+            }
+        }
+
+        /* FOOTER */
+
+        .home-footer {
+            padding: 40px 0 25px;
+            border-top: 1px solid var(--home-border);
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            font-family: var(--home-heading);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .footer-copy {
+            color: var(--home-subtle);
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            color: var(--home-muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--home-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--home-border);
+            margin-top: 28px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: var(--home-subtle);
+            font-size: 10px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 950px) {
+            .home-nav-inner {
+                gap: 15px;
+            }
+
+            .home-nav-links {
+                gap: 0;
+            }
+
+            .home-nav-links a {
+                padding: 10px 11px;
+                font-size: 11px;
+            }
+        }
+
+        @media(max-width: 700px) {
+            .home-nav-inner {
+                min-height: auto;
+                padding: 13px 0 11px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .home-brand-name {
+                font-size: 26px;
+            }
+
+            .home-nav-actions {
+                margin-left: auto;
+            }
+
+            .home-nav-links {
+                order: 3;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0,1fr));
+                gap: 4px;
+            }
+
+            .home-nav-links a {
+                text-align: center;
+                padding: 10px 3px;
+                font-size: 11px;
+            }
+
+            .about-section {
+                padding: 75px 0 85px;
+            }
+
+            .founder-card {
+                padding: 35px 25px;
+            }
+        }
+
+        @media(max-width: 520px) {
+            .about-page .container,
+            .home-nav-inner {
+                width: calc(100% - 32px);
+            }
+
+            .about-header {
+                margin-bottom: 38px;
+            }
+
+            .about-header h1 {
+                font-size: 3rem;
+            }
+
+            .founder-card h2 {
+                font-size: 29px;
+            }
+
+            .learning-section {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .learning-card {
+                padding: 25px;
+            }
+
+            .about-contact {
+                padding: 37px 22px;
+                margin-top: 45px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-page">
+
+        <!-- NAVIGATION -->
+
+        <nav class="home-navbar" aria-label="Main navigation">
+            <div class="home-nav-inner">
+
+                <a href="index.html" class="home-brand" aria-label="Velideas home">
+                    <span class="home-brand-name">Velideas</span>
+                </a>
+
+                <div class="home-nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="blogs.html">Blogs</a>
+                    <a href="tools.html">Tools</a>
+                    <a href="about.html" class="active" aria-current="page">About</a>
+                </div>
+
+                <div class="home-nav-actions">
+                    <button class="home-theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Switch to dark theme"
+                        title="Change theme">
+                        <span id="themeIcon" aria-hidden="true">☾</span>
+                    </button>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="about-main">
+
+            <section class="about-section">
+
+                <div class="container">
+
+                    <!-- PAGE HEADER -->
+
+                    <header class="about-header">
+
+                        <span class="about-eyebrow">
+                            About Velideas
+                        </span>
+
+                        <h1>Learn faster.<br>Move forward.</h1>
+
+                        <p>
+                            Making financial education more accessible,
+                            practical and easier to understand for everyone
+                            beginning their investment journey.
+                        </p>
+
+                    </header>
+
+                    <!-- CONTACT CTA -->
+
+                    <section class="about-contact">
+
+                        <h2>Ready to start learning?</h2>
+
+                        <p>
+                            Have a question about our courses or interested
+                            in personalised mentorship? Get in touch with us
+                            directly on WhatsApp.
+                        </p>
+
+                        <a
+                            href="https://wa.me/254795762211"
+                            class="whatsapp-button"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Contact Velideas on WhatsApp">
+
+                            <!-- WhatsApp SVG Logo -->
+
+                            <svg viewBox="0 0 32 32"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+
+                                <path d="M16.02 3C8.85 3 3.02 8.81 3.02 15.96c0 2.3.61 4.55 1.77 6.53L3 29l6.7-1.75a13.06 13.06 0 0 0 6.32 1.61h.01c7.16 0 12.99-5.81 12.99-12.96 0-3.47-1.35-6.73-3.8-9.18A12.9 12.9 0 0 0 16.02 3zm0 23.65h-.01a10.8 10.8 0 0 1-5.5-1.51l-.4-.24-3.98 1.04 1.06-3.87-.26-.42a10.7 10.7 0 0 1-1.64-5.69c0-5.92 4.83-10.74 10.75-10.74 2.87 0 5.56 1.12 7.59 3.15a10.66 10.66 0 0 1 3.14 7.59c0 5.92-4.82 10.74-10.75 10.74zm5.9-8.04c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.72.16-.21.31-.82 1.04-1 1.25-.18.21-.37.23-.69.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.18-.31-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.72-1.73-.99-2.37-.26-.62-.53-.54-.72-.55h-.62c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.61 0 1.54 1.13 3.03 1.29 3.24.16.21 2.22 3.39 5.38 4.75.75.32 1.34.52 1.8.67.76.24 1.45.21 1.99.13.61-.09 1.9-.78 2.17-1.54.27-.76.27-1.41.19-1.54-.08-.13-.29-.21-.61-.37z" />
+
+                            </svg>
+
+                            Contact Us on WhatsApp
+
+                        </a>
+
+                    </section>
+
+
+
+
+                    <!-- LEARNING OPTIONS -->
+
+                    <section class="learning-section"
+                        aria-label="Our learning opportunities">
+
+                        <article class="learning-card">
+
+                            <div class="learning-icon" aria-hidden="true">
+                                ◈
+                            </div>
+
+                            <h3>Free Courses</h3>
+
+                            <p>
+                                Access beginner-friendly courses covering
+                                financial markets, trading and investing.
+                                Learn at your own pace and build your
+                                knowledge step by step.
+                            </p>
+
+                        </article>
+
+
+                        <article class="learning-card">
+
+                            <div class="learning-icon" aria-hidden="true">
+                                ↗
+                            </div>
+
+                            <h3>One-on-One Mentorship</h3>
+
+                            <p>
+                                Get personalised training and guidance
+                                through paid one-on-one mentorship designed
+                                around your learning goals and experience.
+                            </p>
+
+                        </article>
+
+                    </section>
+                    <!-- FOUNDER INTRODUCTION -->
+
+                    <section class="founder-card">
+
+                        <div class="founder-avatar" aria-hidden="true">
+                            PK
+                        </div>
+
+                        <div class="founder-label">
+                            The Founder
+                        </div>
+
+                        <h2>Prince Kyalo</h2>
+
+                        <p class="founder-description">
+                            Prince Kyalo founded Velideas.com to help beginner
+                            traders and investors learn faster and navigate
+                            the financial markets with greater confidence.
+                            Through accessible financial education, Velideas
+                            provides free courses alongside personalised,
+                            paid one-on-one mentorship and training for
+                            individuals seeking more guided learning.
+                        </p>
+
+                    </section>
+
+
+
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer class="home-footer">
+
+            <div class="container">
+
+                <div class="footer-inner">
+
+                    <div>
+                        <div class="footer-brand">
+                            Velideas
+                        </div>
+
+                        <div class="footer-copy">
+                            Move quicker through your financial journey.
+                        </div>
+                    </div>
+
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="blogs.html">Blogs</a>
+                        <a href="tools.html">Tools</a>
+                        <a href="about.html">About</a>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom">
+
+                    <span>© 2026 Velideas. All rights reserved.</span>
+
+                    <span>Learn. Analyze. Progress.</span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!-- THEME SWITCHING -->
+
+    <script>
+        (function () {
+
+            const root = document.documentElement;
+            const toggle = document.getElementById("themeToggle");
+            const icon = document.getElementById("themeIcon");
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+            const savedTheme = localStorage.getItem("velideas-theme");
+
+            const systemDark = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            function applyTheme(theme) {
+
+                root.setAttribute("data-theme", theme);
+
+                const dark = theme === "dark";
+
+                icon.textContent = dark ? "☀": "☾";
+
+                toggle.setAttribute(
+                    "aria-label",
+                    dark ? "Switch to light theme": "Switch to dark theme"
+                );
+
+                toggle.setAttribute(
+                    "title",
+                    dark ? "Switch to light theme": "Switch to dark theme"
+                );
+
+                metaTheme.setAttribute(
+                    "content",
+                    dark ? "#080A0F": "#F0F0F6"
+                );
+            }
+
+            applyTheme(savedTheme || (systemDark ? "dark": "light"));
+
+            toggle.addEventListener("click", function () {
+
+                const current = root.getAttribute("data-theme");
+
+                const next = current === "dark" ? "light": "dark";
+
+                localStorage.setItem("velideas-theme", next);
+
+                applyTheme(next);
+
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
