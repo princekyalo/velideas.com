@@ -1,0 +1,957 @@
+CRYPTO CRASH COURSE
+
+
+
+Level: Beginner
+Preferred Platform: Binance
+Course Category: Financial Markets and Digital Assets
+
+---
+
+
+
+1.1 What is cryptocurrency?
+
+Cryptocurrency, commonly known as crypto, is a form of digital currency that uses cryptography to secure transactions and ownership. Most cryptocurrencies operate on decentralised networks called blockchains.
+
+Unlike traditional currencies such as the Kenyan shilling or US dollar, many cryptocurrencies are not issued or controlled by a central bank. Instead, transactions are verified and recorded by a distributed network of computers.
+
+For example, Bitcoin allows people to transfer value to one another without necessarily using a traditional bank as an intermediary.
+
+
+
+
+
+<p>
+<strong class="subtopic-title">  
+1.2 Understanding blockchain technology</strong>
+
+A blockchain is a digital ledger that records transactions in blocks. These blocks are connected chronologically, forming a chain of transaction records.
+
+Think of blockchain as a digital record book that is shared across multiple computers. Once transactions are confirmed and added to the blockchain, altering historical records becomes extremely difficult.
+</p>
+
+
+
+
+
+<p>
+<strong class="subtopic-title">  
+Key characteristics of blockchain:</strong>
+
+- Decentralisation: Information is maintained by a distributed network rather than one central authority.
+- Transparency: Transactions on many public blockchains can be viewed by anyone.
+- Security: Cryptographic techniques help protect transaction records.
+- Immutability: Confirmed records are generally difficult to alter.
+- Peer-to-peer transactions: Users can transact directly without necessarily relying on traditional intermediaries.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+1.3 What makes cryptocurrency valuable?
+</strong>
+
+Cryptocurrency derives value from different factors, including:
+
+1. Supply and demand: When demand increases relative to available supply, prices may rise.
+2. Utility: Some cryptocurrencies provide access to services, applications or blockchain networks.
+3. Scarcity: Certain cryptocurrencies have limited supplies. Bitcoin, for example, has a maximum supply of 21 million coins.
+4. Adoption: Increased acceptance and use can increase demand.
+5. Market sentiment: Investor confidence, speculation and market expectations influence prices.
+
+Remember that having a limited supply or an interesting technology does not automatically make a cryptocurrency a good investment.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+1.4 Bitcoin versus traditional currencies
+
+Bitcoin is different from traditional currencies in several ways:
+
+Bitcoin| Traditional currency
+Digital asset| May exist as physical cash and digital balances
+Operates on a blockchain| Issued within a central banking and monetary system
+Maximum supply of 21 million| Supply is managed through monetary policy
+Transactions can be peer-to-peer| Often relies on financial intermediaries
+Operates continuously| Banking services may have operating hours
+</p>
+
+
+
+
+
+
+
+
+
+---
+
+MODULE 2: TYPES OF CRYPTOCURRENCIES
+
+<p>
+Not all cryptocurrencies serve the same purpose. Understanding their different categories helps investors identify what they are buying.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+2.1 Payment cryptocurrencies
+</strong>
+
+These are cryptocurrencies designed primarily to facilitate the transfer of value between users.
+
+Examples:
+
+- Bitcoin (BTC)
+- Litecoin (LTC)
+- Bitcoin Cash (BCH)
+
+Bitcoin is the best-known example. It was designed as a peer-to-peer electronic payment system and is also widely treated as a store-of-value asset.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+2.2 Smart contract and blockchain platform coins
+</strong>
+
+These cryptocurrencies power blockchain networks that support applications, smart contracts and other digital services.
+
+Examples:
+
+- Ethereum (ETH)
+- Solana (SOL)
+- BNB (BNB)
+- Cardano (ADA)
+
+For example, Ethereum allows developers to build decentralised applications and smart contracts. ETH is used within its ecosystem to pay transaction fees and participate in network activities.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+2.3 stablecoins
+</strong>
+
+Stablecoins are cryptocurrencies designed to maintain a relatively stable value by referencing another asset, commonly the US dollar.
+
+Examples:
+
+- USDT (Tether)
+- USDC (USD Coin)
+- DAI
+
+One USDT is generally designed to maintain a value close to one US dollar.
+
+Stablecoins are particularly useful in trading because they allow traders to move between volatile cryptocurrencies and dollar-referenced digital assets without necessarily converting back to traditional currency.
+
+However, stablecoins still carry risks, including issuer, reserve, liquidity and regulatory risks.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+2.4 Meme coins
+</strong>
+
+Meme coins are cryptocurrencies that often originate from internet culture, jokes or online communities.
+
+Examples:
+
+- Dogecoin (DOGE)
+- Shiba Inu (SHIB)
+- Pepe (PEPE)
+
+Their prices can be heavily influenced by social media attention, celebrity endorsements, speculation and community sentiment.
+
+Meme coins are particularly risky because their market prices may not be supported by strong underlying utility or economic fundamentals.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+2.5 Utility and governance tokens
+</strong>
+
+These tokens provide specific functions within blockchain projects.
+
+- Utility tokens: Provide access to services or functions within a particular ecosystem.
+- Governance tokens: Give eligible holders voting rights on certain project decisions.
+
+Examples include UNI (Uniswap) and LINK (Chainlink).
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+2.6 Non-fungible tokens (NFTs)
+</strong>
+
+NFTs are unique digital tokens representing ownership or claims associated with particular digital or physical items.
+
+They can represent:
+
+- Digital artwork.
+- Collectibles.
+- Gaming assets.
+- Memberships.
+- Certain real-world assets.
+
+Unlike ordinary cryptocurrencies, individual NFTs are not necessarily interchangeable on a one-to-one basis.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MODULE 3: CRYPTOCURRENCY WALLETS
+
+
+
+
+<p>
+<strong class="subtopic-title">  
+3.1 What is a crypto wallet?
+</strong>
+
+A cryptocurrency wallet is a tool that allows users to manage their cryptocurrency and interact with blockchain networks.
+
+A wallet does not necessarily store coins physically. Instead, it manages the cryptographic keys that give users control over their blockchain assets.
+
+There are two important concepts:
+
+Public address: Similar to a bank account number. You can share it with someone who wants to send you cryptocurrency.
+
+Private key: Similar to a highly sensitive password that gives control over your cryptocurrency. Never share it.
+
+A recovery phrase, also called a seed phrase, is a set of words that can be used to restore access to a wallet. Anyone who obtains it may be able to control the funds.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+
+3.2 Types of cryptocurrency wallets
+</strong>
+
+A. Hot wallets
+
+Hot wallets are connected to the internet.
+
+Examples:
+
+- Binance Web3 Wallet.
+- Trust Wallet.
+- MetaMask.
+
+Advantages:
+
+- Convenient for everyday transactions.
+- Easy to access.
+- Useful for interacting with decentralised applications.
+
+Disadvantages:
+
+- More exposed to online threats.
+- Vulnerable to phishing and malicious applications.
+- Security depends heavily on the user's practices.
+
+B. Cold wallets
+
+Cold wallets keep private keys offline or otherwise isolated from routine internet-connected use.
+
+Examples:
+
+- Ledger hardware wallets.
+- Trezor hardware wallets.
+
+Advantages:
+
+- Reduced exposure to online attacks.
+- Suitable for long-term storage.
+- Greater control over private keys.
+
+Disadvantages:
+
+- May require purchasing hardware.
+- Can be less convenient for frequent transactions.
+- Users must protect recovery phrases and physical devices.
+
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+
+3.3 Custodial versus non-custodial wallets
+</strong>
+
+These are two important wallet management arrangements.
+
+Custodial wallet: A third party controls the private keys on your behalf. For example, when you leave cryptocurrency in your Binance exchange account, Binance manages the custody of those assets.
+
+Non-custodial wallet: You control your own private keys and are responsible for protecting them.
+
+The distinction is important: keeping cryptocurrency on an exchange is not the same as holding it in a personal wallet.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+
+3.4 Wallet security
+</strong>
+
+Always observe the following precautions:
+
+1. Never share your private keys or recovery phrase.
+2. Activate two-factor authentication (2FA).
+3. Use strong, unique passwords.
+4. Verify wallet addresses before sending funds.
+5. Be careful with suspicious links and applications.
+6. Consider a hardware wallet for significant long-term holdings.
+7. Understand the blockchain network before transferring assets.
+
+A transaction sent to the wrong network or address may be difficult or impossible to recover.
+</p>
+
+
+
+
+
+
+
+
+HOW TO MAKE MONEY FROM CRYPTO
+<p>
+There are several ways to generate returns from cryptocurrency. Each has different risks, capital requirements and time commitments.
+</p>
+
+
+
+
+<p>
+<strong class="subtopic-title">  
+
+4.1 Buy and hold (long-term investing)
+</strong>
+
+This involves purchasing a cryptocurrency and holding it for an extended period, with the expectation that its value will appreciate.
+
+For example:
+
+- Buy Bitcoin at $60,000.
+- Hold it for several months or years.
+- Sell it at $80,000.
+
+The potential profit is $20,000 per Bitcoin, before fees and other costs.
+
+The strategy is sometimes referred to as HODLing.
+
+It is important to remember that the price can also decline significantly during the holding period.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+4.2 Spot trading
+</strong>
+Spot trading involves buying and selling actual cryptocurrency assets at prevailing market prices.
+
+Example:
+
+- Buy ETH at $2,000.
+- Sell ETH at $2,200.
+- Gross profit: $200 per ETH.
+
+Spot trading is a suitable starting point for beginners because it does not require borrowing money or using leverage.
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+4.3 Day trading
+</strong>
+Day trading involves opening and closing trading positions within the same day to benefit from short-term price movements.
+
+A day trader may make several trades in one day, looking for relatively small price movements.
+
+It requires:
+
+- Technical analysis.
+- Market monitoring.
+- Strict risk management.
+- Discipline and emotional control.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+4.4 Swing trading
+</strong>
+
+Swing trading involves holding positions for several days or weeks to benefit from larger price movements.
+
+For example, a trader may identify an upward trend in Bitcoin, buy during a temporary price correction and sell after the price recovers.
+
+Swing trading generally requires less constant monitoring than day trading.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+4.5 Staking
+</strong>
+Staking involves committing eligible cryptocurrency to support the operations of certain proof-of-stake blockchain networks.
+
+In return, participants may receive staking rewards.
+
+For example, eligible ETH holders can participate in Ethereum staking.
+
+However, staking returns are not guaranteed. Risks may include price volatility, lock-up periods, validator penalties and platform-related risks.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+4.6 Mining
+</strong>
+
+Mining involves using computing power to validate transactions and secure proof-of-work blockchain networks.
+
+Bitcoin is the most prominent example.
+
+Miners compete to solve computational problems and may receive block rewards and transaction fees.
+
+Mining requires:
+
+- Specialised equipment.
+- Electricity.
+- Technical knowledge.
+- Appropriate cooling and maintenance.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+4.7 Arbitrage trading
+</strong>
+
+Arbitrage involves attempting to profit from price differences for the same cryptocurrency across different markets or exchanges.
+
+For example:
+
+- Exchange A sells BTC at $60,000.
+- Exchange B sells BTC at $60,300.
+- A trader attempts to buy at A and sell at B.
+
+The potential profit is $300 before fees, transfer costs, slippage and execution risks.
+
+Price differences can disappear quickly.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+4.8 Other opportunities
+</strong>
+
+Other crypto-related opportunities include:
+
+- Participating in eligible token launches.
+- Providing liquidity in decentralised finance (DeFi).
+- Participating in certain airdrops.
+- Developing blockchain applications.
+- Providing blockchain-related professional services.
+
+These opportunities require additional research and may expose participants to substantial risks.
+
+Important: Making money in crypto is not guaranteed. Trading, investing and earning programmes can all result in losses. Avoid anyone promising fixed or guaranteed returns.
+
+</p>
+
+
+
+
+
+
+
+CRYPTOCURRENCY EXCHANGES AND BINANCE
+
+
+
+
+<p>
+<strong class="subtopic-title">  
+5.1 What is a cryptocurrency exchange?
+</strong>
+
+A cryptocurrency exchange is a platform that allows users to buy, sell and trade digital assets.
+
+Examples include:
+
+- Binance.
+- Coinbase.
+- Kraken.
+- OKX.
+
+An exchange provides a marketplace where buyers and sellers can transact.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+5.2 Introduction to Binance
+</strong>
+
+Binance is a major global cryptocurrency exchange and digital asset platform. It provides services including spot trading, cryptocurrency conversions, peer-to-peer trading, derivatives and certain cryptocurrency earning products.
+
+Its position as a leading exchange is supported by its trading volume and liquidity across numerous markets.
+
+For this course, Binance will serve as the primary practical platform.
+
+Official website: https://www.binance.com
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+5.3 Creating a Binance account
+</strong>
+
+The general account setup process is as follows:
+
+1. Visit the official Binance website or download its official mobile application.
+2. Register using your email address or phone number.
+3. Create a strong password.
+4. Complete the required identity verification (KYC).
+5. Activate two-factor authentication.
+6. Review the security settings.
+7. Familiarise yourself with the platform before depositing money.
+
+Available services, verification requirements and payment methods may vary depending on your country and account eligibility.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+5.4 Understanding the Binance interface
+</strong>
+
+The main areas beginners should understand include:
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+A. Markets
+</strong>
+
+This section displays available cryptocurrencies and trading pairs.
+
+Examples:
+
+- BTC/USDT
+- ETH/USDT
+- BNB/USDT
+- SOL/USDT
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+B. Spot trading
+</strong>
+
+This is where users buy and sell cryptocurrencies directly.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+C. Wallets/Assets
+</strong>
+
+This section displays account balances and supported asset holdings.
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+D. P2P trading
+</strong>
+Peer-to-peer trading allows eligible users to buy or sell cryptocurrency directly with other users using supported payment methods.
+
+Always check the counterparty's history and follow the platform's payment and release procedures. Never release cryptocurrency based solely on an SMS or screenshot claiming that payment has been made.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+E. 
+</strong>
+
+This section contains eligible products that may allow users to earn rewards from supported digital assets. Products have different conditions and risks.
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+F. Futures
+</strong>
+
+This section allows eligible users to trade cryptocurrency derivatives, including leveraged contracts.
+
+Futures trading is significantly more complex and can lead to rapid losses. It is not recommended for beginners.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+5.5 Understanding trading pairs
+</strong>
+
+A trading pair represents the exchange rate between two assets.
+
+For example:
+
+BTC/USDT = 60,000
+
+This means one Bitcoin is trading at 60,000 USDT.
+
+BTC is the base asset, while USDT is the quote asset.
+
+If you buy BTC/USDT, you are using USDT to purchase Bitcoin.
+</p>
+
+
+
+
+
+
+
+
+
+UNDERSTANDING CRYPTOCURRENCY TRADING
+
+
+
+<p>
+<strong class="subtopic-title">  
+6.1 What is trading?
+</strong>
+
+Trading involves buying and selling financial assets with the intention of profiting from changes in their market prices.
+
+A trader attempts to identify opportunities where an asset may increase or decrease in value.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+6.2 Bullish and bearish markets
+</strong>
+
+Bull market: A market characterised by a sustained upward trend in prices.
+
+Bear market: A market characterised by a sustained downward trend in prices.
+
+Other important terms:
+
+- Bullish: Expecting prices to increase.
+- Bearish: Expecting prices to decrease.
+- Long position: A position that benefits when the asset price rises.
+- Short position: A position that benefits when the asset price falls.
+- Volatility: The degree and speed of price fluctuations.
+- Liquidity: How easily an asset can be bought or sold without significantly affecting its price.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+6.3 Types of trading orders
+</strong>
+
+When trading on Binance Spot, you will encounter different order types.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+A. Market order
+</strong>
+
+A market order buys or sells an asset immediately at the best available market prices.
+
+Example:
+
+Bitcoin is trading around $60,000. You place a market buy order and receive Bitcoin at the available execution prices.
+
+The final execution price may differ slightly from the displayed price due to slippage.
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+B. Limit order
+</strong>
+A limit order allows you to specify the price at which you want to buy or sell.
+
+Example:
+
+Bitcoin is trading at $60,000, but you only want to buy at $58,000.
+
+You place a limit buy order at $58,000. The order executes only if matching market conditions occur.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+C. Stop-loss order
+</strong>
+
+A stop-loss is a risk-management instruction designed to close a position when the market reaches a specified price.
+
+Example:
+
+- Buy Bitcoin at $60,000.
+- Set a stop-loss at $57,000.
+- Your intended exit is triggered if the stop condition is reached.
+
+Depending on the order type and market conditions, the final execution price may be worse than the stop price.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+D. Take-profit order
+</strong>
+
+A take-profit order is designed to close a position after the market reaches a predetermined profit target.
+
+Example:
+
+- Buy Bitcoin at $60,000.
+- Set a take-profit target at $66,000.
+
+The purpose is to help lock in gains according to a predefined trading plan.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+6.4 Understanding trading timeframes
+</strong>
+
+Charts can display price movements over different periods.
+
+Common timeframes include:
+
+- 1-minute chart: Very short-term movements.
+- 5-minute chart: Short-term trading.
+- 15-minute chart: Intraday analysis.
+- 1-hour chart: Intraday and short-term trends.
+- 4-hour chart: Swing trading analysis.
+- Daily chart: Broader market trends.
+- Weekly chart: Long-term market direction.
+
+Beginners should avoid making decisions based entirely on very short timeframes because they contain considerable market noise.
+
+</p>
+
+
+
+
+
+
+
+
+
+
+TECHNICAL ANALYSIS
+
+
+
+<p>
+<strong class="subtopic-title">  
+7.1 What is technical analysis?
+</strong>
+
+Technical analysis (TA) involves studying historical price movements, trading volume and chart patterns to identify potential future market movements.
+
+The main assumption is that market prices reflect the combined actions and expectations of market participants.
+
+Technical analysis does not predict the future with certainty. It helps traders identify probabilities and manage their decisions.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+7.2 Understanding candlestick charts
+</strong>
+
+Candlestick charts are among the most widely used tools in cryptocurrency trading.
+
+Each candle represents price movements over a selected period.
+
+A candlestick displays four important values:
+
+- Open: The price at the beginning of the period.
+- High: The highest price reached.
+- Low: The lowest price reached.
+- Close: The price at the end of the period.
+
+A typical green candle indicates that the closing price was higher than the opening price.
+
+A typical red candle indicates that the closing price was lower than the opening price.
+
+The candle consists of:
+
+1. The body, representing the opening and closing prices.
+2. The upper wick, showing the highest price.
+3. The lower wick, showing the lowest price.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+7.3 Support and resistance
+</strong>
+
+These are two of the most important concepts in technical analysis.
+
+Support
+
+A support level is a price area where buying pressure has historically been strong enough to prevent or slow further price declines.
+
+Resistance
+
+A resistance level is a price area where selling pressure has historically been strong enough to prevent or slow further price increases.
+
+Example:
+
+Bitcoin has repeatedly struggled to fall below $58,000 and has repeatedly struggled to rise above $65,000.
+
+In this example:
+
+- $58,000 represents a potential support area.
+- $65,000 represents a potential resistance area.
+
+These levels are zones rather than guaranteed turning points.
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+7.4 Trend analysis
+</strong>
+
+There are three main market trends:
+
+Uptrend: Characterised by higher highs and higher lows.
+
+Downtrend: Characterised by lower highs and lower lows.
+
+Sideways trend: Prices move within a relatively defined range without a clear upward or downward direction.
+
+Identifying the broader trend helps traders avoid trading against prevailing market momentum without a clear reason.
+
+</p>
+
+
+
+<p>
+<strong class="subtopic-title">  
+7.5 Moving averages (MA)
+</strong>
+
+A moving average calculates the average price of an asset over a specified number of periods.
+
+Common examples include:
+
+- 20-period moving average.
+- 50-period moving
+</p>
+
